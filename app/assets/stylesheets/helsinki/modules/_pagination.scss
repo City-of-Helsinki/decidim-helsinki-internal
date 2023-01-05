@@ -1,0 +1,11 @@
+.pagination{
+  a{
+    text-decoration: none;
+    font-weight: $global-weight-normal;
+
+    &:hover,
+    &:focus{
+      text-decoration: underline;
+    }
+  }
+}

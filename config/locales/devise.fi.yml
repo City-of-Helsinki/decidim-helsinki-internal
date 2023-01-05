@@ -1,0 +1,22 @@
+fi:
+  devise:
+    sessions:
+      new:
+        sign_in: 'Kirjaudu sisään'
+    shared:
+      omniauth:
+        tunnistamo:
+          description: 'Osa Kokeilukiihdyttämön toiminnoista on vain kaupungin työntekijöille tarkoitettuja.'
+          description_read_more: Lue lisää Kokeilukiihdyttämön toiminnasta
+          sign_in_button: 'Kirjaudu sisään'
+          sign_in_with: 'Kirjaudu Helsingin kaupungin työntekijän käyttäjätunnuksella'
+  decidim:
+    devise:
+      registrations:
+        new:
+          sign_up_service_account: 'Luo omat tunnukset'
+          sign_up_service_account_description: 'Luo oma käyttäjätili ja kirjaudu jatkossa sisään sähköpostisoittella ja itse valitsemallasi salasanalla.'
+      sessions:
+        new:
+          sign_in_service_account: 'Kirjaudu ylläpidon antamalla tunnuksella'
+          sign_in_service_account_description: 'Jos olet työsuhteessa Helsingin kaupunkiin, mutta sinulla ei ole ole Helsingin kaupungin käyttäjätunnusta (henkilökohtainen tai yhteiskäyttötunnus), voit pyytää erilliset tunnukset osoitteesta %{email}.'

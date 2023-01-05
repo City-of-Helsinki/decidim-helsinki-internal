@@ -1,0 +1,47 @@
+<%= filter_form_for filter do |form| %>
+  <%= render partial: "filters_keywords", locals: { form: form } %>
+
+  <div class="row">
+    <div class="columns medium-3">
+      <div class="filters__section">
+        <fieldset>
+          <legend class="mini-title"><%= t(".state") %></legend>
+          <%= form.select :status, available_statuses, disable_parents: false, include_blank: t(".state_prompt"), label: false %>
+        </fieldset>
+      </div>
+    </div>
+    <div class="columns medium-3">
+      <% if current_component.categories.any? %>
+        <div class="filters__section">
+          <fieldset>
+            <legend class="mini-title"><%= t(".category") %></legend>
+            <%= form.categories_select :category_id, current_component.categories, legend_title: t(".category"), disable_parents: false, include_blank: t(".category_prompt"), label: false %>
+          </fieldset>
+        </div>
+      <% end %>
+    </div>
+    <div class="columns medium-3">
+      <div class="filters__section">
+        <div class="mini-title">&nbsp;</div>
+        <div class="filters__search">
+          <div class="input-group">
+            <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search") %>
+            <div class="input-group-button">
+              <button type="submit" class="button primary">
+                <%= icon "magnifying-glass", aria_label: t(".search") %>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns medium-3 end">
+      <div class="filters__section">
+        <div class="mini-title">&nbsp;</div>
+        <div>
+          <%= link_to t(".reset"), url_for, class: "button primary"  %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

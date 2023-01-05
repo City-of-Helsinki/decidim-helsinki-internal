@@ -1,0 +1,12 @@
+.label{
+  &.plain{
+    background-color: transparent;
+    color: $body-font-color;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &.info{
+    background-color: $hel-coat;
+  }
+}

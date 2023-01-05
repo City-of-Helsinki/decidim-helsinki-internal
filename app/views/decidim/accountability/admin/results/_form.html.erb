@@ -1,0 +1,171 @@
+<%
+# Needed because of the following bug in core:
+# https://github.com/decidim/decidim/pull/7785
+%>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= title %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.translated :text_field, :title, autofocus: true %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :text_area, :summary, rows: 3 %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :editor, :description %>
+    </div>
+
+    <% if @form.parent_id %>
+
+      <div class="row column">
+        <%= form.select :parent_id, parent_results.map{|result| [translated_attribute(result.title), result.id] }, include_blank: true %>
+      </div>
+
+    <% else %>
+
+      <% if current_participatory_space.has_subscopes? %>
+        <div class="row column">
+          <%= scopes_picker_field form, :decidim_scope_id %>
+        </div>
+      <% end %>
+
+      <div class="row column">
+        <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: true, disable_parents: false %>
+      </div>
+
+    <% end %>
+
+    <div class="row">
+      <div class="columns xlarge-6">
+        <%= form.date_field :start_date %>
+      </div>
+
+      <div class="columns xlarge-6">
+        <%= form.date_field :end_date %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns xlarge-6">
+        <%= form.select :decidim_accountability_status_id, statuses.map{|status| [translated_attribute(status.name), status.id, { "data-progress" => status.progress }] }, include_blank: true %>
+      </div>
+
+      <div class="columns xlarge-6">
+        <%= form.number_field :progress %>
+      </div>
+    </div>
+
+    <%== cell("decidim/tags/form", form, label: t("activemodel.attributes.taggings.tags")) %>
+
+    <div class="row column">
+      <% if @form.projects %>
+        <%= form.select :project_ids,
+                        @form.projects,
+                        {},
+                        { multiple: true, class: "chosen-select" } %>
+      <% end %>
+    </div>
+
+    <div class="row column">
+      <%= render partial: "authors_picker", locals: { form: form } %>
+    </div>
+  </div>
+
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".images") %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row">
+      <div class="columns xlarge-6">
+        <%= form.upload :main_image %>
+      </div>
+
+      <div class="columns xlarge-6">
+        <%= form.upload :list_image %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".result_default_details") %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.check_box :use_default_details %>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="result-default-detail-items">
+      <div class="result-default-detail-items-list">
+        <% @form.result_default_details.each_with_index do |default_detail, index| %>
+          <%= fields_for "result[result_default_details][]", default_detail do |default_detail_form| %>
+            <%= render "default_detail", form: default_detail_form, tabs_id: tabs_id_for_default_detail(default_detail), editable: true %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".result_details") %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="result-detail-items">
+      <%= fields_for "result[result_details][#{blank_result_detail.to_param}]", blank_result_detail do |result_detail_form| %>
+        <script type="text/template" class="decidim-template">
+          <%= render "result_detail", form: result_detail_form, tabs_id: tabs_id_for_result_detail(blank_result_detail), editable: true %>
+        </script>
+      <% end %>
+
+      <div class="result-detail-items-list">
+        <% @form.result_details.each_with_index do |result_detail, index| %>
+          <%= fields_for "result[result_details][]", result_detail do |result_detail_form| %>
+            <%= render "result_detail", form: result_detail_form, tabs_id: tabs_id_for_result_detail(result_detail), editable: true %>
+          <% end %>
+        <% end %>
+      </div>
+      <button class="button add-result-detail-item"><%= t(".add_result_detail") %></button>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".result_links") %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="result-link-items">
+      <%= fields_for "result[result_links][#{blank_result_link.to_param}]", blank_result_link do |result_link_form| %>
+        <script type="text/template" class="decidim-template">
+          <%= render "result_link", form: result_link_form, tabs_id: tabs_id_for_result_link(blank_result_link), editable: true %>
+        </script>
+      <% end %>
+
+      <div class="result-link-items-list">
+        <% @form.result_links.each_with_index do |result_link, index| %>
+          <%= fields_for "result[result_links][]", result_link do |result_link_form| %>
+            <%= render "result_link", form: result_link_form, tabs_id: tabs_id_for_result_link(result_link), editable: true %>
+          <% end %>
+        <% end %>
+      </div>
+      <button class="button add-result-link-item"><%= t(".add_result_link") %></button>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/accountability_simple/admin/results" %>

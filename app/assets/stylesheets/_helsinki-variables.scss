@@ -1,0 +1,78 @@
+// Helsinki Brand Variables
+// Do not use these variables directly.
+// Map them to application or theme variables instead.
+//
+// See: https://hds.hel.fi/design-tokens/colour
+// --------------------------------------------------
+
+// Brand colors
+$hel-white:             #fff;
+$hel-white-rgb:         255,255,255;
+$hel-black:             #000;
+$hel-black-rgb:         0,0,0;
+$hel-copper:            #00d7a7;
+$hel-copper-rgb:        0,215,167;
+$hel-bus:               #0000bf;
+$hel-bus-rgb:           0,0,191;
+$hel-coat:              #0072c6;
+$hel-coat-rgb:          0,114,198;
+$hel-fog:               #9fc9eb;
+$hel-fog-rgb:           159,201,235;
+$hel-fog-light:         #e8f3fc;
+$hel-fog-light-rgb:     232,243,252;
+$hel-metro:             #fd4f00;
+$hel-metro-rgb:         253,79,0;
+$hel-brick:             #bd2719;
+$hel-brick-rgb:         189,39,25;
+$hel-suomenlinna:       #f5a3c7;
+$hel-suomenlinna-rgb:   245,163,199;
+$hel-engel:             #ffe977;
+$hel-engel-rgb:         255,233,119;
+$hel-engel-light:       #fff3b8;
+$hel-engel-light-rgb:   255,243,184;
+$hel-tram:              #009246;
+$hel-tram-rgb:          0,146,70;
+$hel-summer:            #ffc61e;
+$hel-summer-rgb:        255,198,30;
+$hel-silver:            #dedfe1;
+$hel-silver-rgb:        222,223,225;
+$hel-gold:              #c2a251;
+$hel-gold-rgb:          194,162,81;
+$hel-dark-grey:         #525a65;
+$hel-dark-grey-rgb:     82,90,101;
+$hel-medium-grey:       #ccc;
+$hel-medium-grey-rgb:   204,204,204;
+$hel-light-grey:        #ebedf1;
+$hel-light-grey-rgb:    235,237,241;
+$hel-error:             #c4123e;
+$hel-error-rgb:         196,18,62;
+$hel-error-light:       #f6e2e6;
+$hel-error-light-rgb:   246,226,230;
+$hel-error-dark:        #8d0d2d;
+$hel-error-dark-rgb:    141,13,45;
+$hel-success:           #007a64;
+$hel-success-rgb:       0,122,100;
+$hel-success-light:     #e2f5f3;
+$hel-success-light-rgb: 226,245,243;
+$hel-success-dark:      #006250;
+$hel-success-dark-rgb:  0,98,80;
+$hel-alert:             #ffda07;
+$hel-alert-rgb:         255,218,7;
+$hel-info:              #007293;
+$hel-info-rgb:          0,114,147;
+
+// Brand monochromes
+$hel-dark:          $hel-dark-grey;
+$hel-gray:          $hel-medium-grey;
+$hel-light:         $hel-light-grey;
+
+// Font
+$hel-grotesk: "HelsinkiGrotesk", Helvetica, Arial, "MS Gothic", Meiryo, Osaka,
+  sans-serif;
+
+// Line height
+$hel-lineheight-small: 1;
+$hel-lineheight-medium: 1.2;
+$hel-lineheight-large: 1.5;
+$hel-lineheight-xlarge: 1.75;
+$hel-lineheight-base: $hel-lineheight-large;

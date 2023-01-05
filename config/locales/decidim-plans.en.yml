@@ -1,0 +1,22 @@
+en:
+  decidim:
+    plans:
+      answers:
+        not_answered: New
+      plan_form:
+        required_fields_text: Required fields are marked with the star * character. We encourage you to answer each question in order to get enough points for the proposal and it can move forward to implementation.
+      plan_index:
+        filters:
+          reset: Reset filters
+          state_prompt: Status
+          tag: Tag
+          tag_prompt: Select tag
+      plan_m:
+        tags_title: Tags
+      plans:
+        preview:
+          not_published: Your proposal has not yet been published - it is only visible for you in preview mode
+          not_published_description_html: |
+            <p>Review the content of the proposal and then press the Publish button to publish it.</p>
+            <p>The published proposal will only be visible to city employees logged in to the site. The information you provide to your business partners will automatically be forwarded to the Teams channel listed on the application form.</p>
+            <p>Please note that you can update your proposal as many times as you like before the application deadline. It is worth publishing the first version of the experimental proposal as early as possible! This will allow other users of the site, as well as partner companies, to be informed about the proposal and have time to spar it better before the application deadline.</p>

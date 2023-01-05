@@ -1,0 +1,7 @@
+<% if respond_to?(:display_processes_as_cards?) && display_processes_as_cards? %>
+  <div class="row small-up-1 medium-up-2 card-grid">
+    <%= render(collection) %>
+  </div>
+<% else %>
+  <%= render(collection) %>
+<% end %>

@@ -1,0 +1,37 @@
+<section class="extended hero lower subpage secondary">
+  <div class="hero__container">
+    <div class="row column">
+      <h1 class="h2"><%= translated_attribute(current_component.name) %></h1>
+      <p><strong>Kampanja: <%= translated_attribute(current_participatory_space.title) %></strong></p>
+
+      <% if allowed_to?(:create, :meeting) %>
+        <%= action_authorized_link_to :create, new_meeting_path, class: "title-action__action button small", data: { "redirect_url" => new_meeting_path } do %>
+          <%= t("new_meeting", scope: "decidim.meetings.meetings.index") %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="koro-wrapper">
+    <%= koro("pulse") %>
+  </div>
+</section>
+
+<%= render partial: "decidim/shared/component_announcement" %>
+
+<%= cell "decidim/meetings/meetings_map", search.results %>
+
+<div class="row columns">
+  <div class="title-action">
+    <h2 id="meetings-count" class="h3 title-action__title">
+      <%= render partial: "count" %>
+    </h2>
+  </div>
+</div>
+
+<div class="row">
+  <div id="meetings" class="columns" aria-live="polite">
+    <%= render partial: "meetings" %>
+  </div>
+</div>
+
+<%= javascript_include_tag("decidim/filters") %>

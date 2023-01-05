@@ -1,0 +1,174 @@
+$slick-arrow-color: $primary;
+$slick-dot-color: $primary;
+$slick-dot-size: 24px;
+$slick-opacity-default: 1;
+
+@import "helsinki/vendor/slick/slick";
+@import "helsinki/vendor/slick/slick-theme";
+
+.card-slider{
+  text-align: initial;
+
+  &.slick-slider{
+    // Give space for the side arrows in order to keep the arrows outside of the
+    // slider track. Otherwise the slides would slide under the arrows which
+    // looks weird.
+    margin: 0 45px;
+
+    &.slick-dotted{
+      margin-bottom: 100px;
+    }
+  }
+
+  &.center{
+    .card-slide-content{
+      position: relative;
+      padding: 2%;
+      margin: 10% 0 0;
+      transition: all 300ms ease;
+
+      @include breakpoint(xlarge){
+        margin: 24% 0 18%; // Give space for the center element to be fully visible
+      }
+    }
+
+    .slick-slide{
+      margin: 0 1rem;
+
+      @include breakpoint(xlarge){
+        margin: 0 2rem;
+      }
+    }
+
+    .slick-slide.slick-center{
+      .card-slide-content{
+        @include breakpoint(xlarge){
+          transform: scale(1.24);
+        }
+      }
+    }
+  }
+
+  .slick-track{
+    display: flex !important;
+  }
+
+  .slick-slide{
+    height: inherit !important;
+    display: flex;
+
+    > div{
+      display: flex;
+    }
+
+    .card-slide-content{
+      display: flex !important;
+    }
+
+    .card{
+      display: flex;
+      flex-direction: column;
+
+      .card__content{
+        flex-grow: 1;
+      }
+    }
+  }
+
+  .card{
+    .card__support{
+      .card__button,
+      .favorite-button{
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.banner-slider{
+  .slick-change-prev,
+  .slick-change-next{
+    width: 40px;
+    background: $body-background;
+
+    @include breakpoint(medium){
+      width: (100% / 12);
+    }
+  }
+
+  .banner-slider-slide{
+    padding: 0 40px;
+
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3{
+      // Long headings can overflow on mobile
+      word-break: break-word;
+    }
+
+    @include breakpoint(medium){
+      // Keep 1 column on both sides
+      padding: 0 (100% / 12);
+
+      h1,
+      .h1,
+      h2,
+      .h2,
+      h3,
+      .h3{
+        word-break: normal;
+      }
+    }
+  }
+}
+
+.slick-prev,
+.slick-next{
+  height: 60px;
+  width: 30px;
+
+  @include breakpoint(medium){
+    height: 72px;
+    width: 44px;
+  }
+
+  @include breakpoint(large){
+    width: 56px;
+  }
+
+  &::before{
+    font-size: 55px;
+
+    @include breakpoint(large){
+      font-size: 75px;
+    }
+  }
+}
+
+.slick-prev{
+  left: 0;
+}
+
+.slick-next{
+  right: 0;
+}
+
+.slick-dots{
+  bottom: -40px;
+
+  @include breakpoint(large){
+    bottom: -70px;
+  }
+
+  li{
+    margin: 0 20px;
+  }
+}
+
+.full-slider{
+  margin-bottom: 6rem;
+}

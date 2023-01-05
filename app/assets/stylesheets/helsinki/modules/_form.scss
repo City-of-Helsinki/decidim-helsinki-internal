@@ -1,0 +1,144 @@
+.register-form{
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]{
+    height: 3.5rem;
+  }
+}
+
+#{text-inputs()},
+textarea,
+select{
+  height: 3.5rem;
+}
+
+.plans-form{
+  .field{
+    margin-bottom: 2rem;
+
+    .field-info{
+      padding: 1rem 0;
+    }
+
+    .field-info-after{
+      padding: 0;
+      margin-top: -2rem;
+    }
+
+    .field-label-with-info{
+      .field-info{
+        padding: 0;
+      }
+    }
+  }
+}
+
+label.checkbox-field{
+  margin-bottom: 1rem;
+}
+
+label + .help-text{
+  margin-top: .5rem;
+}
+
+label + .form-error{
+  margin-top: .5rem;
+}
+
+input[type="checkbox"],
+input[type="radio"]{
+  position: relative;
+  top: 4px;
+  z-index: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  outline: none;
+
+  &::before,
+  &::after{
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -2px;
+    left: -2px;
+    width: 24px;
+    height: 24px;
+    background-color: $white;
+  }
+
+  &::before{
+    border: 2px solid $dark-medium-gray;
+  }
+
+  &::after{
+    display: none;
+  }
+
+  &:checked{
+    &::before{
+      border-color: $hel-bus;
+    }
+
+    &::after{
+      display: block;
+    }
+  }
+}
+
+input[type="checkbox"]{
+  &:checked{
+    &::before{
+      background-color: $hel-bus;
+    }
+
+    &::after{
+      mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h24v24H0z'/%3E%3Cpath fill='currentColor' d='M21 7L10 18l-5.5-5.5L6 11l4 4 9.5-9.5z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+  }
+}
+
+input[type="radio"]{
+  &::before,
+  &::after{
+    border-radius: 50%;
+  }
+
+  &::after{
+    width: 12px;
+    height: 12px;
+    top: 4px;
+    left: 4px;
+  }
+
+  &:checked{
+    &::after{
+      display: block;
+      background-color: $hel-bus;
+    }
+  }
+}
+
+.form-section{
+  margin-bottom: 1rem;
+
+  .form-section__title{
+    border-bottom: $border;
+    margin-bottom: 1rem;
+
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4{
+      margin-bottom: .8rem;
+    }
+  }
+}
+
+.input-group-button button{
+  height: 3.5rem;
+}

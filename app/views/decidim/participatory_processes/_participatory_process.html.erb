@@ -1,0 +1,12 @@
+<% if respond_to?(:display_processes_as_cards?) && display_processes_as_cards? %>
+  <%= card_for participatory_process %>
+<% else %>
+  <%= render(
+    partial: "decidim/participatory_processes/participatory_processes/promoted_process",
+    object: participatory_process,
+    as: :promoted_process,
+    locals: {
+      promoted_process_counter: defined?(participatory_process_counter) ? participatory_process_counter : 0
+    }
+  ) %>
+<% end %>

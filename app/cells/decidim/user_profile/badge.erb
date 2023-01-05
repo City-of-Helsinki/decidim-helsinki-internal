@@ -1,0 +1,8 @@
+<% if model.respond_to?(:providing_help?) && model.providing_help? %>
+  <span class="label info">Sparrauskaveri</span>
+  <% if model.providing_help_details.present? %>
+    <div class="card__text--help">
+      <%= decidim_html_escape(model.providing_help_details.to_s) %>
+    </div>
+  <% end %>
+<% end %>

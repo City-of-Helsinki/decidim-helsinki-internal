@@ -1,0 +1,40 @@
+<%
+component = current_participatory_space.components.published.where(
+  manifest_name: "plans"
+).first
+
+if component
+  resources = Decidim::Plans::Plan.published.not_hidden.except_withdrawn.where(
+    component: component
+  ).order(Arel.sql("RANDOM()")).limit(3)
+end
+%>
+
+<% if resources.present? && resources.any? %>
+  <div class="section process-section bg-secondary">
+    <div class="process-section__title">
+      <div class="row column text-center">
+        <h2>Poimintoja ehdotuksista</h2>
+      </div>
+    </div>
+
+    <% if allowed_to?(:read, :plans)%>
+      <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+        <%= render(resources) %>
+      </div>
+
+      <div class="row column text-center process-section-cta">
+        <%= link_to "Näytä kaikki ehdotukset", main_component_path(component), class: "button primary" %>
+      </div>
+    <% else %>
+      <div class="text-center">
+        <p>Jätetyt ehdotukset näkyvät vain kirjautuneille kaupungin työntekijöille.</p>
+        <% unless user_signed_in? %>
+          <p>
+            <%= link_to "Kirjaudu sisään", decidim.new_user_session_path, class: "button primary" %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

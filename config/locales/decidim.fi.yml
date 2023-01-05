@@ -1,0 +1,115 @@
+fi:
+  activemodel:
+    attributes:
+      category:
+        category_icon: Aihepiirin ikoni
+        category_image: Aihepiirin kuva
+        color: Väri
+        has_color: Aihepiirillä on väri
+      conversation:
+        body: Kirjoita viesti
+      message:
+        body: Kirjoita viesti
+      post:
+        card_image: Kuva korteissa
+        main_image: Pääkuva
+      user:
+        providing_help: Haluan toimia sparrauskaverina
+        providing_help_details: Minkälaista sparrausta voin tarjota
+  activerecord:
+    errors:
+      models:
+        decidim/attachment:
+          attributes:
+            file:
+              allowed_file_content_types: Virheellinen tiedoston MIME-tyyppi.
+  decidim:
+    account:
+      delete:
+        alert_html: |
+          Käyttäjätiliä ei tule poistaa, mikäli et ole aivan varma, että et halua osallistua enää mihinkään tällä alustalla.
+          <br><br>
+          Käyttäjätilin poistaminen poistaa tiedon kaikista käyttäjätiliisi linkatuista asioista ja hävittää sinulta pääsyn muun muassa yksityisviesteihisi tällä alustalla. Muut käyttäjät eivät myöskään löydä sinua alustalta tilin poistamisen jälkeen.
+          <br><br>
+          Mikäli haluat poistaa itsesi ehdotuksen tekijöistä, ota yhteyttä sivuston alalaidassa näkyvän palautelinkin kautta, älä poista koko käyttäjätiliäsi. Käyttäjätilin poistaminen on eri asia.
+          <br><br>
+          Tätä toimintoa ei voi peruuttaa. Mieti siis tarkasti, haluatko aivan varmasti poistaa koko käyttäjätilisi. Käyttäjätilin poistamisen jälkeen et voi enää palauttaa tililläsi tehtyjä asioita hallintaasi.
+          <br><br>
+          Mikäli et täysin ymmärrä, mitä käyttäjätilin poistaminen tarkoittaa, ota yhteyttä sivuston alalaidassa näkyvän palautelinkin kautta.
+        confirm:
+          cancel: En, haluan säilyttää käyttäjätilini
+          ok: Kyllä, haluan poistaa käyttäjätilini
+          question: Haluatko aivan varmasti poistaa koko käyttäjätilisi tältä alustalta? Tilisi poistamisen jälkeen et voi enää palauttaa itse tekemiäsi asioita hallintaasi. Tätä toimintoa ei voi peruuttaa.
+        explanation: Voit kirjoittaa alle halutessasi syyn tilisi poistoon (valinnainen).
+    application:
+      photos:
+        related_photos: Kuvat
+    author:
+      avatar: 'Avatar: %{name}'
+    components:
+      add_comment_form:
+        opinion:
+          label: Mielipiteesi tästä aiheesta
+          positive: Positiivinen
+          positive_selected: Mielipiteesi tästä aiheesta on positiivinen
+          negative: Negatiivinen
+          negative_selected: Mielipiteesi tästä aiheesta on negatiivinen
+          neutral: Neutraali
+          neutral_selected: Mielipiteesi tästä aiheesta on neutraali
+    core:
+      actions:
+        login_before_access: Osa palvelun toiminnoista on vain kaupungin työntekijöille tarkoitettuja. Sinun pitää kirjautua sisään ennen kuin voit jatkaa.
+        unauthorized: Osa palvelun toiminnoista on vain kaupungin työntekijöille tarkoitettuja. Sinun pitää kirjautua sisään ennen kuin voit jatkaa.
+    forms:
+      questionnaires:
+        show:
+          back_to: 'Takaisin: %{resource_name}'
+    meetings:
+      meetings:
+        show:
+          back: Siirry tapahtumalistaan
+          going: Olet ilmoittautunut tähän tapahtumaan
+          join: Ilmoittaudu tapahtumaan
+          join_cancel: Peruuta ilmoittautumisesi
+          join_cancel_confirm: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapahtumaan?
+    messaging:
+      conversations:
+        header:
+          back: Takaisin keskusteluihin
+        new:
+          title: Uusi keskustelu
+    pages:
+      index:
+        infos_subheading: Selaa palvelun %{name} lisätietoja.
+        infos_title: Lisätietoja
+    participatory_process_steps:
+      index:
+        process_steps: Kampanjan vaiheet
+        title: Kampanjan vaiheet
+    participatory_processes:
+      index:
+        title: Kampanjat
+      participatory_process_steps:
+        index:
+          back_to_process: Takaisin kampanjan sivulle
+    proposals:
+      application_helper:
+        filter_category_values:
+          all: Kaikki
+      proposals:
+        show:
+          report: Ilmoita
+    searches:
+      index:
+        title: Haku
+    shared:
+      mentions_modal:
+        remove: Poista
+    menu:
+      help: Työkalupakki
+      info: Lisätietoja
+      processes: Osallistu
+  layouts:
+    decidim:
+      process_header_steps:
+        view_steps: Näytä vaiheet

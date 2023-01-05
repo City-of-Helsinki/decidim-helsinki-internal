@@ -1,0 +1,12 @@
+a{
+  font-weight: $anchor-font-weight;
+  text-decoration: underline;
+}
+
+.section-heading{
+  text-transform: none;
+
+  &::before{
+    display: none;
+  }
+}

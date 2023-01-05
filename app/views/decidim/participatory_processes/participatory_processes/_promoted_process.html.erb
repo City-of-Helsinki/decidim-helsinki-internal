@@ -1,0 +1,63 @@
+<%
+column_class = "column medium-9 large-7"
+
+if defined?(promoted_process_counter)
+  column_class = "column medium-9 medium-push-3 large-7 large-push-5" if promoted_process_counter.odd?
+end
+
+if promoted_process.is_a?(Decidim::ParticipatoryProcessGroup)
+  title = promoted_process.name
+  resource_path = participatory_process_group_path(promoted_process)
+else
+  title = promoted_process.title
+  resource_path = participatory_process_path(promoted_process)
+end
+%>
+
+<div class="extended hero with-card" style="background-image:url(<%= promoted_process.hero_image.url %>)">
+  <div class="hero__container">
+    <div class="row hero-with-card-row">
+      <div class="<%= column_class %>">
+        <div class="card with-hero">
+          <div class="card-section">
+            <h2><%= decidim_html_escape(translated_attribute(title)).html_safe %></h2>
+            <div class="row">
+              <div class="column medium-8">
+                <% if promoted_process.is_a?(Decidim::ParticipatoryProcessGroup) %>
+                  <%= decidim_sanitize html_truncate(translated_attribute(promoted_process.description), length: 630, separator: "...") %>
+                <% else %>
+                  <% if promoted_process.active_step %>
+                    <p>
+                      <strong>
+                        <%= t("participatory_processes.promoted_process.active_step", scope: "layouts.decidim") %>
+                        <%= translated_attribute promoted_process.active_step.title %>
+                      </strong>
+                    </p>
+                  <% end %>
+                  <%= decidim_sanitize html_truncate(translated_attribute(promoted_process.short_description), length: 630, separator: "...") %>
+                <% end %>
+              </div>
+            </div>
+            <p>
+              <%= link_to resource_path, class: "button primary hollow" do %>
+                <span class="show-for-sr"><%= decidim_html_escape(translated_attribute(title)) %></span>
+                <%= t("participatory_processes.promoted_process.more_info", scope: "layouts.decidim") %>
+              <% end %>
+
+              <% if promoted_process.is_a?(Decidim::ParticipatoryProcess) && !promoted_process.active_step&.cta_path.blank? %>
+                <%= link_to participatory_process_cta_path(promoted_process), class: "button primary" do %>
+                  <% if translated_in_current_locale?(promoted_process.active_step&.cta_text) %>
+                    <%= translated_attribute(promoted_process.active_step.cta_text) %>
+                  <% else %>
+                    <span class="show-for-sr"><%= t(promoted_process.cta_button_text_key_accessible, resource_name: translated_attribute(promoted_process.title), scope: "layouts.decidim.participatory_processes.promoted_process") %></span>
+                    <span aria-hidden="true"><%= t(promoted_process.cta_button_text_key, scope: "layouts.decidim.participatory_processes.promoted_process") %></span>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

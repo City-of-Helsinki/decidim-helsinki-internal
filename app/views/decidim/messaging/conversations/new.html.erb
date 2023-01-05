@@ -1,0 +1,9 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<%= render partial: "header", locals: { title: t(".title") } %>
+
+<%= render layout: "show", locals: { participants: @form.recipient.to_a } do %>
+  <div id="messages"></div>
+
+  <%= render "start", form: @form %>
+<% end %>

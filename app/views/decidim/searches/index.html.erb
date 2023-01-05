@@ -1,0 +1,56 @@
+<% add_decidim_page_title(t("term_input_placeholder", scope: "decidim.search")) %>
+
+<section class="extended hero lower subpage secondary">
+  <div class="hero__container">
+    <div class="row">
+      <div class="columns large-8 large-push-2 text-center">
+        <h1><%= t(".title") %></h1>
+      </div>
+    </div>
+    <div class="row mb-s">
+      <div class="column medium-8 medium-push-2 large-6 large-push-3">
+        <ul class="tabs" id="search-tabs" data-tabs>
+          <% @sections.each_with_index do |(type, section), ind| %>
+            <li class="tabs-title<%= " is-active" if ind == 0 %>">
+              <%= link_to "#search-#{section[:id]}", data: {
+                tabs_target: "search-#{section[:id]}",
+                search_type: type
+              }, aria: {
+                selected: ind == 0 ? "true" : nil
+              } do %>
+                <%= section[:name] %>
+                <span class="results-count">(<%= section[:count] %>)</span>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns large-8 large-push-2">
+        <div id="search-form">
+          <%= render partial: "decidim/searches/filters" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="koro-wrapper">
+    <%= koro("basic") %>
+  </div>
+</section>
+
+<div class="wrapper">
+  <div class="tabs-content" data-tabs-content="search-tabs">
+    <% @sections.each_with_index do |(type, section), ind| %>
+      <div class="tabs-panel<%= " is-active" if ind == 0 %>" id="search-<%= section[:id] %>">
+        <div class="row">
+          <div id="results-<%= section[:id] %>" class="columns search-results">
+            <%= render partial: "decidim/searches/results", locals: { type: type, results: section[:results] } %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= javascript_include_tag "helsinki/global-search" %>

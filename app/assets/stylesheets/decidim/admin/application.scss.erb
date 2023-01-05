@@ -1,0 +1,21 @@
+@import "decidim/admin/decidim";
+@import "decidim/admin/extra/action-icon";
+@import "decidim/admin/extra/cards";
+@import "decidim/admin/extra/categories";
+@import "decidim/admin/extra/dropdown_inverted";
+@import "decidim/admin/extra/editor";
+@import "decidim/admin/extra/email_preview";
+@import "decidim/admin/extra/label-required";
+@import "decidim/admin/extra/login";
+@import "decidim/admin/extra/logs";
+@import "decidim/admin/extra/newsletter-templates-gallery";
+@import "decidim/admin/extra/organization-appearance";
+@import "decidim/admin/extra/quill";
+@import "decidim/admin/extra/select_multiple";
+@import "decidim/admin/extra/show_email";
+@import "decidim/admin/extra/sort";
+@import "decidim/admin/extra/title_bar";
+
+<% Decidim.component_manifests.map(&:admin_stylesheet).compact.each do |stylesheet| %>
+@import "<%= stylesheet %>";
+<% end %>

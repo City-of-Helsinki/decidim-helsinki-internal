@@ -1,0 +1,39 @@
+<%
+add_decidim_meta_tags({
+  description: strip_tags(translated_attribute(current_organization.description)),
+  title: current_organization.name,
+  url: request.original_url,
+  twitter_handler: current_organization.twitter_handler,
+  image_url: image_url(meta_image_default)
+})
+
+wrapper_class = Rails.application.config.wrapper_class
+%>
+
+<!DOCTYPE html>
+<html lang="<%= page_locale %>" class="no-js">
+  <head>
+    <title><%= decidim_page_title %></title>
+    <% I18n.with_locale page_locale do %>
+      <%= render partial: "layouts/decidim/head" %>
+    <% end %>
+  </head>
+
+  <body class="<%= wrapper_class %>">
+    <% I18n.with_locale page_locale do %>
+      <%= render partial: "layouts/decidim/impersonation_warning" %>
+      <%= render partial: "layouts/decidim/cookie_warning" %>
+      <%= render partial: "layouts/decidim/omnipresent_banner" %>
+
+      <%= render "layouts/decidim/wrapper" do %>
+        <%= yield %>
+      <% end %>
+
+      <%= render partial: "decidim/shared/confirm_modal" %>
+      <%= render partial: "decidim/shared/login_modal" %>
+      <%= render partial: "decidim/shared/authorization_modal" %>
+      <%= render partial: "layouts/decidim/js_configuration" %>
+      <%= render partial: "layouts/decidim/foot_extra" %>
+    <% end %>
+  </body>
+</html>

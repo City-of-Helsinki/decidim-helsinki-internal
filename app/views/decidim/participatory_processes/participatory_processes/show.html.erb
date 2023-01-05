@@ -1,0 +1,37 @@
+<% add_decidim_meta_tags({
+  image_url: current_participatory_space.hero_image.url,
+  description: translated_attribute(current_participatory_space.short_description),
+  url: participatory_process_url(current_participatory_space),
+  twitter_handler: current_organization.twitter_handler
+}) %>
+
+<%
+  edit_link(
+    resource_locator(current_participatory_space).edit,
+    :update,
+    :process,
+    process: current_participatory_space
+  )
+%>
+
+<%= render partial: "decidim/participatory_processes/participatory_processes/process_header" %>
+
+<% if translated_attribute(current_participatory_space.announcement).present? %>
+  <%= render partial: "decidim/shared/announcement",
+             locals: { announcement: current_participatory_space.announcement } %>
+<% end %>
+
+<%= render partial: "decidim/participatory_processes/participatory_processes/highlights/meetings" %>
+<%= render partial: "decidim/participatory_processes/participatory_processes/highlights/results" %>
+<%= render partial: "decidim/participatory_processes/participatory_processes/highlights/plans" %>
+<%= render partial: "decidim/participatory_processes/participatory_processes/highlights/blogs" %>
+
+<div class="wrapper">
+  <div class="section">
+    <div class="row">
+      <div class="column">
+        <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
+      </div>
+    </div>
+  </div>
+</div>

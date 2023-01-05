@@ -1,0 +1,52 @@
+<%= filter_form_for filter do |form| %>
+  <div class="row">
+    <% if component.settings.plan_answering_enabled && component.current_settings.plan_answering_enabled %>
+      <div class="columns medium-3">
+        <div class="filters__section">
+          <fieldset>
+            <legend class="mini-title"><%= t(".filters.state.legend") %></legend>
+            <%= form.select :state, [[t(".filters.state.all"), "all"], [t(".filters.state.accepted"), "accepted"], [t(".filters.state.rejected"), "rejected"], [t(".filters.state.evaluating"), "evaluating"]], disable_parents: false, include_blank: t(".filters.state_prompt"), label: false %>
+          </fieldset>
+        </div>
+      </div>
+    <% end %>
+
+    <% if false && available_tags.any? %>
+      <div class="columns medium-3">
+        <div class="filters__section">
+          <fieldset>
+            <legend class="mini-title"><%= t(".filters.tag") %></legend>
+            <%= form.select :tag_id, available_tags.map { |t| [translated_attribute(t.name), t.id] }, disable_parents: false, include_blank: t(".filters.tag_prompt"), label: false %>
+          </fieldset>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="columns medium-3">
+      <div class="filters__section">
+        <div class="mini-title">&nbsp;</div>
+        <div class="filters__search">
+          <div class="input-group">
+            <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".filters.search"), title: t(".filters.search") %>
+            <div class="input-group-button">
+              <button type="submit" class="button primary">
+                <%= icon "magnifying-glass", aria_label: t(".filters.search") %>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns medium-3 end">
+      <div class="filters__section">
+        <div class="mini-title">&nbsp;</div>
+        <div>
+          <button type="reset" class="button primary"><%= t(".filters.reset") %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+<% end %>

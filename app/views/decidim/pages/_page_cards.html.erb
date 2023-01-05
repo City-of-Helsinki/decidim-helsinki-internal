@@ -1,0 +1,23 @@
+<div class="row small-up-1 smallmedium-up-2 mediumlarge-up-2 large-up-3 card-grid">
+  <% pages.each do |page| %>
+    <div class="column">
+      <%= link_to target_path(page), class: "card card--process card--mini" do %>
+        <div class="card__link">
+          <div class="card__content">
+            <h3 class="card__title">
+              <%= translated_attribute(page.title) %>
+            </h3>
+            <p><%== strip_tags html_truncate(translated_attribute(page.content), length: 140, separator: "...") %></p>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <span class="button primary hollow">
+                <%= t("decidim.pages.index.read_more") %>
+              </span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

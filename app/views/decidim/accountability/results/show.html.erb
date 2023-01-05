@@ -1,0 +1,121 @@
+<%
+image = result.list_image.try(:url)
+
+add_decidim_meta_tags({
+  description: translated_attribute(result.description),
+  title: translated_attribute(result.title),
+  url: result_url(result.id),
+  image_url: image ? image_url(image) : nil
+})
+%>
+
+<% content_for :header_snippets do %>
+  <link href="<%= resource_locator(result).url %>" rel="canonical">
+<% end %>
+
+<%
+edit_link(
+  resource_locator(result).edit,
+  :update,
+  :result,
+  result: result
+)
+%>
+
+<section class="extended hero lower subpage secondary">
+  <div class="hero__container">
+    <div class="row column">
+      <h1 class="h2"><%= translated_attribute result.title %></h1>
+      <% if respond_to?(:current_participatory_space) %>
+        <p><strong>Kampanja: <%= translated_attribute(current_participatory_space.title) %></strong></p>
+      <% end %>
+
+      <p>
+        <% if respond_to?(:current_participatory_space) %>
+          <%= link_to results_path(filter_link_params) do %>
+            <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+            <%= t(".back") %>
+          <% end %>
+          <br>
+        <% end %>
+        <%= link_to main_app.results_path(filter_link_params) do %>
+          <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+          <%= t(".directory_link") %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="koro-wrapper">
+    <%= koro("pulse") %>
+  </div>
+</section>
+
+<div class="row accountability result-view">
+  <div class="small-12 columns">
+    <div class="row">
+      <div class="mediumlarge-8 large-9 columns">
+        <div class="section">
+          <% if result.main_image && result.main_image.url %>
+            <%= image_tag result.main_image.url, alt: translated_attribute(result.title), class: "hero-heading" %>
+          <% end %>
+
+          <div class="description">
+            <%== translated_attribute result.description %>
+          </div>
+
+          <div class="row">
+            <%= render partial: "timeline", locals: { result: result } if result.timeline_entries.any? %>
+          </div>
+
+          <% if result.children.any? %>
+            <%= render partial: "results_leaf", locals: { results: result.children.page(1).per(result.children_count), total_count: result.children_count } %>
+          <% end %>
+        </div>
+      </div>
+      <%= render partial: "stats_box" %>
+    </div>
+  </div>
+
+  <%= render partial: "stats" %>
+
+  <% if result.photos.any? %>
+    <div class="small-12 columns">
+      <%= render partial: "decidim/application/photos.html", locals: { photos: result.photos } %>
+    </div>
+  <% end %>
+
+  <% if result.authors.any? %>
+    <div class="small-12 columns show-for-mediumlarge">
+      <div class="authors-expanded bg-secondary">
+        <h2 class="text-center">Tekijät</h2>
+
+        <div class="authors-list">
+          <% result.authors.map do |author| %>
+            <div class="author-data">
+              <div class="author-data__main">
+                <div class="author">
+                  <span class="author__avatar">
+                    <%= image_tag author.avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(author.name)) %>
+                  </span>
+                  <span class="author__details">
+                    <%= author.name %>
+                    <br>
+                    <% author_info = author_information(author) %>
+                    <%= author_info.shift %>
+                    <% if author_info.any? %>
+                      <br>
+                      <%= author_info.join(", ") %>
+                    <% end %>
+                  </span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+  <%= comments_for result %>
+</div>

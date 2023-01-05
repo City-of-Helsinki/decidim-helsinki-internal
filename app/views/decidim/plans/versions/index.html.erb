@@ -1,0 +1,36 @@
+<% add_decidim_page_title(t("changes_at_title", scope: "decidim.plans.versions", title: present(item).title)) %>
+
+<section class="extended hero lower subpage secondary">
+  <div class="hero__container">
+    <div class="row column">
+      <h1 class="h2"><%= t("changes_at_title", scope: "decidim.plans.versions", title: present(item).title) %></h1>
+      <p>
+        <%= link_to plan_path(item) do %>
+          <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+          <%= t("versions.stats.back_to_plan", scope: "decidim.plans") %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="koro-wrapper">
+    <%= koro("pulse") %>
+  </div>
+</section>
+
+<div class="row">
+  <div class="small-12 columns">
+    <h2 class="h3"><%= t(".title") %></h2>
+
+    <div class="row">
+      <div class="mediumlarge-8 columns">
+        <div class="section">
+          <div class="card card--list">
+            <% item.versions.each_with_index do |version, index| %>
+              <%= render partial: "version", locals: { version: version, index: index } %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

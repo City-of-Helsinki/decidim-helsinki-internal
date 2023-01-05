@@ -1,0 +1,16 @@
+<section class="extended hero lower subpage secondary">
+  <div class="hero__container">
+    <div class="row column">
+      <h1 class="h2"><%= title %></h1>
+      <p>
+        <%= link_to decidim.conversations_path do %>
+          <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+          <%= t(".back") %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="koro-wrapper">
+    <%= koro("pulse") %>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+<%= render :image if has_image? %>
+
+<div class="card__content card__link">
+  <%= render :header if has_header? %>
+
+  <div class="card__text">
+    <div class="card__text--paragraph">
+      <%= render :badge if has_badge? %>
+      <%= description %>
+    </div>
+  </div>
+
+  <%= render :tags %>
+
+  <% if has_link_to_resource? %>
+    <div class="card__cta">
+      <span class="button primry hollow">Lue lisää</span>
+    </div>
+  <% end %>
+</div>

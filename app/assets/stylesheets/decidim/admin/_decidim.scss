@@ -1,0 +1,25 @@
+@import "decidim/admin/variables";
+@import "decidim/admin/utils/fontface";
+@import "decidim/admin/utils/helpers";
+@import "decidim/admin/utils/keyframes";
+@import "decidim/admin/utils/settings";
+@import "decidim/admin/utils/toggle-expand";
+@import "foundation";
+@import "foundation-overrides/components/button-group";
+
+@include foundation-everything();
+
+@import "decidim/admin/utils/mixins";
+@import "decidim/admin/utils/flex";
+@import "decidim/admin/plugins/foundation-datepicker";
+@import "decidim/modules/data-picker";
+@import "decidim/admin/modules/modules";
+@import "plugins/jquery.auto-complete";
+@import "decidim/admin/components/accordion";
+@import "decidim/admin/components/autocomplete_select.component";
+@import "decidim/admin/components/sortable";
+@import "decidim/vizzs";
+@import "decidim/admin/bundle";
+
+// Custom
+@import "decidim/tags/tagging-input";

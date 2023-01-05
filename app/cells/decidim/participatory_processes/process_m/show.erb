@@ -1,0 +1,11 @@
+<div class="column" id="<%= dom_id(model) %>">
+  <% if has_link_to_resource? %>
+    <%= link_to resource_path, class: "card #{card_classes}" do %>
+      <%= render :content %>
+    <% end %>
+  <% else %>
+    <div class="card <%= card_classes %>">
+      <%= render :content %>
+    </div>
+  <% end %>
+</div>

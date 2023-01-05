@@ -1,0 +1,5 @@
+<div class="row collapse order-by text-center">
+  <%= form_with url: form_url, method: :get, remote: true do |form| %>
+    <%= render view: :filter_tabs, locals: { form: form } %>
+  <% end %>
+</div>

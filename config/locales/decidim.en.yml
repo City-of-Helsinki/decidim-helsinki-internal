@@ -1,0 +1,115 @@
+en:
+  activemodel:
+    attributes:
+      category:
+        category_icon: Category icon
+        category_image: Category image
+        color: Color
+        has_color: Category has color
+      conversation:
+        body: Write message
+      message:
+        body: Write message
+      post:
+        card_image: Image on cards
+        main_image: Main image
+      user:
+        providing_help: I want to be a sparring buddy
+        providing_help_details: What kind of sparring help I can provide
+  activerecord:
+    errors:
+      models:
+        decidim/attachment:
+          attributes:
+            file:
+              allowed_file_content_types: Invalid file MIME type.
+  decidim:
+    account:
+      delete:
+        alert_html: |
+          You should not delete your account unless you are absolutely certain that you no longer wish to participate in anything on this platform.
+          <br><br>
+          After deleting your account, all information linked to your account will disappear and you will lose access e.g. to your private messages on this platform. Other users will not be able to find you on the platform after deleting the account.
+          <br><br>
+          If you would like to remove yourself from the proposal authors, please use the feedback link at the bottom of the site, do not delete your entire account. Deleting the account is completely different matter.
+          <br><br>
+          This action cannot be undone. Think carefully whether you definitely want to delete your entire account. Once you delete your account, you will no longer be able to restore control of what you have done with your account.
+          <br><br>
+          If you do not fully understand what it means to delete the account, please contact us via the feedback link at the bottom of the site.
+        confirm:
+          cancel: No, I want to preserve my account
+          ok: Yes, I want to delete my account
+          question: Are you sure you want to delete your entire account from this platform? Once your account is deleted, you will no longer be able to restore things you did under your own account. This action cannot be undone.
+        explanation: If you want, you can write below the reason for deleting your account (optional).
+    author:
+      avatar: 'Avatar: %{name}'
+    application:
+      photos:
+        related_photos: Images
+    components:
+      add_comment_form:
+        opinion:
+          label: Your opinion about this topic
+          positive: Positive
+          positive_selected: 'Your opinion about this topic is positive'
+          negative: Negative
+          negative_selected: 'Your opinion about this topic is negative'
+          neutral: Neutral
+          neutral_selected: 'Your opinion about this topic is neutral'
+    core:
+      actions:
+        login_before_access: Some functionality of this service is available for city employees only. You have to sign in before you can continue.
+        unauthorized: Some functionality of this service is available for city employees only. You have to sign in before you can continue.
+    forms:
+      questionnaires:
+        show:
+          back_to: 'Back to: %{resource_name}'
+    meetings:
+      meetings:
+        show:
+          back: Go to list of events
+          going: You have signed up to this event
+          join: Register for the event
+          join_cancel: Cancel my registration
+          join_cancel_confirm: Are you sure you want to cancel your registration to this event?
+    messaging:
+      conversations:
+        header:
+          back: Back to conversations
+        new:
+          title: New conversation
+    pages:
+      index:
+        infos_subheading: Browse additional information about %{name}.
+        infos_title: Information
+    participatory_process_steps:
+      index:
+        process_steps: Campaign steps
+        title: Campaign steps
+    participatory_processes:
+      index:
+        title: Campaigns
+      participatory_process_steps:
+        index:
+          back_to_process: Back to campaign page
+    proposals:
+      application_helper:
+        filter_category_values:
+          all: All
+      proposals:
+        show:
+          report: Report
+    searches:
+      index:
+        title: Search
+    shared:
+      mentions_modal:
+        remove: Remove
+    menu:
+      help: Tools
+      info: Information
+      processes: Participate
+  layouts:
+    decidim:
+      process_header_steps:
+        view_steps: Show steps

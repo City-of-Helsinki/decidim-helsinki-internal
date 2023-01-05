@@ -1,0 +1,7 @@
+<%
+# Needed because of the following bug in core:
+# https://github.com/decidim/decidim/pull/7784
+%>
+<div class="field hashtags__container">
+  <%= text_editor_for(form, :closing_report, hashtaggable: true) %>
+</div>

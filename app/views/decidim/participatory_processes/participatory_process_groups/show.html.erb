@@ -1,0 +1,25 @@
+<% add_decidim_page_title(translated_attribute(group.name)) %>
+<% add_decidim_meta_tags(title: t("participatory_process_groups.show.title", scope: "decidim")) %>
+
+<section class="extended hero lower subpage secondary">
+  <div class="hero__container">
+    <div class="row">
+      <div class="columns large-8 large-push-2 text-center">
+        <h1><%= t("participatory_process_groups.show.group_participatory_processes", scope: "decidim", count: participatory_processes.count, group: translated_attribute(group.name)) %></h1>
+      </div>
+    </div>
+  </div>
+  <div class="koro-wrapper">
+    <%= koro("basic") %>
+  </div>
+</section>
+
+<div class="wrapper">
+  <section id="processes-grid" class="section">
+    <%= render(
+      partial: "decidim/participatory_processes/participatory_processes/promoted_process",
+      collection: participatory_processes,
+      as: :promoted_process
+    ) %>
+  </section>
+</div>

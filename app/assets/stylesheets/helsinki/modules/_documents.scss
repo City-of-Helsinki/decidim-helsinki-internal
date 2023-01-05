@@ -1,0 +1,38 @@
+.document-link{
+  display: block;
+  margin: .2rem 0;
+  text-decoration: none;
+  font-weight: normal;
+
+  .icon{
+    margin-right: .4rem;
+  }
+
+  &:hover,
+  &:focus{
+    text-decoration: none;
+
+    .document-link__description{
+      text-decoration: underline;
+    }
+  }
+}
+
+.documents-collection{
+  position: relative;
+  padding-left: .2rem;
+  margin-bottom: .5rem;
+
+  &::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 2px;
+    background: $black;
+  }
+
+  .document-link{
+    margin-left: .5rem;
+  }
+}

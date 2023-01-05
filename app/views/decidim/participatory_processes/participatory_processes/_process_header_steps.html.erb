@@ -1,0 +1,11 @@
+<% if participatory_process.steps.any? %>
+  <% if participatory_process.active_step %>
+    <div class="process-phase-indicator">
+      <div class="process-phase-label">Kampanjan vaihe</div>
+      <div class="process-phase-step"><%= participatory_process.active_step.position + 1 %>/<%= participatory_process.steps.count %></div>
+      <div class="process-phase-name"><%= decidim_sanitize translated_attribute(participatory_process.active_step.title) %></div>
+    </div>
+  <% end %>
+
+  <p><%= link_to t("layouts.decidim.process_header_steps.view_steps"), decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process) %></p>
+<% end %>

@@ -1,0 +1,135 @@
+fi:
+  activemodel:
+    attributes:
+      user:
+        division: Toimiala
+        phone: Puhelinnumero
+  activerecord:
+    models:
+      decidim/plans/plan:
+        one: Ehdotus
+        other: Ehdotukset
+  auth:
+    sign_in_with_tunnistamo: 'Käytä Tunnistamoa kirjautuaksesi sisään'
+  decidim:
+    admin:
+      menu:
+        participatory_process_static_contents: Staattinen sisältö
+    components:
+      component_order_selector:
+        order:
+          plan: Ehdotus
+    forms:
+      file_help:
+        file:
+          explanation: 'Tiedoston ohjeistus:'
+          message_1: On oltava kuva tai asiakirja.
+          message_2: Käytä kuvina mieluiten vaakasuuntaisia kuvia, palvelu rajaa kuvaa sopivaksi näkymään.
+        image:
+          explanation: 'Kuvan ohjeistus:'
+          message_1: Käytä mieluiten vaakasuuntaista kuvaa, jossa ei ole tekstiä.
+          message_2: Palvelu rajaa kuvaa.
+    help_sections:
+      footer_text:
+        name: Alaosion teksti
+      help_index:
+        name: Ohjeosion etusivu
+      info_index:
+        name: Lisätieto-osion etusivu
+      participatory_processes_index:
+        name: Kuvausteksti
+      participatory_processes_intro:
+        name: Intro
+      participatory_processes_phases:
+        name: Vaiheet
+      participatory_processes_phases_intro:
+        name: Vaiheet intro
+      participatory_processes_sparring:
+        name: Sparraus-sivun teksti
+    menu:
+      posts: Ajankohtaista
+      results: Kokeilugalleria
+    pages:
+      home:
+        hero:
+          participate_title: Osallistu
+        statistics:
+          plans_count: Suunnitelmia
+        sub_hero:
+          register_title: Rekisteröidy
+      index:
+        standalone_pages: Muut sivut
+        title: Työkalupakki
+      side_panel:
+        show_navigation: Näytä navigaatio
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Kampanjat
+  errors:
+    messages:
+      extension_whitelist_error: Lataamasi tiedostomuoto ei ole sallittu.
+  forms:
+    scopes_picker:
+      others: Muut
+      prompt: Valitse %{item_name}
+  pages:
+    home:
+      hero:
+        participate: Osallistu
+      extended:
+        debates: Keskustelut
+        debates_explanation: Jaa henkilökohtaiset mielipiteesi ja näkemyksesi keskusteluiden kautta.
+        meetings_explanation: Tavataan ja osallistutaan kaupunkimme puolesta.
+        proposals: Ideat
+        proposals_explanation: Avoin tila asukkaiden ideoille siitä, millaisessa kaupungissa haluaisimme asua.
+        how_to_participate: Kuinka osallistun
+      statistics:
+        headline: Tämänhetkiset tilastot
+      footer_sub_hero:
+        footer_sub_hero_headline: Yhteisöllinen osallistumispalvelu
+      highlighted_processes:
+        active_processes: Käynnissä nyt
+        see_all_processes: Näytä kaikki
+      highlighted_process_groups:
+        active_processes: Käynnissä nyt
+        see_all_processes: Näytä kaikki
+  search:
+    decidim/blogs/post:
+      name: Artikkelit
+    decidim/plans/plan:
+      name: Ehdotukset
+    decidim/user:
+      name: Henkilöt
+  layouts:
+    decidim:
+      assembly_header:
+        unfold: Avaa
+      breadcrumbs:
+        current: Nykyinen sivu
+      header:
+        front_page_link: Siirry etusivulle
+        help: Työkalupakki
+        navigation: Valikko
+        sign_in: Kirjaudu
+      participatory_processes:
+        index:
+          active_processes: Käynnissä nyt
+          past_processes: Aikaisemmat kierrokset
+      user_menu:
+        conversations: Viestit
+        favorites: Suosikit
+        notifications: Ilmoitukset
+        profile: Omat tiedot
+        profile_nav: Profiili
+        public_profile: Oma toiminta
+    footer:
+      about: Tietoa palvelusta
+      contact: Yhteystiedot
+      feedback: Anna palautetta sähköpostilla
+  locale:
+    chooser_name: Suomeksi
+  versions:
+    dropdown:
+      choose_diff_view_mode_menu: Valitse vertailutila

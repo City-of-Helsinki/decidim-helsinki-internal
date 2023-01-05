@@ -1,0 +1,135 @@
+en:
+  activemodel:
+    attributes:
+      user:
+        division: Division
+        phone: Phone number
+  activerecord:
+    models:
+      decidim/plans/plan:
+        one: Proposal
+        other: Proposals
+  auth:
+    sign_in_with_tunnistamo: 'Use Tunnistamo to sign in'
+  decidim:
+    admin:
+      menu:
+        participatory_process_static_contents: Static content
+    components:
+      component_order_selector:
+        order:
+          plan: Proposal
+    forms:
+      file_help:
+        file:
+          explanation: 'Guidance for file:'
+          message_1: Has to be an image or a document.
+          message_2: For images, use preferrably landscape images, the service crops the image.
+        image:
+          explanation: 'Guidance for image:'
+          message_1: Preferrably a landscape image that does not have any text.
+          message_2: The service crops the image.
+    help_sections:
+      footer_text:
+        name: Footer text
+      help_index:
+        name: Help section front page
+      info_index:
+        name: Information section front page
+      participatory_processes_index:
+        name: Description
+      participatory_processes_intro:
+        name: Intro
+      participatory_processes_phases:
+        name: Phases
+      participatory_processes_phases_intro:
+        name: Phases intro
+      participatory_processes_sparring:
+        name: Sparring page text
+    menu:
+      posts: News
+      results: Experimentation gallery
+    pages:
+      home:
+        hero:
+          participate_title: Participate
+        statistics:
+          plans_count: Plans
+        sub_hero:
+          register_title: Register
+      index:
+        standalone_pages: Other pages
+        title: Toolbox
+      side_panel:
+        show_navigation: Show navigation
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Campaigns
+  errors:
+    messages:
+      extension_whitelist_error: The file type you tried to upload is not allowed.
+  forms:
+    scopes_picker:
+      others: Others
+      prompt: Choose %{item_name}
+  pages:
+    home:
+      hero:
+        participate: Participate
+      extended:
+        debates: Discussions
+        debates_explanation: Share your personal opinions and points of views through discussions.
+        meetings_explanation: Let's meet and collaborate for our city.
+        proposals: Ideas
+        proposals_explanation: Open space for citizen ideas about what kind of city we want to live in.
+        how_to_participate: How to participate
+      statistics:
+        headline: Current statistics
+      footer_sub_hero:
+        footer_sub_hero_headline: Community participation service
+      highlighted_processes:
+        active_processes: Active now
+        see_all_processes: Show all
+      highlighted_process_groups:
+        active_processes: Active now
+        see_all_processes: Show all
+  search:
+    decidim/blogs/post:
+      name: Articles
+    decidim/plans/plan:
+      name: Proposals
+    decidim/user:
+      name: People
+  layouts:
+    decidim:
+      assembly_header:
+        unfold: Unfold
+      breadcrumbs:
+        current: Current page
+      header:
+        front_page_link: Go to front page
+        help: Tools
+        navigation: Menu
+        sign_in: Sign in
+      participatory_processes:
+        index:
+          active_processes: Ongoing now
+          past_processes: Past
+      user_menu:
+        conversations: Messages
+        favorites: Favourites
+        notifications: Notifications
+        profile: Account information
+        profile_nav: Profile
+        public_profile: My activity
+    footer:
+      about: About the service
+      contact: Contact information
+      feedback: Give feedback through email
+  locale:
+    chooser_name: In English
+  versions:
+    dropdown:
+      choose_diff_view_mode_menu: Choose compare mode

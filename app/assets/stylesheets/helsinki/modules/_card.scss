@@ -1,0 +1,124 @@
+a.card{
+  display: block;
+  font-weight: normal;
+  text-decoration: none;
+
+  &:hover,
+  &:focus{
+    &,
+    .author__name{
+      text-decoration: none;
+    }
+
+    .card__header,
+    .card__text--paragraph{
+      text-decoration: underline;
+    }
+  }
+
+  .label{
+    cursor: pointer;
+  }
+}
+
+a.card__link{
+  font-weight: normal;
+  text-decoration: none;
+
+  &:hover,
+  &:focus{
+    text-decoration: underline;
+  }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4{
+  a.card__link{
+    font-weight: $header-font-weight;
+  }
+}
+
+.card{
+  &.card-simple{
+    background: transparent;
+    border: 0;
+
+    .card-section{
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &.with-hero{
+    border: 0;
+
+    .card-section{
+      padding: 1.5rem;
+
+      @include breakpoint(medium){
+        padding: 3rem;
+      }
+    }
+  }
+
+  &.warning,
+  &.success,
+  &.alert,
+  &.muted{
+    border-top: $border;
+    color: $anchor-color;
+  }
+
+  &.horizontal{
+    display: flex;
+    flex-direction: row;
+
+    .card__image{
+      width: 33.333%;
+      max-height: none;
+    }
+  }
+
+  &.card--meeting{
+    .card__footer{
+      border-top: $border;
+    }
+  }
+
+  .card__title{
+    margin-bottom: 1rem;
+  }
+
+  .card__footer{
+    background: transparent;
+    border-top: 0;
+  }
+
+  .card__text--paragraph{
+    margin-bottom: 1rem;
+  }
+
+  .card__cta{
+    padding: 2rem 0 0;
+  }
+
+  .card__support{
+    > *:only-child{
+      margin-left: 0;
+    }
+  }
+}
+
+.card-data__item [data-toggle]{
+  cursor: auto;
+}
+
+.card-data__item a [data-toggle]{
+  cursor: pointer;
+}

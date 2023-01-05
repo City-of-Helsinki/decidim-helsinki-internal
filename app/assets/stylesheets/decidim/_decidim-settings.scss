@@ -1,0 +1,223 @@
+// Import the Helsinki variables because this is also loaded for the admin panel
+// as the decidim-core gem's utils/settings.scss gets a priority for the admin
+// panel as well.
+@import "helsinki-variables";
+
+// 1. Global
+// ---------
+$global-font-size: 16px;
+$global-lineheight: $hel-lineheight-base;
+$light-gray: $hel-light-grey;
+$medium-gray: $hel-medium-grey;
+$dark-medium-gray: $hel-dark-grey;
+$dark-gray: $hel-dark-grey;
+$black: $hel-black;
+$white: $hel-white;
+$body-font-color: $hel-black;
+$body-font-family: $hel-grotesk;
+$body-background: $hel-white;
+$muted: lighten($body-font-color, 30);
+$global-radius: 0;
+$border: $border-width solid $medium-gray;
+
+// 2. Breakpoints
+// --------------
+$breakpoints: (
+  small: 0,
+  smallmedium: 450px,
+  medium: 576px,
+  mediumlarge: 768px,
+  large: 992px,
+  xlarge: 1224px,
+  xxlarge: 1440px,
+);
+
+// 3. The Grid
+// -----------
+$grid-column-gutter: (
+  small: 24px,
+  medium: 16px,
+  mediumlarge: 24px,
+);
+
+// 4. Base Typography
+// ------------------
+$header-lineheight: $hel-lineheight-medium;
+$header-font-family: $body-font-family;
+$header-font-weight: $global-weight-bold;
+$header-color: $primary;
+$header-margin-bottom: 1.1rem;
+$header-styles: (
+  small: (
+    "h1": ("font-size": 36),
+    "h2": ("font-size": 28),
+    "h3": ("font-size": 24),
+    "h4": ("font-size": 20),
+    "h5": ("font-size": 18),
+    "h6": ("font-size": 16),
+  ),
+  medium: (
+    "h1": ("font-size": 52),
+    "h2": ("font-size": 36),
+    "h3": ("font-size": 24),
+    "h4": ("font-size": 20),
+    "h5": ("font-size": 18),
+    "h6": ("font-size": 16),
+  ),
+);
+$small-font-size: .9rem;
+$large-font-size: 1.25rem;
+$paragraph-lineheight: $global-lineheight;
+$paragraph-margin-bottom: 1.1rem;
+$list-lineheight: $paragraph-lineheight;
+$anchor-color: $primary-color;
+$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+$anchor-outline-focus: 2px solid $highlight;
+$anchor-font-weight: 500;
+$anchor-text-decoration-hover: underline;
+$keystroke-radius: $global-radius;
+
+// 5. Typography Helpers
+// ---------------------
+$lead-font-size: $global-font-size * 1.25;
+$lead-lineheight: $global-lineheight;
+$subheader-lineheight: $header-lineheight;
+
+// 7. Accordion
+// ------------
+$accordion-title-font-size: $large-font-size;
+
+// 10. Breadcrumbs
+// ---------------
+$breadcrumbs-margin: 1rem 0;
+$breadcrumbs-item-font-size: $global-font-size;
+
+// 11. Button
+// ----------
+$button-font-weight: 500;
+$button-padding: 1.15em 1.9em;
+$button-color-alt: $primary;
+$button-radius: $global-radius;
+$button-border: 2px solid transparent;
+$button-hollow-border-width: 2px;
+$button-sizes: (
+  tiny: .9rem,
+  small: .9rem,
+  default: 1rem,
+  large: 1.35rem,
+);
+$button-palette: (
+  primary: $primary,
+  secondary: $primary, // keeps the secondary color out of buttons
+  success: $success,
+  warning: $warning,
+  alert: $alert,
+);
+$button-background-hover-lightness: -50%;
+$button-brightness-hover: 100%;
+$button-brightness-active: 100%;
+$button-brightness-focus: 100%;
+
+// 14. Card
+// --------
+$card-border-radius: $global-radius;
+
+// 16. Drilldown
+// -------------
+$drilldown-arrow-color: $primary-color;
+
+// 17. Dropdown
+// ------------
+$dropdown-radius: $global-radius;
+
+// 18. Dropdown Menu
+// -----------------
+$dropdownmenu-padding: .7rem 1rem .6rem;
+$dropdown-menu-item-color-active: $hel-info;
+$dropdownmenu-arrow-color: $body-font-color;
+
+// 20. Forms
+// ---------
+$form-spacing: rem-calc(32);
+$helptext-color: $body-font-color;
+$form-label-color: $body-font-color;
+$form-label-font-size: rem-calc(16);
+$input-line-height: $global-lineheight;
+$input-font-size: rem-calc(18);
+$input-border: 2px solid $black;
+$input-border-focus: 2px solid map-get($foundation-palette, primary);
+$input-outline-focus: 3px solid $hel-coat;
+$input-outline-offset: 0;
+$select-radius: $global-radius;
+$input-radius: $global-radius;
+$form-button-radius: $global-radius;
+
+// 21. Label
+// ---------
+$label-color-alt: $body-font-color;
+$label-radius: $global-radius;
+
+// 23. Menu
+// --------
+
+$menu-margin: 0;
+$menu-nested-margin: 0;
+$menu-items-padding: 1.1rem 1rem;
+$menu-simple-margin: 1rem;
+$menu-item-color-active: $body-font-color;
+$menu-item-background-active: transparent;
+$menu-item-background-hover: $light-gray;
+
+// 27. Pagination
+// --------------
+$pagination-item-background-hover: $light-gray;
+$pagination-item-background-current: $primary-color;
+$pagination-radius: $global-radius;
+
+// 28. Progress Bar
+// ----------------
+$progress-radius: $global-radius;
+
+// 25. Off-canvas
+// --------------
+$offcanvas-sizes: (
+  small: 250px,
+);
+
+// 30. Switch
+// ----------
+$switch-radius: $global-radius;
+$switch-paddle-radius: $global-radius;
+
+// 47. Reveal
+// ----------
+$reveal-radius: $global-radius;
+
+// 51. Tabs
+// --------
+$tab-background: transparent;
+$tab-background-active: transparent;
+$tab-active-color: $body-font-color;
+$tab-item-padding: .8rem 3rem;
+$tab-item-background-hover: transparent;
+
+// 52. Thumbnail
+// -------------
+$thumbnail-radius: $global-radius;
+
+// 53. Title Bar
+// -------------
+$titlebar-background: transparent;
+$titlebar-color: #000;
+$titlebar-padding: 0;
+
+// 54. Tooltip
+// -----------
+$has-tip-font-weight: $global-weight-bold;
+$tooltip-radius: $global-radius;
+
+// 55. Top Bar
+// -----------
+$topbar-padding: 1rem .5rem 1.5rem;
+$topbar-background: transparent;
+$topbar-submenu-background: transparent;

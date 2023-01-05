@@ -1,0 +1,267 @@
+.hero{
+  &::after{
+    // Disable the overlay
+    display: none;
+  }
+
+  &.with-split{
+    position: relative;
+    background-size: 640px;
+    background-position: right bottom;
+
+    @media (min-width: 320px){
+      background-size: 200%;
+    }
+
+    @include breakpoint(mediumlarge){
+      background-size: 170%;
+    }
+
+    @include breakpoint(large){
+      background-size: cover;
+      background-position: right center;
+    }
+
+    &,
+    &.home-section{
+      background-color: transparent;
+    }
+  }
+
+  &.secondary{
+    background: $secondary;
+  }
+
+  &.lower{
+    .hero__container{
+      padding: 3rem 0 2rem;
+
+      @include breakpoint(large){
+        padding: 4rem 0 3.5rem;
+      }
+    }
+  }
+
+  &.subpage{
+    margin-bottom: 4rem;
+  }
+
+  &.with-card{
+    margin-bottom: 2rem;
+
+    .hero__container{
+      padding: 1rem 0;
+
+      @include breakpoint(large){
+        padding: 2.5rem 0;
+      }
+    }
+  }
+
+  &.with-overflow-image{
+    margin-bottom: 16rem;
+
+    .overflow-image{
+      margin-top: 3rem;
+      height: 60px;
+
+      img{
+        height: 300px;
+      }
+    }
+  }
+
+  &.main{
+    .hero__container{
+      min-height: 200px;
+
+      @include breakpoint(large){
+        min-height: 400px;
+      }
+    }
+  }
+
+  .koro{
+    &.secondary{
+      svg{
+        fill: $secondary;
+      }
+    }
+
+    svg{
+      fill: $body-background;
+    }
+  }
+}
+
+.hero__container{
+  text-align: left;
+}
+
+.hero__split{
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 13rem;
+
+  @media (min-width: 400px){
+    padding-bottom: 17rem;
+  }
+
+  @include breakpoint(medium){
+    padding-bottom: 23rem;
+  }
+
+  @include breakpoint(mediumlarge){
+    padding-bottom: 24rem;
+  }
+
+  @media (min-width: 850px){
+    padding-bottom: 26rem;
+  }
+
+  @include breakpoint(large){
+    background: linear-gradient(-45deg, transparent 45%, $secondary 45%);
+    padding-bottom: 0;
+  }
+
+  .hero__container{
+    background: $secondary;
+    padding: 3rem 0 1rem;
+
+    @include breakpoint(medium){
+      padding: 3rem 0 1rem;
+    }
+
+    @include breakpoint(mediumlarge){
+      padding: 3rem 0 1rem;
+    }
+
+    @include breakpoint(large){
+      background: transparent;
+      padding: 6rem 0;
+    }
+
+    .koro{
+      position: absolute;
+      top: auto;
+      bottom: -37px;
+
+      @include breakpoint(large){
+        display: none;
+      }
+
+      svg{
+        fill: $secondary;
+      }
+    }
+  }
+
+  .koro-wrapper{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+
+    @include breakpoint(large){
+      top: 55%; // linear gradient cut position
+      left: 50%; // put the wrapper to the middle
+      // margin-top is calculated from the element's width (i.e. 20% of width) as
+      // defined by the spec:
+      //   The size of the margin as a percentage, relative to the width of the
+      //   containing block.
+      //
+      //   Source:
+      //   https://developer.mozilla.org/en-US/docs/Web/CSS/margin
+      margin-top: 5%; // target the linear gradient edge position
+      height: 0;
+      width: 100%; // base element width to dynamically size the koro
+      transform: rotate(135deg);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+
+    // This assumes the hero width is always larger than its height.
+    // The base position where the koro edge is located is at (from the top of
+    // the hero element):
+    //    base position = hero height * 60% + hero width * 10%
+    //
+    // Vertically it is always at the middle of the image.
+    //
+    // The koro width needs to be at least (Pythagora's theorem):
+    //   koro width = sqrt(2) * hero height
+    //
+    // The left pull should be calculated with the following formula:
+    //   left pull = - base position - 50
+    //
+    // Since CSS cannot calculate the width or left position based on the parent
+    // element's height, we assume the hero is always wider than its height and
+    // position it according to this assumption.
+    //
+    // Therefore, the minimum width for the koro is sqrt(2) * 100% = ~141%.
+    // The pull position assumption is at 50% of its width which should work as
+    // long as the hero is wider than its height.
+    .koro{
+      position: absolute;
+      height: 39px;
+
+      @include breakpoint(large){
+        top: -37px; // 2px to hide scaling edge
+        width: 150%; // minimum of: sqrt(2) * hero height + 100
+        left: -75%; // exact: - hero height * 60% - hero width * 10% - 50
+      }
+
+      svg{
+        fill: $body-background;
+
+        @include breakpoint(large){
+          fill: $secondary;
+        }
+      }
+    }
+  }
+}
+
+.wrapper-paahtimo{
+  .hero{
+    &.secondary{
+      background: $paahtimo-secondary;
+    }
+
+    .koro{
+      &.secondary{
+        svg{
+          fill: $paahtimo-secondary;
+        }
+      }
+    }
+  }
+
+  .hero__split{
+    @include breakpoint(large){
+      background: linear-gradient(-45deg, transparent 45%, $paahtimo-secondary 45%);
+    }
+
+    .hero__container{
+      background: $paahtimo-secondary;
+
+      @include breakpoint(large){
+        background: transparent;
+      }
+
+      .koro{
+        svg{
+          fill: $paahtimo-secondary;
+        }
+      }
+    }
+
+    .koro-wrapper{
+      .koro{
+        svg{
+          @include breakpoint(large){
+            fill: $paahtimo-secondary;
+          }
+        }
+      }
+    }
+  }
+}

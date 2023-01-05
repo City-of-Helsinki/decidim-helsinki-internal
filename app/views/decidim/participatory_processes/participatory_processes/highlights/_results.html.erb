@@ -1,0 +1,29 @@
+<%
+component = current_participatory_space.components.published.where(
+  manifest_name: "accountability"
+).first
+
+if component
+  resources = Decidim::Accountability::Result.where(
+    component: component
+  ).order(Arel.sql("RANDOM()")).limit(3)
+end
+%>
+
+<% if resources.present? && resources.any? %>
+  <div class="section process-section">
+    <div class="process-section__title">
+      <div class="row column text-center">
+        <h2>Tutustu kokeiluihin</h2>
+      </div>
+    </div>
+
+    <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+      <%= render(resources) %>
+    </div>
+
+    <div class="row column text-center process-section-cta">
+      <%= link_to "Näytä kaikki kokeilut", main_component_path(component), class: "button primary" %>
+    </div>
+  </div>
+<% end %>

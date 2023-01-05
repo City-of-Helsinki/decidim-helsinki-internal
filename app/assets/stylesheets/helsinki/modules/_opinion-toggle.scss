@@ -1,0 +1,7 @@
+.opinion-toggle--meh{
+  &:hover,
+  &:focus,
+  &.is-active{
+    background-color: $primary;
+  }
+}

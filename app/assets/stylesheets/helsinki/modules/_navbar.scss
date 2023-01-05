@@ -1,0 +1,372 @@
+.logo-wrapper{
+  img{
+    width: 100px;
+    max-height: 50px;
+
+    &.logo-sv{
+      // TODO
+      max-height: 50px;
+    }
+  }
+}
+
+.service-logo{
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0 9px;
+
+  @include breakpoint(smallmedium){
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hki-city-logo{
+    flex: 1;
+  }
+
+  .service-logo-text{
+    font-weight: $global-weight-bold;
+    line-height: initial;
+    padding: 20px 0;
+
+    @include breakpoint(smallmedium){
+      padding: 0;
+      margin-left: 25px;
+    }
+  }
+}
+
+.topbar{
+  align-items: flex-start;
+
+  @include breakpoint(medium){
+    align-items: center;
+  }
+
+  a{
+    font-weight: $global-weight-normal;
+    text-decoration: none;
+
+    &:hover,
+    &:focus{
+      text-decoration: underline;
+    }
+  }
+
+  .sign-in-link{
+    font-weight: $anchor-font-weight;
+  }
+
+  .logo-wrapper{
+    width: 100px;
+
+    a.service-logo{
+      display: flex;
+    }
+  }
+}
+
+.topbar__user__login{
+  text-align: right;
+  line-height: 1.2;
+
+  a{
+    color: $body-font-color;
+  }
+
+  .icon{
+    position: relative;
+    top: 2px;
+    margin-right: 8px;
+  }
+
+  // a::before{
+  //   content: "";
+  //   margin-left: .5rem;
+  //   margin-right: .5rem;
+  //   display: inline-block;
+  //   width: 1px;
+  //   height: 2px;
+  //   border-left: $border;
+  //   vertical-align: middle;
+
+  //   @include breakpoint(medium){
+  //     display: none;
+  //   }
+  // }
+
+  // a:first-of-type{
+  //   @include breakpoint(medium){
+  //     margin-left: 0;
+  //   }
+
+  //   &::before{
+  //     display: none;
+  //   }
+  // }
+}
+
+//Foundation overwrites
+.topbar__dropmenu > ul > li > a{
+  color: $body-font-color;
+  font-weight: $global-weight-bold;
+
+  &::after{
+    border-top-color: $body-font-color !important;
+  }
+}
+
+.title-bar,
+.navbar{
+  border-bottom: 1px solid $medium-gray;
+}
+
+.title-bar{
+  @include breakpoint(smallmedium down){
+    border-top: 0;
+  }
+}
+
+.navbar{
+  background: $body-background;
+
+  a{
+    text-decoration: none;
+    font-weight: $global-weight-normal;
+  }
+
+  a,
+  .button{
+    &:focus{
+      outline-color: var(--highlight);
+    }
+  }
+}
+
+.topbar__search{
+  &:not(:focus-within){
+    button{
+      background-color: $primary;
+      color: $white;
+
+      @include breakpoint(medium){
+        background: $primary;
+      }
+    }
+  }
+
+  &:focus-within{
+    input{
+      background-color: $light-gray;
+      color: $body-font-color;
+      border: $input-border-focus;
+
+      &::placeholder{
+        color: $dark-medium-gray;
+      }
+    }
+  }
+
+  a{
+    font-weight: $anchor-font-weight;
+
+    .icon{
+      margin-right: .5rem;
+    }
+  }
+
+  input{
+    color: $input-color;
+    background: $input-background;
+    border: $input-border;
+    border-radius: 0;
+
+    &:focus{
+      color: $input-color;
+      background: $input-background;
+    }
+
+    @include breakpoint(medium){
+      background: $input-background;
+    }
+  }
+
+  button{
+    border-radius: 0;
+  }
+
+  .input-group-button button{
+    height: 2.5rem;
+  }
+}
+
+.main-nav ul{
+  @include breakpoint(medium){
+    position: relative;
+    display: block;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  @include breakpoint(mediumlarge){
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    display: flex;
+  }
+
+  > li{
+    @include breakpoint(medium){
+      display: block;
+      text-align: left;
+    }
+
+    @include breakpoint(mediumlarge){
+      display: inline-block;
+      flex: 0 0 auto;
+      text-align: center;
+    }
+  }
+}
+
+.main-nav__link a{
+  color: $body-font-color;
+
+  @include breakpoint(medium){
+    padding: 1em 2em;
+  }
+
+  @include breakpoint(mediumlarge){
+    padding: .75em 2em;
+    margin-right: 1rem;
+  }
+
+  &:hover{
+    background: $body-background;
+    color: $body-font-color;
+  }
+
+  &:focus{
+    z-index: 1;
+    color: $body-font-color;
+    outline-offset: -2px;
+  }
+
+  &:hover,
+  &:focus{
+    text-decoration: none;
+
+    @include breakpoint(mediumlarge){
+      box-shadow: inset 0 -4px 0 0 var(--primary);
+    }
+  }
+}
+
+.main-nav__link--active a{
+  box-shadow: inset 4px 0 0 0 var(--primary);
+
+  @include breakpoint(mediumlarge){
+    box-shadow: inset 0 -4px 0 0 var(--primary);
+  }
+}
+
+.topbar__admin__link{
+  margin-left: 30px;
+
+  a{
+    color: $body-font-color;
+    font-weight: $anchor-font-weight;
+
+    &:hover,
+    &:focus{
+      color: $body-font-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+.topbar > .topbar__admin__link{
+  display: none;
+
+  @include breakpoint(mediumlarge){
+    display: flex;
+  }
+}
+
+.topbar__user__logged{
+  padding-right: 0;
+
+  @include breakpoint(medium){
+    display: none;
+  }
+
+  @include breakpoint(mediumlarge){
+    display: block;
+  }
+}
+
+a.topbar__notifications,
+a.topbar__conversations{
+  .icon{
+    fill: $muted;
+    opacity: .8;
+  }
+
+  &:hover,
+  &:focus{
+    text-decoration: none;
+  }
+
+  &.is-active .icon{
+    fill: $hel-metro;
+    opacity: 1;
+  }
+}
+
+.language-choose{
+  @include breakpoint(medium down){
+    font-size: $global-font-size;
+    position: absolute;
+    top: 16px;
+    left: auto;
+    right: 56px;
+    margin-left: 0;
+
+    &:hover,
+    &:focus{
+      text-decoration: underline;
+    }
+
+    .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+      border-width: 3px;
+      right: 10px;
+      margin-top: 0;
+
+      &:hover,
+      &:focus{
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.topbar__menu{
+  font-size: 26px;
+  margin-right: .5rem;
+  margin-top: 1.3rem;
+
+  @include breakpoint(medium){
+    margin-top: .5rem;
+  }
+}
+
+.usermenu-off-canvas-holder{
+  .usermenu-off-canvas a{
+    color: $body-font-color;
+
+    &:hover,
+    &:focus{
+      color: $body-font-color;
+    }
+  }
+}

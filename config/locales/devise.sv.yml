@@ -1,0 +1,22 @@
+sv:
+  devise:
+    sessions:
+      new:
+        sign_in: 'Logga in'
+    shared:
+      omniauth:
+        tunnistamo:
+          description: 'Vissa funktioner i Kokeilukiihdyttämö är endast tillgängliga för stadsanställda.'
+          description_read_more: Läs mer om Kokeilukiihdyttämö
+          sign_in_button: 'Logga in'
+          sign_in_with: 'Logga in med Helsingfors anställds användarkonto'
+  decidim:
+    devise:
+      registrations:
+        new:
+          sign_up_service_account: 'Skapa ett konto'
+          sign_up_service_account_description: 'Skapa ett eget användarkonto och logga i fortsättningen in med din e-postadress och ditt eget lösenord.'
+      sessions:
+        new:
+          sign_in_service_account: 'Logga in med kontot från administratören'
+          sign_in_service_account_description: 'Om du är anställd av Helsingfors stad men inte har ett användarnamn för Helsingfors (personligt eller delat ID) kan du begära separata ID från %{email}.'

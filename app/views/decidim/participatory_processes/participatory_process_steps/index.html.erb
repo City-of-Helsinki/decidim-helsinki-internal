@@ -1,0 +1,37 @@
+<% add_decidim_page_title(t("participatory_process_steps.index.title", scope: "decidim")) %>
+
+<section class="extended hero lower subpage secondary">
+  <div class="hero__container">
+    <div class="row column">
+      <h1 class="h2"><%= t("participatory_process_steps.index.process_steps", scope: "decidim") %></h1>
+      <p><strong>Kampanja: <%= translated_attribute(current_participatory_space.title) %></strong></p>
+
+      <p>
+        <%= link_to participatory_process_path(current_participatory_space) do %>
+          <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+          <%= t(".back_to_process") %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="koro-wrapper">
+    <%= koro("pulse") %>
+  </div>
+</section>
+
+<div class="steps">
+  <div class="row column">
+    <div class="row">
+      <div class="columns mediumlarge-9 large-7">
+        <div class="section">
+          <%= render partial: "timeline" %>
+
+          <%= link_to participatory_process_path(current_participatory_space) do %>
+            <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+            <%= t(".back_to_process") %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

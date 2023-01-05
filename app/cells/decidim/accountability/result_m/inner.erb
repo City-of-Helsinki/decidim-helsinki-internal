@@ -1,0 +1,22 @@
+<%= link_to resource_path, class: "card #{card_classes}", role: "region", aria: { label: title } do %>
+  <%= render :top if render_top? %>
+  <%= render :image %>
+  <div class="card__content">
+    <%= render :label if has_label? %>
+    <%= render :header if has_header? %>
+
+    <div class="card__text">
+      <div class="card__text--paragraph">
+        <%= render :badge if has_badge? %>
+        <%= description %>
+      </div>
+      <%= render :progress if display_progress? %>
+    </div>
+
+    <%= render :authors %>
+    <%= render :tags %>
+  </div>
+
+  <%= render :footer %>
+  <%= render :status %>
+<% end %>

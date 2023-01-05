@@ -1,0 +1,28 @@
+<% if Devise.mappings[:user].omniauthable? && current_organization.enabled_omniauth_providers.any? %>
+  <div class="row">
+    <div class="columns">
+      <% if current_organization.enabled_omniauth_providers.include?(:tunnistamo) %>
+        <div class="social-register text-center">
+          <h3 class="h5 margin-bottom-1">
+            <%= t("devise.shared.omniauth.tunnistamo.sign_in_with") %>
+          </h3>
+          <p>
+            <%= t("devise.shared.omniauth.tunnistamo.description") %>
+            <%= link_to(
+              t("devise.shared.omniauth.tunnistamo.description_read_more"),
+              decidim_participatory_processes.participatory_processes_path,
+              target: "_blank"
+            )%>
+          </p>
+          <%= link_to decidim.send("user_tunnistamo_omniauth_authorize_path"), class: "button hollow large primary button--#{normalize_provider_name(:tunnistamo)}", method: :post do %>
+            <%= t("devise.shared.omniauth.tunnistamo.sign_in_button") %>
+          <% end %>
+        </div>
+
+        <span class="register__separator">
+          <span class="register__separator__text"><%= t("decidim.devise.shared.omniauth_buttons.or") %></span>
+        </span>
+      <% end %>
+      </div>
+  </div>
+<% end %>

@@ -1,0 +1,113 @@
+<% add_decidim_meta_tags(title: t("participatory_processes.index.title", scope: "decidim")) %>
+
+<%
+edit_link(
+  decidim_admin_participatory_processes.participatory_processes_path,
+  :read,
+  :process_list
+)
+%>
+
+<%= render partial: "layouts/decidim/breadcrumbs" %>
+
+<%= participatory_space_wrapper do %>
+  <section class="extended hero lower subpage secondary">
+    <div class="hero__container">
+      <div class="row">
+        <div class="columns large-8 large-push-2 text-center">
+          <h1><%= t("decidim.menu.processes") %></h1>
+        </div>
+      </div>
+
+      <% if promoted_participatory_processes.any? %>
+        <div class="row">
+          <div class="columns text-center">
+            <div class="highlighted-links">
+              <div class="highlighted-links__title">Käynnissä olevat kampanjat</div>
+
+              <% promoted_participatory_processes.each do |process| %>
+                <%= link_to participatory_process_path(process), class: "highlighted-links__item" do %>
+                  <%= decidim_html_escape(translated_attribute(process.title)).html_safe %>
+                  <%= icon("chevron-right") %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="koro-wrapper">
+      <%= koro("basic") %>
+    </div>
+  </section>
+
+  <div class="section">
+    <div class="row">
+      <div class="column medium-8 medium-push-2 large-6 large-push-3">
+        <ul class="tabs" id="process-tabs" data-tabs>
+          <li class="tabs-title is-active">
+            <a href="#process-intro" data-tabs-taget="process-intro" aria-selected="true">Esittely</a>
+          </li>
+          <li class="tabs-title">
+            <a href="#process-listing" data-tabs-target="process-listing">Kampanjat</a>
+          </li>
+          <li class="tabs-title">
+            <a href="#process-sparring" data-tabs-target="process-sparring">Sparraus</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabs-content" data-tabs-content="process-tabs">
+    <div class="tabs-panel is-active" id="process-intro">
+      <div class="section">
+        <div class="row">
+          <div class="column medium-8 medium-push-2 large-6 large-push-3">
+            <%== translated_content_section("participatory_processes_intro") %>
+
+            <%== translated_content_section("participatory_processes_phases_intro") %>
+
+            <% if (phases = translated_content_section("participatory_processes_phases")).present? %>
+              <div class="card">
+                <div class="card__content">
+                  <%== phases %>
+                </div>
+              </div>
+            <% end %>
+
+            <%== translated_content_section("participatory_processes_index") %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tabs-panel" id="process-listing">
+      <div class="section">
+        <div class="row">
+          <div class="column medium-8 medium-push-2 large-6 large-push-3">
+            <div class="text-center">
+              <%= cell "decidim/participatory_processes/process_filters", default_filter: default_date_filter %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="loading hide"><%= t(".loading") %></p>
+
+      <div id="processes-list">
+        <%= render partial: "processes_list" %>
+      </div>
+    </div>
+    <div class="tabs-panel" id="process-sparring">
+      <div class="section">
+        <div class="row">
+          <div class="column medium-8 medium-push-2 large-6 large-push-3">
+            <%== translated_content_section("participatory_processes_sparring") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= javascript_include_tag "decidim/participatory_processes/filters" %>
+<%= javascript_include_tag "decidim/filters" %>

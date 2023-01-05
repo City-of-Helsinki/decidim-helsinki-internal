@@ -1,0 +1,72 @@
+<section class="extended hero lower subpage secondary">
+  <div class="hero__container">
+    <div class="row column">
+      <h1 class="h2"><%= t(".title") %></h1>
+      <p><strong>Kampanja: <%= translated_attribute(component.participatory_space.title) %></strong></p>
+
+      <% if translated_attribute(component.settings.plan_listing_intro).present? %>
+        <%= decidim_sanitize translated_attribute(component.settings.plan_listing_intro) %>
+      <% end %>
+      <% if component.current_settings.creation_enabled && component.participatory_space.can_participate?(current_user) %>
+        <% if draft_link %>
+          <p><%= t ".draft_plan_description" %></p>
+          <%= link_to t(".draft_plan_continue"), draft_link, class: "title-action__action button primary" %>
+        <% else %>
+          <%= link_to new_plan_path, class: "title-action__action button primary", data: { "redirect_url" => new_plan_path } do %>
+            <%= t(".new_plan") %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="koro-wrapper">
+    <%= koro("pulse") %>
+  </div>
+</section>
+
+<% if has_geocoding? %>
+  <%= plans_map plans_data_for_map(geocoded_plans) do %>
+    <template id="marker-popup">
+      <div class="map-info__content">
+        <h3>${title}</h3>
+        <div id="bodyContent">
+          <p>{{html body}}</p>
+          <div class="map__date-adress">
+            <div class="address card__extra">
+              <div class="address__icon">{{html icon}}</div>
+              <div class="address__details">
+                <span>${address}</span><br>
+              </div>
+            </div>
+          </div>
+          <div class="map-info__button">
+            <a href="${link}" class="button button--sc">
+              <%= t(".view_plan") %>
+            </a>
+          </div>
+        </div>
+      </div>
+    </template>
+    <%= javascript_include_tag "decidim/plans/map" %>
+  <% end %>
+<% end %>
+
+<div class="row columns">
+  <%= render :filters_small_view %>
+  <div class="show-for-mediumlarge">
+    <%= render :filters %>
+  </div>
+</div>
+
+<div class="row columns">
+  <div class="title-action">
+    <h2 id="plans-count" class="title-action__title h3">
+      <%= render :count %>
+    </h2>
+  </div>
+</div>
+<div class="row">
+  <div id="plans" class="columns">
+    <%= render :plans %>
+  </div>
+</div>

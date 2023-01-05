@@ -1,0 +1,20 @@
+<%
+title = t(".title", usernames: conversation.interlocutors(current_user).map(&:name).join(", "))
+add_decidim_page_title(title)
+%>
+
+<%= render partial: "header", locals: { title: title } %>
+
+<%= render layout: "show", locals: { participants: conversation.interlocutors(current_user) } do %>
+  <div id="messages" class="scroll-to-last-message">
+    <% user_grouped_messages.each do |sender, messages| %>
+      <%= render "messages", sender: sender, messages: messages %>
+    <% end %>
+  </div>
+
+  <% if conversation.accept_user?(current_user) %>
+    <%= render "reply", form: @form, conversation: conversation %>
+  <% else %>
+    <div class="callout warning margin-top-2"><%= t ".not_allowed" %></div>
+  <% end %>
+<% end %>

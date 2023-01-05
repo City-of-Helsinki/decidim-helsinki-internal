@@ -1,0 +1,79 @@
+.button--sc{
+  text-transform: none;
+  font-weight: $button-font-weight;
+  letter-spacing: normal;
+
+  &.hollow{
+    letter-spacing: normal;
+  }
+}
+
+.button{
+  &.hollow{
+    &.primary,
+    &.secondary{
+      .hover,
+      &:hover,
+      .focus,
+      &:focus{
+        color: $white;
+      }
+    }
+  }
+
+  &.secondary{
+    // Override the secondary buttons to use the primary color to make it
+    // accessible and more consistent.
+    background-color: var(--primary);
+
+    &.hover,
+    &:hover,
+    &.focus,
+    &:focus{
+      background-color: var(--primary);
+    }
+
+    &.hollow{
+      color: var(--primary);
+      border-color: var(--primary);
+
+      &.hover,
+      &:hover,
+      &.focus,
+      &:focus{
+        border-color: var(--primary);
+        background-color: var(--primary);
+        color: $white;
+      }
+    }
+  }
+
+  &.button--icon.secondary.hollow{
+    .icon-wrap{
+      border-right-color: var(--primary);
+    }
+
+    &.hover,
+    &:hover,
+    &.focus,
+    &:focus{
+      .icon-wrap{
+        border-right-color: $white;
+      }
+    }
+  }
+
+  &.clear.secondary{
+    color: var(--primary);
+  }
+}
+
+a.button{
+  text-decoration: none;
+}
+
+p{
+  .button{
+    margin-right: 11px;
+  }
+}

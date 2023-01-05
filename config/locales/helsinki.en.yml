@@ -1,0 +1,80 @@
+en:
+  helsinki:
+    content_blocks:
+      background_section:
+        name: Background section
+      background_section_settings_form:
+        button1_text: Button 1 text
+        button1_url: Button 1 URL
+        button2_text: Button 2 text
+        button2_url: Button 2 URL
+        description: Description
+        title: Title
+      help_section:
+        name: Help section
+      help_section_settings_form:
+        button1_text: Button 1 text
+        button1_url: Button 1 URL
+        button2_text: Button 2 text
+        button2_url: Button 2 URL
+        description: Description
+        title: Title
+      hero_with_card_left:
+        name: Hero image with card (left side)
+      hero_with_card_right:
+        name: Hero image with card (right side)
+      hero_with_card_settings_form:
+        background_image: Background image
+        button1_new_tab: Button 2 opens a new tab
+        button1_text: Button 1 text
+        button1_url: Button 1 URL
+        button2_new_tab: Button 2 opens a new tab
+        button2_text: Button 2 teksti
+        button2_url: Button 2 URL
+        description: Description
+        title: Title
+      highlighted_blogs:
+        name: Highlighted blogs
+      highlighted_blogs_settings_form:
+        title: Title
+      highlighted_results:
+        go_to_gallery: Siirry kokeilugalleriaan
+        name: Highlighted experiments
+        show_more: Tutki lisää kokeiluita
+      highlighted_results_settings_form:
+        title: Title
+      image_section:
+        name: Image section
+      image_section_settings_form:
+        description: Description
+        image: Image
+        link_text: Link text
+        link_url: Link URL
+        title: Title
+      intro:
+        name: Intro
+      intro_settings_form:
+        description: Description
+        link_text: Link text
+        link_url: Link URL
+        title: Title
+    copyright: '%{year} City of Helsinki'
+    devise:
+      shared:
+        omniauth_buttons:
+          tunnistamo_explanation_internal: 'Tunnistamo authentication'
+        tunnistamo_description: Using Tunnistamo you can authenticate using Google, Facebook, or YLE among others.
+    map:
+      districts:
+        central: Central
+        eastern: Eastern
+        northeastern: Northeastern
+        northern: Northern
+        ostersundom: Östersundom
+        southern: Southern
+        southeastern: Southeastern
+        western: Western
+      image:
+        creator: Original creator of the image
+        license: Image license
+        note: The image has been edited from the original

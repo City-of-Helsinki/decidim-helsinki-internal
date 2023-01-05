@@ -1,0 +1,67 @@
+.tabs{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  @include breakpoint(medium){
+    flex-direction: row;
+    text-align: left;
+  }
+
+  &.side-panel__tabs{
+    flex-direction: column;
+
+    .tabs-title{
+      border-bottom: $border;
+
+      > a{
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+      }
+
+      &.is-active{
+        > [role=tab],
+        > a{
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  .tabs-title{
+    float: none;
+    border-bottom: 1px solid $medium-gray;
+
+    &.is-active{
+      border-bottom: 4px solid $black;
+    }
+
+    > a{
+      text-decoration: none;
+      font-weight: $global-weight-normal;
+
+      &:hover,
+      &:focus{
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.hero.secondary{
+  .tabs-title{
+    border-bottom: 1px solid $black;
+
+    &.is-active{
+      border-bottom: 4px solid $black;
+    }
+
+    > a{
+      &:focus,
+      &[aria-selected='true']{
+        background: $bg-secondary;
+      }
+    }
+  }
+}

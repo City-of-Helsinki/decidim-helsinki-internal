@@ -1,0 +1,77 @@
+<% if infos_page? %>
+  <% add_decidim_page_title(t(".infos_title")) %>
+<% else %>
+  <% add_decidim_page_title(t(".title")) %>
+<% end %>
+<%
+edit_link(
+  decidim_admin.static_pages_path,
+  :read,
+  :static_page
+)
+%>
+
+<%= render partial: "layouts/decidim/breadcrumbs" %>
+
+<section class="extended hero lower subpage secondary">
+  <div class="hero__container">
+    <div class="row">
+      <div class="columns large-8 large-push-2 text-center">
+        <% if infos_page? %>
+          <h1><%= t(".infos_title") %></h1>
+        <% else %>
+          <h1><%= t(".title") %></h1>
+        <% end %>
+        <%
+        section = Decidim::ContextualHelpSection.find_content(
+          current_organization,
+          infos_page? ? "info_index" : "help_index"
+        )
+        content = translated_attribute(section)
+        %>
+        <% if content.blank? %>
+          <% if infos_page? %>
+            <p><%= t(".infos_subheading", name: current_organization.name) %></p>
+          <% else %>
+            <p><%= t(".subheading", name: current_organization.name) %></p>
+          <% end %>
+        <% else %>
+          <%== content %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="koro-wrapper">
+    <%= koro("basic") %>
+  </div>
+</section>
+
+<div class="wrapper">
+  <% if @topics.any? %>
+    <% @topics.each do |topic| %>
+      <% next unless topic.pages.any? %>
+
+      <div class="section">
+        <div class="row column">
+          <h2>
+            <%= link_to translated_attribute(topic.title), target_path(topic.pages.first), class: "card__link" %>
+          </h2>
+
+          <%= render partial: "page_cards", locals: { pages: topic.pages } %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if @orphan_pages.any? %>
+    <div class="section">
+      <div class="row column">
+        <% if @topics.any? %>
+          <h2><%= t ".standalone_pages" %></h2>
+        <% end %>
+
+        <%= render partial: "page_cards", locals: { pages: @orphan_pages } %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+.column-grid{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  .column{
+    float: none;
+    clear: none;
+    height: 100%;
+    width: auto;
+    margin-bottom: 0;
+  }
+}

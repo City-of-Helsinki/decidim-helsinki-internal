@@ -1,0 +1,11 @@
+<% if has_link_to_resource? %>
+  <div class="card__footer">
+    <div class="card__support">
+      <% if has_footer? %>
+        <span class="card__button button hollow large primary">
+          <%= t(".view_plan") %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+<% end %>

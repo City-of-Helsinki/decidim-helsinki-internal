@@ -1,0 +1,135 @@
+sv:
+  activemodel:
+    attributes:
+      user:
+        division: Sektor
+        phone: Telefonnummer
+  activerecord:
+    models:
+      decidim/plans/plan:
+        one: Förslag
+        other: Förslag
+  auth:
+    sign_in_with_tunnistamo: 'Logga in med Tunnistamo'
+  decidim:
+    admin:
+      menu:
+        participatory_process_static_contents: Statiskt innehåll
+    components:
+      component_order_selector:
+        order:
+          plan: Förslag
+    forms:
+      file_help:
+        file:
+          explanation: 'Vägledning för fil:'
+          message_1: Måste vara en bild eller ett dokument.
+          message_2: För bilder, använd företrädesvis liggande bilder, tjänsten beskär bilden.
+        image:
+          explanation: 'Vägledning för bild:'
+          message_1: Helst en landskapsbild som inte har någon text.
+          message_2: Tjänsten beskär bilden.
+    help_sections:
+      footer_text:
+        name: Sidfotstext
+      help_index:
+        name: Hjälpavsnittets första sida
+      info_index:
+        name: Informationssektionens framsida
+      participatory_processes_index:
+        name: Beskrivning
+      participatory_processes_intro:
+        name: Intro
+      participatory_processes_phases:
+        name: Faser
+      participatory_processes_phases_intro:
+        name: Faser intro
+      participatory_processes_sparring:
+        name: Sparring sidtext
+    menu:
+      posts: Aktuell
+      results: Experimentgalleri
+    pages:
+      home:
+        hero:
+          participate_title: Delta
+        statistics:
+          plans_count: Planer
+        sub_hero:
+          register_title: Registrera
+      index:
+        standalone_pages: Andra sidor
+        title: Verktyg
+      side_panel:
+        show_navigation: Visa navigering
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Kampanjer
+  errors:
+    messages:
+      extension_whitelist_error: Filtypen du försökte ladda upp är inte tillåten.
+  forms:
+    scopes_picker:
+      others: Andra
+      prompt: Välj %{item_name}
+  pages:
+    home:
+      hero:
+        participate: Delta
+      extended:
+        debates: Diskussioner
+        debates_explanation: Dela dina personliga åsikter och synpunkter genom diskussioner.
+        meetings_explanation: Låt oss träffas och samarbeta för vår stad.
+        proposals: Idéer
+        proposals_explanation: Öppna utrymme för medborgarnas idéer om vilken typ av stad vi vill bo i.
+        how_to_participate: Hur man deltar
+      statistics:
+        headline: Aktuell statistik
+      footer_sub_hero:
+        footer_sub_hero_headline: Gemenskapens deltagande tjänst
+      highlighted_processes:
+        active_processes: Aktiv nu
+        see_all_processes: Visa alla
+      highlighted_process_groups:
+        active_processes: Aktiv nu
+        see_all_processes: Visa alla
+  search:
+    decidim/blogs/post:
+      name: Artiklar
+    decidim/plans/plan:
+      name: Förslag
+    decidim/user:
+      name: Människor
+  layouts:
+    decidim:
+      assembly_header:
+        unfold: Öppna
+      breadcrumbs:
+        current: Nuvarande sida
+      header:
+        front_page_link: Gå till hemsidan
+        help: Verktyg
+        navigation: Meny
+        sign_in: Logga in
+      participatory_processes:
+        index:
+          active_processes: Pågår nu
+          past_processes: Tidigare omgångar
+      user_menu:
+        conversations: Meddelanden
+        favorites: Favoriter
+        notifications: Notifikationer
+        profile: Kontoinformation
+        profile_nav: Profil
+        public_profile: Den egna verksamheten
+    footer:
+      about: Om tjänsten
+      contact: Kontaktuppgifter
+      feedback: Ge feedback via e-post
+  locale:
+    chooser_name: På svenska
+  versions:
+    dropdown:
+      choose_diff_view_mode_menu: Välj jämförelseläge

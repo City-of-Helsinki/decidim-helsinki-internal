@@ -1,0 +1,45 @@
+<%
+component = current_participatory_space.components.published.where(manifest_name: "meetings").first
+
+if component
+  resources = Decidim::Meetings::Meeting.where(
+    component: component
+  ).upcoming.order(:start_time)
+end
+%>
+
+<% if resources.present? && resources.any? %>
+  <div class="section process-section">
+    <div class="process-section__title">
+      <div class="row column text-center">
+        <h2>Kampanjaan liittyvät tapahtumat</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column large-10 large-push-1">
+        <div class="data-rows">
+          <div class="data-rows__item data-rows__header data-rows__item--with-icon">
+            <div class="data-rows__item__data data-rows__item__data--title">Tapahtuma</div>
+            <div class="data-rows__item__data data-rows__item__data--details">Ajankohta ja paikka</div>
+            <div class="data-rows__item__icon"></div>
+          </div>
+          <% resources.each do |meeting| %>
+            <%= link_to ::Decidim::ResourceLocatorPresenter.new(meeting).path, class: "data-rows__item data-rows__item--with-icon" do %>
+              <div class="data-rows__item__data data-rows__item__data--title">
+                <%= translated_attribute(meeting.title) %>
+              </div>
+              <div class="data-rows__item__data data-rows__item__data--details">
+                <span class="data-rows__item__detail"><%= meeting_time(meeting) %></span>
+                <span class="data-rows__item__detail"><%= translated_attribute(meeting.location) %></span>
+              </div>
+              <div class="data-rows__item__icon">
+                <%= icon("chevron-right") %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

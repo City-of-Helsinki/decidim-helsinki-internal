@@ -1,0 +1,87 @@
+fi:
+  helsinki:
+    content_blocks:
+      background_section:
+        name: Taustaosio
+      background_section_settings_form:
+        button1_text: Napin 1 teksti
+        button1_url: Napin 1 URL
+        button2_text: Napin 2 teksti
+        button2_url: Napin 2 URL
+        description: Kuvaus
+        title: Otsikko
+      help_section:
+        name: Apuosio
+      help_section_settings_form:
+        button1_text: Napin 1 teksti
+        button1_url: Napin 1 URL
+        button2_text: Napin 2 teksti
+        button2_url: Napin 2 URL
+        description: Kuvaus
+        title: Otsikko
+      hero_settings_form:
+        background_image: Taustakuva
+        button_text: Napin teksti
+        button_url: Napin URL
+        subtitle: Alaotsikko
+        title: Otsikko
+        welcome_text: Tekstiosio
+      hero_with_card_left:
+        name: Hero-kuva kortin kanssa (vasemmalla)
+      hero_with_card_right:
+        name: Hero-kuva kortin kanssa (oikealla)
+      hero_with_card_settings_form:
+        background_image: Taustakuva
+        button1_new_tab: Nappi 1 avaa uuden välilehden
+        button1_text: Napin 1 teksti
+        button1_url: Napin 1 URL
+        button2_new_tab: Nappi 2 avaa uuden välilehden
+        button2_text: Napin 2 teksti
+        button2_url: Napin 2 URL
+        description: Kuvaus
+        title: Otsikko
+      highlighted_blogs:
+        name: Bloginostot
+      highlighted_blogs_settings_form:
+        title: Otsikko
+      highlighted_results:
+        name: Kokeilunostot
+        go_to_gallery: Siirry kokeilugalleriaan
+        show_more: Tutki lisää kokeiluita
+      highlighted_results_settings_form:
+        title: Otsikko
+      image_section:
+        name: Kuvaosio
+      image_section_settings_form:
+        description: Kuvaus
+        image: Kuva
+        link_text: Linkin teksti
+        link_url: Linkin URL
+        title: Otsikko
+      intro:
+        name: Intro
+      intro_settings_form:
+        description: Kuvaus
+        link_text: Linkin teksti
+        link_url: Linkin URL
+        title: Otsikko
+    copyright: '%{year} Helsingin kaupunki'
+    devise:
+      shared:
+        omniauth_buttons:
+          tunnistamo_explanation_internal: 'Tunnistamo-kirjautuminen'
+        tunnistamo_description: Tunnistamon avulla voit kirjautua palveluun mm. Google-, Facebook-, YLE-palveluiden avulla.
+    map:
+      districts:
+        central: Keskinen
+        eastern: Itäinen
+        northeastern: Koillinen
+        northern: Pohjoinen
+        ostersundom: Östersundom
+        southern: Eteläinen
+        southeastern: Kaakkoinen
+        western: Läntinen
+      image:
+        creator: Alkuperäisen kuvan tekijä
+        license: Kuvan lisenssi
+        note: Kuvaa muokattu alkuperäisestä

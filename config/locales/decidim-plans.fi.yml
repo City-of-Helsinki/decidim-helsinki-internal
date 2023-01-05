@@ -1,0 +1,22 @@
+fi:
+  decidim:
+    plans:
+      answers:
+        not_answered: Uusi
+      plan_form:
+        required_fields_text: Tähdellä * merkityt kentät ovat pakollisia, jotta ehdotuksen saa lähetettyä. Jokaiseen kysymykseen kannattaa vastata, jotta ehdotus voi saada tarpeeksi pisteitä ja edetä toteutukseen.
+      plan_index:
+        filters:
+          reset: Tyhjennä rajaukset
+          state_prompt: Tila
+          tag: Tunniste
+          tag_prompt: Valitse tunniste
+      plan_m:
+        tags_title: Tunnisteet
+      plans:
+        preview:
+          not_published: Ehdotustasi ei ole vielä julkaistu - se näkyy esikatselutilassa vain sinulle
+          not_published_description_html: |
+            <p>Tarkista ehdotuksen sisältö ja julkaise se sitten painamalla Julkaise-painiketta.</p>
+            <p>Julkaistu ehdotus näkyy vain sivustolle kirjautuneille kaupungin työntekijöille. Yrityskumppaneille antamasi tiedot välittyvät automaattisesti hakulomakkeessa ilmoitetulle Teams-kanavalle.</p>
+            <p>Huomaathan, että voit päivittää ehdotustasi niin monta kertaa kuin haluat ennen hakuajan päättymistä. Kokeiluehdotuksesta kannattaakin julkaista ensimmäinen versio mahdollisimman aikaisessa vaiheessa! Näin muut sivuston käyttäjät sekä kumppaniyritykset saavat tietoja ehdotuksesta ja ehtivät sparrata ehdotusta paremmaksi ennen hakuajan päättymistä.</p>

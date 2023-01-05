@@ -1,0 +1,28 @@
+<section class="extended hero lower subpage secondary">
+  <div class="hero__container">
+    <div class="row column">
+      <h1 class="h2"><%= t(".not_published") %></h1>
+      <p>
+        <strong>Kampanja: <%= decidim_sanitize translated_attribute(current_participatory_space.title) %></strong>
+      </p>
+      <p><%= t(".not_published_description_html") %></p>
+    </div>
+  </div>
+  <div class="koro-wrapper">
+    <%= koro("basic") %>
+  </div>
+</section>
+
+<%= render partial: "plan_preview", locals: { plan: @plan } %>
+
+<div class="row">
+  <div class="columns large-12">
+    <div class="p-l">
+      <div class="row column flex-center actions">
+        <%= link_to t(".modify"), edit_plan_path(@plan), class: "mr-2" %>
+        <%= button_to t(".publish"), publish_plan_path(@plan), method: :post, class: "button large button--nomargin" %>
+      </div>
+    </div>
+  </div>
+  <div class="columns large-3"></div>
+</div>

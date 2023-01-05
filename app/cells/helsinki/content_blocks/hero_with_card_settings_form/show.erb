@@ -1,0 +1,15 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.translated :text_field, :title, label: t(".title") %>
+  <%= settings_fields.translated :editor, :description, label: t(".description") %>
+  <%= settings_fields.text_field :button1_url, label: t(".button1_url") %>
+  <%= settings_fields.translated :text_field, :button1_text, label: t(".button1_text") %>
+  <%= settings_fields.check_box :button1_new_tab, label: t(".button1_new_tab") %>
+  <%= settings_fields.text_field :button2_url, label: t(".button2_url") %>
+  <%= settings_fields.translated :text_field, :button2_text, label: t(".button2_text") %>
+  <%= settings_fields.check_box :button2_new_tab, label: t(".button2_new_tab") %>
+<% end %>
+
+<% form.fields_for :images, form.object.images do |images_fields| %>
+  <%= images_fields.upload :background_image, label: t(".background_image") %>
+<% end %>
+

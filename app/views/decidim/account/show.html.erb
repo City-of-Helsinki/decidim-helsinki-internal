@@ -1,0 +1,80 @@
+<% add_decidim_page_title(t("profile", scope: "layouts.decidim.user_menu")) %>
+<% content_for(:subtitle) { t("profile", scope: "layouts.decidim.user_menu") } %>
+
+<div class="row">
+  <%= decidim_form_for(@account, url: account_path, method: :put, html: { autocomplete: "off" }) do |f| %>
+    <input autocomplete="off" name="hidden" type="password" style="display:none;">
+    <div class="columns large-4">
+      <%= f.upload :avatar %>
+    </div>
+
+    <div class="columns large-8 end">
+      <%= form_required_explanation %>
+
+      <%= f.text_field :name %>
+      <%= f.text_field :nickname %>
+      <%= f.email_field :email %>
+      <%= f.text_field :phone %>
+      <%= f.text_field :division %>
+      <%= f.url_field :personal_url %>
+      <%= f.text_area :about, rows: 5 %>
+
+      <div class="form-section">
+        <div class="form-section__title">
+          <h2 class="h3">Sparrauskaveri</h2>
+        </div>
+        <%= f.check_box :providing_help, label_options: { class: "checkbox-field" } %>
+        <%= f.text_area :providing_help_details, rows: 4 %>
+
+        <div class="callout secondary">
+          <h3 class=h4>Mikä on sparrauskaveri?</h3>
+          <p>Sparrauskaveri on kaupungin työntekijä, joka on tarjoutunut auttamaan kokeiluehdotuksen työstämisessä. Tarjottu apu voi olla pientä tai suurta, täysin yleistä tai tietyn aihealueen asiantuntemusta. Apu voi tarkoittaa, että sparrauskaveri on valmis liittymään jäseneksi tiimiin tai vain hetkellistä apua pallottelemaan ideoita tai oikolukemaan tekstiä – avun luonne on täysin sovittavissa.</p>
+          <p>Liity rohkeasti mukaan sparrauskaverien joukkoon!</p>
+        </div>
+      </div>
+
+
+      <div class="form-section">
+        <div class="form-section__title">
+          <h2 class="h3">Salasana</h2>
+        </div>
+
+        <% if @account.errors[:password].any? || @account.errors[:password_confirmation].any? %>
+          <%= render partial: "password_fields", locals: { form: f } %>
+        <% else %>
+          <% if current_organization.sign_in_enabled? %>
+            <p>
+              <button type="button" id="passwordChangeToggle" data-toggle="passwordChange passwordChangeClosed passwordChangeOpen" class="link change-password">
+                <%= t ".change_password" %>
+                <span id="passwordChangeClosed" data-toggler=".is-hidden">
+                  <%= icon "chevron-bottom" %>
+                </span>
+                <span id="passwordChangeOpen" class="is-hidden" data-toggler=".is-hidden">
+                  <%= icon "chevron-top" %>
+                </span>
+              </button>
+            </p>
+            <div id="passwordChange" class="toggle-show" data-toggler=".is-expanded">
+              <%= render partial: "password_fields", locals: { form: f } %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <%= f.submit t(".update_account") %>
+    </div>
+  <% end %>
+</div>
+
+<%= javascript_tag defer: "defer" do -%>
+$(document).ready(function() {
+  var $button = $("#passwordChangeToggle");
+
+  $("#passwordChange").on("on.zf.toggler", function() {
+    $button.attr("aria-expanded", "true");
+  });
+  $("#passwordChange").on("off.zf.toggler", function() {
+    $button.attr("aria-expanded", "false");
+  });
+});
+<% end %>

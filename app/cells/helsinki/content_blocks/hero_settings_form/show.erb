@@ -1,0 +1,11 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.translated :text_field, :title, label: t(".title") %>
+  <%= settings_fields.translated :text_field, :subtitle, label: t(".subtitle") %>
+  <%= settings_fields.translated :editor, :welcome_text, label: t(".welcome_text") %>
+  <%= settings_fields.text_field :button_url, label: t(".button_url") %>
+  <%= settings_fields.translated :text_field, :button_text, label: t(".button_text") %>
+<% end %>
+
+<% form.fields_for :images, form.object.images do |images_fields| %>
+  <%= images_fields.upload :background_image, label: t(".background_image") %>
+<% end %>

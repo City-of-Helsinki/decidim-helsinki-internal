@@ -1,0 +1,31 @@
+fi:
+  decidim:
+    blogs:
+      actions:
+        user_group_id: Luo artikkeli käyttäjänä
+      directory:
+        posts:
+          filters:
+            component: Kampanja
+            component_prompt: Valitse kampanja
+          index:
+            posts: Ajankohtaista
+            description: Ajankohtaista-osiosta löydät ajankohtaista tietoa palvelusta.
+      posts:
+        count:
+          posts_count:
+            one: 1 artikkeli
+            other: "%{count} artikkelia"
+        filters:
+          reset: Tyhjennä rajaukset
+          search: Hae
+        filters_small_view:
+          close_modal: Sulje ikkuna
+          filter: Suodata
+          filter_by: Suodata
+          unfold: Avaa
+        posts:
+          empty: Hakuehdoilla ei löytynyt yhtään artikkelia.
+        show:
+          back: Siirry kampanjan artikkeleihin
+          directory_link: Siirry ajankohtaista-osioon

@@ -1,0 +1,9 @@
+<% if search_tags.present? %>
+  <div class="row columns">
+    Avainsanahaku:
+    <% search_tags.each do |tag| %>
+      <%= translated_attribute(tag.name) %>
+      <%= form.hidden_field "tag_id][", value: tag.id %>
+    <% end %>
+  </div>
+<% end %>

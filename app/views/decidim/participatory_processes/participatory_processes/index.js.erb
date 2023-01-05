@@ -1,0 +1,5 @@
+var $listing = $('#process-listing');
+var $loading = $listing.find('.loading');
+
+$listing.find('#processes-list').html('<%= j(render(partial: "processes_list")).strip.html_safe %>');
+$loading.addClass('hide');

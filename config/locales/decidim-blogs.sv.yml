@@ -1,0 +1,31 @@
+en:
+  decidim:
+    blogs:
+      actions:
+        user_group_id: Skapa artikel som
+      directory:
+        posts:
+          filters:
+            component: Kampanj
+            component_prompt: Välj kampanj
+          index:
+            posts: Aktuell
+            description: I aktuell sektionen kan du hitta aktuell information om tjänsten.
+      posts:
+        count:
+          posts_count:
+            one: 1 artikel
+            other: "%{count} artiklar"
+        filters:
+          reset: Rensa filter
+          search: Sök
+        filters_small_view:
+          close_modal: Stäng modal
+          filter: Filtera
+          filter_by: Filtera efter
+          unfold: Veckla ut
+        posts:
+          empty: Inga artiklar hittades med sökkriterierna.
+        show:
+          back: Gå till artiklarna i denna kampanj
+          directory_link: Gå till aktuell sektionen

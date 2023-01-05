@@ -1,0 +1,32 @@
+<div class="add-message">
+  <h2 class="section-heading">
+    <%= t(".title") %>
+  </h2>
+
+  <%= form_for form, url: decidim.conversations_path, remote: true, data: { abide: true } do |f| %>
+    <% @form.recipient.each do |recipient| %>
+      <%= f.hidden_field :recipient_id, id: nil, name: "conversation[recipient_id][]", value: recipient.id %>
+    <% end %>
+    <%= f.label :body, nil, id: "conversation_body_label" %>
+    <%= f.text_area :body, label: false, rows: 4, required: true, data: { input_emoji: true }, aria: { describedby: "conversation_body_label" } %>
+
+    <%= f.submit t(".send") %>
+  <% end %>
+</div>
+
+<script defer>
+$(document).ready(function() {
+  // Foundation abide tries to submit the form but we want to submit it
+  // dynamically through Rails UJS.
+  var $form = $("#new_conversation_");
+  $form.on("submit", function(ev) {
+    ev.preventDefault();
+    if ($(".form-error:visible", $form).length > 0) {
+      return;
+    }
+
+    $("[type=submit]", $form).prop("disabled", true);
+    Rails.handleRemote.call($form[0], ev);
+  });
+});
+</script>

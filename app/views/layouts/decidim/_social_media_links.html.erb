@@ -1,0 +1,62 @@
+<%
+handlers = []
+
+if current_organization.twitter_handler.present?
+  handlers << {
+    type: :twitter,
+    handle: current_organization.twitter_handler,
+    url: "https://twitter.com/#{current_organization.twitter_handler}",
+    title: t("layouts.decidim.social_media_links.twitter", organization: translated_attribute(current_organization.name)),
+    icon: icon("twitter", role: "img", aria_label: "Twitter")
+  }
+end
+if current_organization.facebook_handler.present?
+  handlers << {
+    type: :facebook,
+    handle: current_organization.facebook_handler,
+    url: "https://www.facebook.com/#{current_organization.facebook_handler}",
+    title: t("layouts.decidim.social_media_links.facebook", organization: translated_attribute(current_organization.name)),
+    icon: icon("facebook", role: "img", aria_label: "Facebook")
+  }
+end
+if current_organization.instagram_handler.present?
+  handlers << {
+    type: :instagram,
+    handle: current_organization.instagram_handler,
+    url: "https://www.instagram.com/#{current_organization.instagram_handler}",
+    title: t("layouts.decidim.social_media_links.instagram", organization: translated_attribute(current_organization.name)),
+    icon: icon("instagram", role: "img", aria_label: "Instagram")
+  }
+end
+if current_organization.youtube_handler.present?
+  handlers << {
+    type: :youtube,
+    handle: current_organization.youtube_handler,
+    url: "https://www.youtube.com/#{current_organization.youtube_handler}",
+    title: t("layouts.decidim.social_media_links.youtube", organization: translated_attribute(current_organization.name)),
+    icon: icon("youtube", role: "img", aria_label: "YouTube")
+  }
+end
+if current_organization.github_handler.present?
+  handlers << {
+    type: :youtube,
+    handle: current_organization.github_handler,
+    url: "https://www.github.com/#{current_organization.github_handler}",
+    title: t("layouts.decidim.social_media_links.github", organization: translated_attribute(current_organization.name)),
+    icon: icon("github", role: "img", aria_label: "GitHub")
+  }
+end
+%>
+
+<% if handlers.any? %>
+  <ul class="footer-social">
+    <% handlers.each do |handler| %>
+      <li>
+        <a class="footer-social__icon" target="_blank" rel="noopener" href="<%= handler[:url] %>">
+          <span class="show-for-sr"><%= handler[:title] %></span>
+          <%= handler[:icon] %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

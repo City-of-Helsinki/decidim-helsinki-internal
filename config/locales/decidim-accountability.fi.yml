@@ -1,0 +1,31 @@
+fi:
+  decidim:
+    accountability:
+      directory:
+        results:
+          filters:
+            component: Kampanja
+            component_prompt: Valitse kampanja
+          index:
+            results: Kokeilugalleria
+            description: Kokeilugalleriassa voit tutustua tehtyihin kokeiluihin ja etsiä kokeiluja.
+      result_m:
+        tags_title: Tunnisteet
+        view: Näytä kokeilu
+      results:
+        count:
+          results_count:
+            one: 1 kokeilu
+            other: "%{count} kokeilua"
+        filters:
+          reset: Tyhjennä rajaukset
+          state: Tila
+          state_prompt: Valitse tila
+          statuses:
+            completed: Päättynyt
+            ongoing: Kokeilussa
+        results:
+          empty: Hakuehdoilla ei löytynyt yhtään kokeilua.
+        show:
+          back: Siirry kampanjan kokeiluihin
+          directory_link: Siirry kokeilugalleriaan

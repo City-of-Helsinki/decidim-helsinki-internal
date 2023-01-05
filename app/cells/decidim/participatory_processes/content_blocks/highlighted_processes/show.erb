@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="columns">
+    <div class="full-slider banner-slider single-item" data-label-prev="Edellinen" data-label-next="Seuraava">
+      <% highlighted_items.each do |item| %>
+        <div class="banner-slider-slide">
+          <div class="row">
+            <div class="columns large-4">
+              <div class="process-info">
+                <p><strong>Käynnissä oleva kampanja</strong></p>
+                <h2><%= translated_attribute item.title %></h2>
+                <div class="process-phase-indicator">
+                  <div class="process-phase-label">Kampanjan vaihe</div>
+                  <div class="process-phase-step"><%= item.active_step.position + 1 %>/<%= item.steps.count %></div>
+                  <div class="process-phase-name"><%= translated_attribute item.active_step.title %></div>
+                </div>
+              </div>
+            </div>
+            <div class="columns large-push-1 large-7 end">
+              <%= translated_attribute item.active_step.description %>
+              <p>
+                <% if item.active_step.cta_path.present? && item.active_step.cta_text.present? %>
+                  <%= link_to translated_attribute(item.active_step.cta_text), active_cta_path(item), class: "button primary" %>
+                <% end %>
+                <%= link_to "Tutustu kampanjaan", decidim_participatory_processes.participatory_process_path(item), class: "button primary hollow" %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<%
+process_dates = ""
+if current_participatory_space.start_date.present? && current_participatory_space.end_date.present?
+  starts_at = l(current_participatory_space.start_date, format: :decidim_short)
+  ends_at = l(current_participatory_space.end_date, format: :decidim_short)
+  process_dates = "Kampanja #{starts_at} - #{ends_at}"
+elsif current_participatory_space.start_date.present?
+  process_dates = "Kampanja alkaa #{l(current_participatory_space.start_date, format: :decidim_short)}"
+elsif current_participatory_space.end_date.present?
+  process_dates = "Kampanja päättyy #{l(current_participatory_space.end_date, format: :decidim_short)}"
+end
+
+image = nil
+image = current_participatory_space.banner_image if controller.is_a?(Decidim::ParticipatoryProcesses::ParticipatoryProcessesController)
+%>
+
+<% if image.present? %>
+  <div class="extended hero main" style="background-image: url(<%= image %>);">
+    <div class="hero__container"></div>
+    <div class="koro-wrapper">
+      <%= koro("pulse", class: "secondary") %>
+    </div>
+  </div>
+<% end %>
+
+<section class="extended hero lower subpage secondary">
+  <div class="hero__container">
+    <div class="row column">
+      <h1 class="h2"><%= translated_attribute(current_participatory_space.title) %></h1>
+      <% if process_dates.present? %>
+        <p><strong><%= process_dates %></strong></p>
+      <% end %>
+      <%= render partial: "decidim/participatory_processes/participatory_processes/process_header_steps", locals: { participatory_process: current_participatory_space } %>
+      <%= decidim_sanitize translated_attribute(current_participatory_space.short_description) %>
+      <% if current_participatory_space.active_step %>
+        <% cta_text = translated_attribute(current_participatory_space.active_step.cta_text) %>
+        <% if current_participatory_space.active_step.cta_path.present? && cta_text.present? %>
+          <p><%= link_to cta_text, step_cta_url(current_participatory_space), class: "button primary" %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="koro-wrapper">
+    <%= koro("pulse") %>
+  </div>
+</section>
+
+<% if respond_to?(:current_settings) && current_settings.respond_to?(:announcement) && translated_attribute(current_settings.announcement).present? %>
+  <%= render partial: "layouts/decidim/participatory_space_announcement", locals: { announcement: current_settings.announcement } %>
+<% elsif respond_to?(:component_settings) && component_settings.respond_to?(:announcement) && translated_attribute(component_settings.announcement).present? %>
+  <%= render partial: "layouts/decidim/participatory_space_announcement", locals: { announcement: component_settings.announcement } %>
+<% elsif current_participatory_space.respond_to?(:announcement) && translated_attribute(current_participatory_space.announcement).present? %>
+  <%= render partial: "layouts/decidim/participatory_space_announcement", locals: { announcement: current_participatory_space.announcement } %>
+<% end %>

@@ -1,0 +1,27 @@
+<%= filter_form_for filter do |form| %>
+  <div class="row">
+    <div class="columns medium-3">
+      <div class="filters__section">
+        <div class="mini-title">&nbsp;</div>
+        <div class="filters__search">
+          <div class="input-group">
+            <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t("decidim.blogs.posts.filters.search"), title: t("decidim.blogs.posts.filters.search") %>
+            <div class="input-group-button">
+              <button type="submit" class="button primary">
+                <%= icon "magnifying-glass", aria_label: t("decidim.blogs.posts.filters.search") %>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns medium-3 end">
+      <div class="filters__section">
+        <div class="mini-title">&nbsp;</div>
+        <div>
+          <button type="reset" class="button primary"><%= t("decidim.blogs.posts.filters.reset") %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

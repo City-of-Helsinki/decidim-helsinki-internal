@@ -1,0 +1,7 @@
+<div>
+  <span class="show-for-sr"><%= t(".tags_title") %></span>
+
+  <%= render :state if has_state? %>
+
+  <%= cell "decidim/tags/tags", model, context: { extra_classes: ["tags--plan"] } %>
+</div>

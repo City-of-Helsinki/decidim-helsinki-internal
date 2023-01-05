@@ -1,0 +1,6 @@
+.callout.main-announcement{
+  margin: 1rem 0 4rem;
+  padding: 2rem map-get($callout-sizes, default);
+  font-weight: inherit;
+  font-size: 125%;
+}

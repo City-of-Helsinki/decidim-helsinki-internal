@@ -1,0 +1,82 @@
+.menu{
+  &.nested{
+    a{
+      padding-left: 2rem;
+    }
+  }
+}
+
+.sub-navigation{
+  margin-bottom: 2rem;
+
+  @include breakpoint(mediumlarge){
+    margin-bottom: 0;
+  }
+
+  .sub-navigation-opener{
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: $menu-items-padding;
+    border: 1px solid $black;
+    margin-bottom: 0;
+    text-align: left;
+
+    &::after{
+      content: "\25BC";
+      position: absolute;
+      display: block;
+      top: 50%;
+      right: 20px;
+      margin-top: -8px;
+    }
+
+    &[aria-expanded="true"]{
+      &::after{
+        content: "\25B2";
+      }
+    }
+  }
+
+  .sub-navigation-content{
+    display: none;
+    border: 1px solid $black;
+    border-top: 0;
+
+    @include breakpoint(mediumlarge){
+      border: 0;
+    }
+
+    @include breakpoint(mediumlarge){
+      display: block;
+    }
+
+    &.active{
+      display: block;
+    }
+  }
+
+  .menu{
+    &.vertical{
+      li{
+        margin-bottom: 1rem;
+
+        &.is-active{
+          > a{
+            border-bottom-color: $black;
+          }
+        }
+
+        > a{
+          border-bottom: 4px solid $body-background;
+
+          &:focus,
+          &:hover{
+            text-decoration: none;
+            border-bottom-color: $black;
+          }
+        }
+      }
+    }
+  }
+}

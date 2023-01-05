@@ -1,0 +1,15 @@
+<div class="row columns">
+  <div class="breadcrumbs-section">
+    <ul class="breadcrumbs">
+      <% breadcrumbs.each_with_index do |item, index| %>
+        <li>
+          <% if item[:current] %>
+            <%= link_to item[:title], item[:url], "aria-current": "page" %>
+          <% else %>
+            <%= link_to item[:title], item[:url] %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

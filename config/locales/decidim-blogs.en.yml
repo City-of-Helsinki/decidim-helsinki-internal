@@ -1,0 +1,31 @@
+en:
+  decidim:
+    blogs:
+      actions:
+        user_group_id: Create article as
+      directory:
+        posts:
+          filters:
+            component: Campaign
+            component_prompt: Select campaign
+          index:
+            posts: News
+            description: In the news section, you can find recent information about the service.
+      posts:
+        count:
+          posts_count:
+            one: 1 article
+            other: "%{count} articles"
+        filters:
+          reset: Clear filters
+          search: Search
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        posts:
+          empty: No articles found with the search criteria.
+        show:
+          back: Go to articles of this campaign
+          directory_link: Go to the news section

@@ -1,0 +1,134 @@
+<%
+root_result = result
+root_result = root_result.parent while root_result.parent
+%>
+<div class="columns section mediumlarge-4 large-3">
+
+  <% if component_settings.display_progress_enabled? && result.progress.present? %>
+    <%= result_progress_info(root_result) do %>
+      <div class="progress-label">
+        <span class="progress-figure">
+          <%= display_percentage result.progress %>
+        </span>
+      </div>
+
+      <div class="progress">
+        <div class="progress-meter" style="width:<%= result.progress %>%"></div>
+      </div>
+
+      <p class="text-small">
+        <%= t(".average_progress", progress: display_percentage(progress_calculator(current_scope, nil))) %>
+      </p>
+    <% end %>
+  <% end %>
+
+  <% if result.result_all_details.any? || !root_result.scope.nil? || !result.category.nil? %>
+    <div class="details-list">
+      <% result.result_all_details.each do |detail| %>
+        <% next if translated_attribute(detail.description_for(result)).empty? %>
+
+        <div class="mb-3">
+          <h2 class="h4 mb-0"><%= result_detail_icon(result, detail) %><%= translated_attribute detail.title %></h2>
+
+          <div><%= translated_attribute detail.description_for(result) %></div>
+        </div>
+      <% end %>
+
+      <% if root_result.scope %>
+        <div class="mb-3">
+          <h2 class="h4 mb-0">
+            <% if root_result.scope.parent %>
+              <%= translated_attribute root_result.scope.parent.name %>
+            <% else %>
+              <%= t("results.show.stats.scope", scope: "decidim.accountability") %>
+            <% end %>
+          </h2>
+
+          <div><%= translated_attribute root_result.scope.name %></div>
+        </div>
+      <% end %>
+
+      <% if root_result.category %>
+        <div class="mb-3">
+          <h2 class="h4 mb-0"><%= t("results.show.stats.category", scope: "decidim.accountability") %></h2>
+
+          <div><%= translated_attribute root_result.category.name %></div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <h2 class="h4 mb-0">Avainsanat</h2>
+
+    <%== cell("decidim/accountability/tags", result) %>
+  </div>
+
+  <% if result.documents.any? %>
+    <div class="mb-3">
+      <h2 class="h4 mb-0">Liitteet</h2>
+
+      <% if (documents_without_collection = result.documents.reject(&:attachment_collection_id?)).any? %>
+        <% documents_without_collection.each do |document| %>
+          <a href="<%= document.url %>" class="document-link" target="_blank">
+            <%= icon "data-transfer-download", role: "img", "aria-hidden": true %>
+            <span class="document-link__description"><%= attachment_title(document) %> <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small></span>
+          </a>
+        <% end %>
+      <% end %>
+      <% result.documents.select(&:attachment_collection_id?).group_by(&:attachment_collection).sort_by { |c, d| c.weight }.each do |collection, documents| %>
+        <div class="documents-collection">
+          <span data-toggle="docs-collection-<%= collection.id %>">
+            <%= icon "caret-right", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;
+            <strong><%= translated_attribute(collection.name) %></strong>
+
+            <% attachment_collection_documents_count =  collection.attachments.select(&:document?).count %>
+            <small>(<%= attachment_collection_documents_count %> <%= t("decidim.application.collection.documents", count: attachment_collection_documents_count) %>)</small>
+          </span>
+          <div id="docs-collection-<%= collection.id %>" class="docs__content hide" data-toggler=".hide">
+            <% documents.each do |document| %>
+              <a href="<%= document.url %>" class="document-link" target="_blank">
+                <%= icon "data-transfer-download", role: "img", "aria-hidden": true %>
+                <span class="document-link__description"><%= attachment_title(document) %> <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small></span>
+              </a>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if result.result_links.any? %>
+    <div class="mb-3">
+      <h2 class="h4 mb-0">Linkit</h2>
+
+      <% result.result_links.each do |link| %>
+        <div><%= link_to translated_attribute(link.label), translated_attribute(link.url), target: "_blank" %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if result.authors.any? %>
+    <div class="mb-3">
+      <h2 class="h4 mb-0">Tekijät</h2>
+      <div class="authors-detailed">
+        <% result.authors.map do |author| %>
+          <div class="author-data">
+            <div class="author-data__main">
+              <div class="author">
+                <span class="author__avatar">
+                  <%= image_tag author.avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(author.name)) %>
+                </span>
+                <span class="author__details">
+                  <%= author.name %>
+                  <br>
+                  <%= author_information(author).join(", ") %>
+                </span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

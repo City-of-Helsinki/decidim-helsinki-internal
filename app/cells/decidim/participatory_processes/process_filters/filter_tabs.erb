@@ -1,0 +1,13 @@
+<% if date_filters_with_value.length > 1 %>
+  <fieldset>
+    <legend class="show-for-sr">Näytä kampanjat</legend>
+    <div class="column-grid">
+      <% date_filters_with_value.each do |filter| %>
+        <label class="column">
+          <%= radio_button_tag "filter[date]", filter, get_filter(:date, "active") == filter %>
+          <%= filter_name(filter) %>
+        </label>
+      <% end %>
+    </div>
+  </fieldset>
+<% end %>

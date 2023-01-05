@@ -1,0 +1,80 @@
+sv:
+  helsinki:
+    content_blocks:
+      background_section:
+        name: Bakgrundssektion
+      background_section_settings_form:
+        button1_text: Knapp 1 text
+        button1_url: Knapp 1 URL
+        button2_text: Knapp 2 text
+        button2_url: Knapp 2 URL
+        description: Beskrivning
+        title: Titel
+      help_section:
+        name: Hjälpsektion
+      help_section_settings_form:
+        button1_text: Knapp 1 text
+        button1_url: Knapp 1 URL
+        button2_text: Knapp 2 text
+        button2_url: Knapp 2 URL
+        description: Beskrivning
+        title: Titel
+      hero_with_card_left:
+        name: Hjältebild med kort (vänster sida)
+      hero_with_card_right:
+        name: Hero image with card (right side)
+      hero_with_card_settings_form:
+        background_image: Bakgrundsbild
+        button2_new_tab: Knapp 1 öppnar en ny flik
+        button1_text: Knapp 1 text
+        button1_url: Knapp 1 URL
+        button2_new_tab: Knapp 2 öppnar en ny flik
+        button2_text: Knapp 2 teksti
+        button2_url: Knapp 2 URL
+        description: Beskrivning
+        title: Titel
+      highlighted_blogs:
+        name: Markerade bloggar
+      highlighted_blogs_settings_form:
+        title: Titel
+      highlighted_results:
+        go_to_gallery: Siirry kokeilugalleriaan
+        name: Markerade experiment
+        show_more: Tutki lisää kokeiluita
+      highlighted_results_settings_form:
+        title: Titel
+      image_section:
+        name: Image section
+      image_section_settings_form:
+        description: Beskrivning
+        image: Bild
+        link_text: Länktext
+        link_url: Länk URL
+        title: Titel
+      intro:
+        name: Intro
+      intro_settings_form:
+        description: Beskrivning
+        link_text: Länktext
+        link_url: Länk URL
+        title: Titel
+    copyright: '%{year} Helsingfors stad'
+    devise:
+      shared:
+        omniauth_buttons:
+          tunnistamo_explanation_internal: 'Tunnistamo-inloggning'
+        tunnistamo_description: Tunnistamo låter dig logga in på tjänsten, t.ex. Google, Facebook eller YLE.
+    map:
+      districts:
+        central: Centrala
+        eastern: Östra
+        northeastern: Nordost
+        northern: Norr
+        ostersundom: Östersundom
+        southern: Södra
+        southeastern: Sydost
+        western: Western
+      image:
+        creator: Författare till originalbilden
+        license: Bildlicens
+        note: Bildredigerad från original

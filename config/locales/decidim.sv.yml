@@ -1,0 +1,115 @@
+sv:
+  activemodel:
+    attributes:
+      category:
+        category_icon: Kategori ikon
+        category_image: Kategoribild
+        color: Färg
+        has_color: Kategori har färg
+      conversation:
+        body: Skriv meddelande
+      message:
+        body: Skriv meddelande
+      post:
+        card_image: Bild på kort
+        main_image: Huvudbild
+      user:
+        providing_help: Jag vill bli en sparring kompis
+        providing_help_details: Vilken typ av sparringhjälp jag kan erbjuda
+  activerecord:
+    errors:
+      models:
+        decidim/attachment:
+          attributes:
+            file:
+              allowed_file_content_types: Ogiltig fil MIME-typ.
+  decidim:
+    account:
+      delete:
+        alert_html: |
+          Du bör inte ta bort ditt konto om du inte är helt säker på att du inte längre vill delta i någonting på denna plattform.
+          <br><br>
+          När du har raderat ditt konto försvinner all information som är kopplad till ditt konto och du tappar åtkomst t.ex. till dina privata meddelanden på den här plattformen. Andra användare kommer inte att kunna hitta dig på plattformen efter att ha raderat kontot.
+          <br><br>
+          Om du vill ta bort dig själv från förslagsförfattarna, använd feedbacklänken längst ner på webbplatsen, radera inte hela ditt konto. Att ta bort kontot är en helt annan sak.
+          <br><br>
+          Denna åtgärd kan inte ångras. Tänk noga om du definitivt vill ta bort hela ditt konto. När du har tagit bort ditt konto kommer du inte längre att kunna återställa kontrollen över vad du har gjort med ditt konto.
+          <br><br>
+          Om du inte helt förstår vad det innebär att ta bort kontot, vänligen kontakta oss via feedbacklänken längst ner på webbplatsen.
+        confirm:
+          cancel: Nej, jag vill bevara mitt konto
+          ok: Ja, jag vill ta bort mitt konto
+          question: Är du säker på att du vill ta bort hela ditt konto från den här plattformen? När ditt konto har raderats kommer du inte längre att kunna återställa saker du gjorde under ditt eget konto. Denna åtgärd kan inte ångras.
+        explanation: Om du vill kan du skriva nedan anledningen till att du tar bort ditt konto (valfritt).
+    application:
+      photos:
+        related_photos: Bilder
+    author:
+      avatar: 'Avatar: %{name}'
+    components:
+      add_comment_form:
+        opinion:
+          label: Din åsikt om detta ämne
+          positive: Positiv
+          positive_selected: 'Din åsikt om detta ämne är positiv'
+          negative: Negativ
+          negative_selected: 'Din åsikt om detta ämne är negativ'
+          neutral: Neutral
+          neutral_selected: 'Din åsikt om detta ämne är neutral'
+    core:
+      actions:
+        login_before_access: Några funktioner i denna tjänst är endast tillgängliga för stadsanställda. Du måste logga in innan du kan fortsätta.
+        unauthorized: Några funktioner i denna tjänst är endast tillgängliga för stadsanställda. Du måste logga in innan du kan fortsätta.
+    forms:
+      questionnaires:
+        show:
+          back_to: 'Tillbacka till: %{resource_name}'
+    meetings:
+      meetings:
+        show:
+          back: Gå till möteslistan
+          going: Du har anmält dig till detta möte
+          join: Registrera dig
+          join_cancel: Avbryt din registrering
+          join_cancel_confirm: Are you sure you want to cancel your registration for this event?
+    messaging:
+      conversations:
+        header:
+          back: Tillbaka till konversationer
+        new:
+          title: Ny konversation
+    pages:
+      index:
+        infos_subheading: Bläddra i ytterligare information om %{name}.
+        infos_title: Information
+    participatory_process_steps:
+      index:
+        process_steps: Kampanjsteg
+        title: Kampanjsteg
+    participatory_processes:
+      index:
+        title: Kampanjer
+      participatory_process_steps:
+        index:
+          back_to_process: Tillbaka till kampanjsidan
+    proposals:
+      application_helper:
+        filter_category_values:
+          all: Alla
+      proposals:
+        show:
+          report: Rapportera
+    searches:
+      index:
+        title: Sök
+    shared:
+      mentions_modal:
+        remove: Ta bort
+    menu:
+      help: Verktyg
+      info: Information
+      processes: Delta
+  layouts:
+    decidim:
+      process_header_steps:
+        view_steps: Visa steg

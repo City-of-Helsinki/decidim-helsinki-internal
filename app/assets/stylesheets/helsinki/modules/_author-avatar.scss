@@ -1,0 +1,11 @@
+.author-data{
+  a{
+    font-weight: $global-weight-normal;
+    text-decoration: none;
+
+    &:hover,
+    &:focus{
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.divider{
+  border-bottom: 4px solid $hel-medium-grey;
+  margin: 1rem 0;
+  width: auto;
+
+  &.success{
+    border-bottom-color: $success;
+  }
+
+  &.alert{
+    border-bottom-color: $alert;
+  }
+
+  &.warning{
+    border-bottom-color: $warning;
+  }
+
+  &.muted{
+    border-bottom-color: $dark-medium-gray;
+  }
+}

@@ -1,0 +1,90 @@
+.data-rows{
+  position: relative;
+
+  .data-rows__item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $dark-medium-gray;
+
+    @include breakpoint(medium){
+      flex-direction: row;
+    }
+
+    &.data-rows__header{
+      display: none;
+      border-bottom: 2px solid $body-font-color;
+      font-weight: $global-weight-bold;
+
+      @include breakpoint(medium){
+        display: flex;
+      }
+
+      > .data-rows__item__data--title{
+        font-weight: $global-weight-bold;
+      }
+    }
+
+    &.data-rows__item--with-icon{
+      padding-right: 30px;
+    }
+
+    > .data-rows__item__data{
+      flex: 1;
+      padding: 10px 0;
+
+      @include breakpoint(medium){
+        padding: 10px;
+      }
+
+      &:first-of-type{
+        padding-left: 0;
+      }
+
+      &:last-of-type{
+        padding-right: 0;
+      }
+    }
+
+    > .data-rows__item__data--title{
+      font-weight: $global-weight-bold;
+
+      @include breakpoint(medium){
+        font-weight: $global-weight-normal;
+      }
+    }
+
+    > .data-rows__item__icon{
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 30px;
+      margin-top: -.7rem;
+      text-align: right;
+    }
+
+    .data-rows__item__detail{
+      display: block;
+      margin-right: 10px;
+
+      &:last-child{
+        margin-right: 0;
+      }
+
+      @include breakpoint(medium){
+        display: inline-block;
+      }
+    }
+  }
+
+  a.data-rows__item{
+    font-weight: $global-weight-normal;
+    text-decoration: none;
+
+    &:hover,
+    &:focus{
+      text-decoration: none;
+      background: $light-gray;
+    }
+  }
+}

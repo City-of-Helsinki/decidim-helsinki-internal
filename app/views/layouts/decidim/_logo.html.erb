@@ -1,0 +1,10 @@
+<%= link_to decidim.root_path, class: "service-logo", "aria-label": t("layouts.decidim.header.front_page_link") do %>
+  <div class="hki-city-logo">
+    <% if current_locale == "sv" %>
+      <%= image_tag "helsinki/helsinki-logo-black-sv.svg", alt: "Helsingfors", class: "logo-sv" %>
+    <% else %>
+      <%= image_tag "helsinki/helsinki-logo-black.svg", alt: "Helsinki", class: "logo-default" %>
+    <% end %>
+  </div>
+  <div class="service-logo-text"><%= Decidim.application_name %><% "<br>BETA" if Rails.application.config.application_beta %></div>
+<% end %>

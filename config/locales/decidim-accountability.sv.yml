@@ -1,0 +1,31 @@
+sv:
+  decidim:
+    accountability:
+      directory:
+        results:
+          filters:
+            component: Kampanj
+            component_prompt: Välj kampanj
+          index:
+            results: Experimentgalleri
+            description: I experimentgalleriet kan du lära dig mer om dina experiment och söka efter experiment.
+      result_m:
+        tags_title: Taggar
+        view: Visa experiment
+      results:
+        count:
+          results_count:
+            one: 1 experiment
+            other: "%{count} experiment"
+        filters:
+          reset: Rensa filter
+          state: Ställning
+          state_prompt: Välj ställning
+          statuses:
+            completed: Avslutade
+            ongoing: Pågående
+        results:
+          empty: Inga experiment med sökkriterierna hittades.
+        show:
+          back: Gå till experiment av denna kampanj
+          directory_link: Gå till experimentgalleriet

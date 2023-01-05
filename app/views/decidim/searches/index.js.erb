@@ -1,0 +1,13 @@
+(function() {
+  var $tabs = $("#search-tabs");
+
+  <% @sections.each do |type, section| %>
+    $('#results-<%= section[:id] %>').html('<%= j(
+      render(partial: "decidim/searches/results", locals: { type: type, results: section[:results] }).strip
+    ).html_safe %>');
+    $('[data-search-type="<%= type %>"] .results-count', $tabs).text('(<%= section[:count] %>)');
+  <% end %>
+
+  $(".search-results").foundation();
+  $(".search-results").globalSearchResults();
+})();

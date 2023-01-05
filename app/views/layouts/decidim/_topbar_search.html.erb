@@ -1,0 +1,8 @@
+<div class="show-for-mediumlarge" data-set="nav-search-holder">
+  <div class="topbar__search js-append">
+    <%= link_to decidim.search_path do %>
+      <%= icon("magnifying-glass", aria_label: t("decidim.search.term_input_placeholder"), role: "img", "aria-hidden": true) %>
+      <%= t("decidim.search.term_input_placeholder") %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<section class="extended hero lower subpage secondary">
+  <div class="hero__container">
+    <div class="row column">
+      <h1 class="h2"><%= translated_attribute(current_component.name) %></h1>
+      <p><strong>Kampanja: <%= translated_attribute(current_participatory_space.title) %></strong></p>
+    </div>
+  </div>
+  <div class="koro-wrapper">
+    <%= koro("pulse") %>
+  </div>
+</section>
+
+<%= render partial: "decidim/shared/component_announcement" %>
+
+<div class="row columns">
+  <%= render partial: "filters_small_view" %>
+  <div class="show-for-mediumlarge">
+    <%= render partial: "filters" %>
+  </div>
+</div>
+
+<div class="row columns">
+  <%= render partial: "decidim/blogs/posts/listing", locals: { posts: posts } %>
+</div>

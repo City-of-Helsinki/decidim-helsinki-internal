@@ -1,0 +1,31 @@
+en:
+  decidim:
+    accountability:
+      directory:
+        results:
+          filters:
+            component: Campaign
+            component_prompt: Select campaign
+          index:
+            results: Experimentation gallery
+            description: In the experimentation gallery, you can learn about your experiments and search for experiments.
+      result_m:
+        tags_title: Tags
+        view: Show experimentation
+      results:
+        count:
+          results_count:
+            one: 1 experimentation
+            other: "%{count} experimentations"
+        filters:
+          reset: Clear filters
+          state: State
+          state_prompt: Choose state
+          statuses:
+            completed: Ended
+            ongoing: Ongoing
+        results:
+          empty: No experimentations found with the search criteria.
+        show:
+          back: Go to experiments of this campaign
+          directory_link: Go to experimentation gallery

@@ -1,0 +1,22 @@
+en:
+  devise:
+    sessions:
+      new:
+        sign_in: 'Sign in'
+    shared:
+      omniauth:
+        tunnistamo:
+          description: 'Some features of Kokeilukiihdyttämö are available only for city employees.'
+          description_read_more: Read more about Kokeilukiihdyttämö
+          sign_in_button: 'Sign in'
+          sign_in_with: 'Sign in with Helsingin employee user account'
+  decidim:
+    devise:
+      registrations:
+        new:
+          sign_up_service_account: 'Create an account'
+          sign_up_service_account_description: 'Create your account and sign in with your personal email and a password of your choice in the future.'
+      sessions:
+        new:
+          sign_in_service_account: 'Log in with the account provided by the administrator'
+          sign_in_service_account_description: 'If you are employed by the City of Helsinki but do not have a City of Helsinki username (personal or shared ID), you can request separate IDs from %{email}.'

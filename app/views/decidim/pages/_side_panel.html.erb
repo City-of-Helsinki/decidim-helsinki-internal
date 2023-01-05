@@ -1,0 +1,14 @@
+<div class="side-panel subpage">
+  <div class="sub-navigation">
+    <button class="sub-navigation-opener hide-for-mediumlarge" data-toggle="sub_navigation">
+      <%= t(".show_navigation") %>
+    </button>
+    <ul id="sub_navigation" class="sub-navigation-content vertical menu" data-toggler=".active">
+      <% @pages.each do |sibling| %>
+        <li class="page-item <%= sibling == current ? "is-active" : nil %>">
+          <%= link_to translated_attribute(sibling.title), page_path(sibling.slug) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<section class="extended home-section listing-section">
+  <div class="row listing-section-heading text-center">
+    <div class="columns small-centered large-10">
+      <h2 class="heading2"><%== title %></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns large-8 large-push-2">
+      <div class="row small-up-1 medium-up-2 card-grid">
+        <% results.each do |result| %>
+          <div class="column">
+            <%= link_to result_path(result), class: "card" do %>
+              <% if (image = result_image_path(result)) %>
+                <%= image_tag image, alt: translated_attribute(result.title) %>
+              <% end %>
+              <div class="card-section">
+                <h3 class="h5"><%= translated_attribute(result.title) %></h3>
+                <%= status_label_for(result) %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="extended home-section listing-section">
+  <div class="row listing-section-heading text-center">
+    <div class="columns small-centered large-10">
+      <h3 class="heading2"><%= t(".show_more") %></h3>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="columns large-8 large-push-2">
+      <p><%= link_to t(".go_to_gallery"), gallery_path, class: "button hollow" %></p>
+    </div>
+  </div>
+</section>

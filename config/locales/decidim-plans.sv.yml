@@ -1,0 +1,22 @@
+sv:
+  decidim:
+    plans:
+      answers:
+        not_answered: Ny
+      plan_form:
+        required_fields_text: Obligatoriska fält är markerade med stjärna * tecken. Vi uppmanar dig att svara på varje fråga för att få tillräckligt med poäng för förslaget och det kan gå vidare till genomförande.
+      plan_index:
+        filters:
+          reset: Återställ filter
+          state_prompt: Status
+          tag: Tag
+          tag_prompt: Välj tag
+      plan_m:
+        tags_title: Taggar
+      plans:
+        preview:
+          not_published: Ditt förslag har ännu inte publicerats - det är bara synligt för dig i förhandsgranskningsläge
+          not_published_description_html: |
+            <p>Granska innehållet i förslaget och tryck sedan på knappen Publicera för att publicera det.</p>
+            <p>Det publicerade förslaget är endast synligt för stadsanställda som är inloggade på webbplatsen. Informationen du ger till dina affärspartners kommer automatiskt att vidarebefordras till Teams-kanalen som anges i ansökningsformuläret.</p>
+            <p>Observera att du kan uppdatera ditt förslag så många gånger du vill före ansökningsfristen. Det är värt att publicera den första versionen av experimentförslaget så tidigt som möjligt! På detta sätt kommer andra användare av webbplatsen, liksom partnerföretag, att informeras om förslaget och ha tid att spara det bättre innan ansökningsfristen.</p>

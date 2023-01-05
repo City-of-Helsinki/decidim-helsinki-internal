@@ -1,0 +1,15 @@
+.timeline__header{
+  background-color: $light-gray;
+}
+
+.timeline__date{
+  color: $body-font-color;
+}
+
+.timeline__item--current{
+  .timeline__header,
+  .timeline__title,
+  .timeline__date{
+    color: $white;
+  }
+}

@@ -1,0 +1,123 @@
+.footer-wrapper{
+  .koro{
+    svg{
+      fill: $footer-color;
+    }
+
+    // The wrapper--inner element above the koro has a full width light
+    // background. The element appears e.g. on the pages that have comments.
+    &.with-wrapper--inner{
+      bottom: 0;
+      background: $light-gray-dark;
+    }
+  }
+}
+
+.main-footer,
+.mini-footer,
+.bottom-footer{
+  color: $body-font-color;
+  background-color: $footer-color;
+
+  a{
+    color: $anchor-color;
+    text-decoration: none;
+
+    &:hover,
+    &:focus{
+      text-decoration: underline;
+    }
+
+    &:hover{
+      color: $anchor-color;
+    }
+
+    &:focus{
+      outline-color: var(--highlight);
+    }
+  }
+
+  .footer-right{
+    @include breakpoint(medium){
+      text-align: right;
+    }
+  }
+}
+
+.main-footer{
+  .main-footer__badge{
+    position: static;
+    display: flex;
+    align-items: center;
+    width: auto;
+
+    .main-footer__logo{
+      flex-shrink: 0;
+      width: 100px;
+      margin-right: 1rem;
+    }
+
+    .main-footer__label{
+      font-weight: $global-weight-bold;
+    }
+  }
+}
+
+.mini-footer{
+  border-top: 1px solid $secondary;
+  border-bottom: 1px solid $secondary;
+}
+
+.bottom-footer{
+  padding: 1rem 0;
+}
+
+.main__footer__nav{
+  text-align: left;
+
+  .footer-nav{
+    li{
+      @include breakpoint(medium){
+        padding: 0 1rem 0 0;
+      }
+    }
+  }
+}
+
+.footer-social{
+  padding-top: 0;
+  margin-bottom: 2rem;
+
+  @include breakpoint(medium){
+    margin-bottom: 0;
+  }
+}
+
+.footer-copyright{
+  margin-top: 2rem;
+
+  @include breakpoint(medium){
+    margin-top: 0;
+  }
+}
+
+.wrapper-paahtimo{
+  .footer-wrapper{
+    .koro{
+      svg{
+        fill: $paahtimo-footer-color;
+      }
+    }
+  }
+
+  .main-footer,
+  .mini-footer,
+  .bottom-footer{
+    background-color: $paahtimo-footer-color;
+  }
+
+  .mini-footer{
+    border-top-color: $paahtimo-secondary;
+    border-bottom-color: $paahtimo-secondary;
+  }
+}

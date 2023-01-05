@@ -1,0 +1,85 @@
+<section class="extended hero lower subpage secondary">
+  <div class="hero__container">
+    <div class="row column">
+      <% if @plan.draft? %>
+        <h1 class="h2"><%= t("decidim.plans.plans.new.title") %></h1>
+      <% else %>
+        <h1 class="h2"><%= t("decidim.plans.plans.edit.title") %></h1>
+      <% end %>
+      <p>
+        <strong>Kampanja: <%= decidim_sanitize translated_attribute(current_participatory_space.title) %></strong>
+      </p>
+      <% if translated_attribute(current_component.settings.plan_listing_intro).present? %>
+        <%= decidim_sanitize translated_attribute(current_component.settings.plan_listing_intro) %>
+      <% else %>
+        <p>
+          <%= decidim_sanitize translated_attribute(current_participatory_space.short_description) %>
+        </p>
+      <% end %>
+      <p>
+        <% if @plan.draft? %>
+          <%= link_to plans_path do %>
+            <%= icon "chevron-left", class: "icon--small", role: "img" %>
+            <%= t("decidim.plans.plans.new.back") %>
+          <% end %>
+        <% else %>
+          <%= link_to plan_path(@plan) do %>
+            <%= icon "chevron-left", class: "icon--small", role: "img" %>
+            <%= t("decidim.plans.plans.edit.back") %>
+          <% end %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="koro-wrapper">
+    <%= koro("basic") %>
+  </div>
+</section>
+
+<div class="idea-form-container">
+  <div class="row">
+    <div class="columns large-8">
+      <div class="idea-form-text">
+        <% if translated_attribute(component_settings.new_plan_help_text).present? %>
+          <div class="callout warning">
+            <%= decidim_sanitize translated_attribute(component_settings.new_plan_help_text) %>
+          </div>
+        <% end %>
+      </div>
+
+      <% unless user_signed_in? %>
+        <div class="card border-primary text-center">
+          <div class="card__content">
+            <p class="lead"><%= t("decidim.plans.plans.edit.sign_in_before_submitting") %></p>
+            <p>
+              <%= action_authorized_link_to :create, new_plan_path, class: "title-action__action button large primary", data: { "redirect_url" => new_plan_path } do %>
+                <%= t("decidim.plans.plans.edit.sign_in") %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="columns large-4">
+      <% if translated_attribute(component_settings.materials_text).present? %>
+        <div class="card border-primary">
+          <div class="card__content">
+            <h3><%= t("decidim.plans.plans.edit.material_title") %></h3>
+            <%= decidim_sanitize translated_attribute(component_settings.materials_text) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= decidim_form_for(@form, html: { class: "plans-form" }) do |form| %>
+    <div class="row">
+      <div class="columns large-12">
+        <%= render partial: "form", object: form %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= javascript_include_tag "decidim/plans/plans_form" %>
+<%= stylesheet_link_tag "decidim/plans/plans_form" %>

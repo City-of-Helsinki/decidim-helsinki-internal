@@ -1,0 +1,18 @@
+<section class="extended hero with-split home-section" style="background-image:url(<%= background_image %>);">
+  <div class="hero__split">
+    <div class="hero__container">
+      <div class="row">
+        <div class="columns mediumlarge-6 large-5 large-push-1">
+          <h1><%== translated_title %></h1>
+          <h2><%== translated_subtitle %></h2>
+          <%== translated_welcome_text %>
+          <%= button %>
+        </div>
+      </div>
+      <%= koro("pulse", flip: true) %>
+    </div>
+    <div class="koro-wrapper">
+      <%= koro("pulse") %>
+    </div>
+  </div>
+</section>

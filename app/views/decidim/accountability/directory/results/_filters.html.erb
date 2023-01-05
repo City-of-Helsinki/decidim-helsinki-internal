@@ -1,0 +1,45 @@
+<%= filter_form_for filter, main_app.results_path do |form| %>
+  <%= render partial: "decidim/accountability/results/filters_keywords", locals: { form: form } %>
+
+  <div class="row">
+    <div class="columns medium-3">
+      <div class="filters__section">
+        <fieldset>
+          <legend class="mini-title"><%= t(".component") %></legend>
+          <%= form.select :component_id, available_result_components, disable_parents: false, include_blank: t(".component_prompt"), label: false %>
+        </fieldset>
+      </div>
+    </div>
+    <div class="columns medium-3">
+      <div class="filters__section">
+        <fieldset>
+          <legend class="mini-title"><%= t("decidim.accountability.results.filters.state") %></legend>
+          <%= form.select :status, available_statuses, disable_parents: false, include_blank: t("decidim.accountability.results.filters.state_prompt"), label: false %>
+        </fieldset>
+      </div>
+    </div>
+    <div class="columns medium-3">
+      <div class="filters__section">
+        <div class="mini-title">&nbsp;</div>
+        <div class="filters__search">
+          <div class="input-group">
+            <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t("decidim.accountability.results.filters.search"), title: t("decidim.accountability.results.filters.search") %>
+            <div class="input-group-button">
+              <button type="submit" class="button primary">
+                <%= icon "magnifying-glass", aria_label: t("decidim.accountability.results.filters.search") %>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns medium-3 end">
+      <div class="filters__section">
+        <div class="mini-title">&nbsp;</div>
+        <div>
+          <%= link_to t("decidim.accountability.results.filters.reset"), url_for, class: "button primary"  %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

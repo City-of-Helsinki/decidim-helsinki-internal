@@ -1,0 +1,33 @@
+.actionbox{
+  margin-bottom: 3rem;
+
+  .actionbox-links{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .action-link{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    &:hover,
+    &:focus{
+      text-decoration: none;
+
+      .link-text{
+        text-decoration: underline;
+      }
+    }
+
+    &.favorite-button .icon-wrap,
+    .icon{
+      margin-right: 1rem;
+    }
+
+    .link-text{
+      text-align: left;
+    }
+  }
+}

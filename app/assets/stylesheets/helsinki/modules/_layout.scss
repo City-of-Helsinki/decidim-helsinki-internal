@@ -1,0 +1,45 @@
+.off-canvas-wrapper{
+  background-color: $body-background;
+}
+
+.off-canvas{
+  background: $light-gray;
+
+  .close-button{
+    color: $body-font-color;
+  }
+}
+
+.wrapper{
+  padding: 0;
+
+  &.pb-0{
+    padding-bottom: 0;
+  }
+
+  // The only-child definition is for core pages which have not been customized.
+  // Otherwise their content would be attached to the header and footer
+  // elements.
+  .plain-page &,
+  &:only-child{
+    padding: 1.2rem 1rem;
+
+    @include breakpoint(medium){
+      padding: 5rem 1.5rem 3rem;
+    }
+
+    @include breakpoint(large){
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+}
+
+.wrapper--inner{
+  background: $light-gray-dark;
+  padding-top: 1rem;
+}
+
+.tos-wrapper{
+  margin-top: 4rem;
+}

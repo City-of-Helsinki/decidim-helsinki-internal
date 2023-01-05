@@ -1,0 +1,33 @@
+.highlighted-links{
+  padding: 1rem;
+
+  .highlighted-links__title{
+    font-weight: $global-weight-bold;
+  }
+
+  .highlighted-links__item{
+    position: relative;
+    display: inline-block;
+    padding: .8rem 3rem .8rem 1rem;
+    margin: 1rem 1rem 0;
+    background: $body-background;
+    border: 1px solid $light-gray;
+
+    .icon{
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      margin-top: -7px;
+    }
+  }
+}
+
+a.highlighted-links__item{
+  font-weight: $global-weight-normal;
+  text-decoration: none;
+
+  &:hover,
+  &:focus{
+    text-decoration: underline;
+  }
+}

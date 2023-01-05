@@ -1,0 +1,31 @@
+<div class="column" id="<%= dom_id(model) %>">
+  <%= link_to resource_path, class: "card #{card_classes}", role: "region", aria: { label: title } do %>
+    <%= render :label if has_label? %>
+    <%= render :top if render_top? %>
+    <%= render :image if has_image? %>
+    <div class="card__content">
+      <%= render :header if has_header? %>
+
+      <div class="card__text">
+        <div class="card__text--paragraph">
+          <%= description %>
+        </div>
+        <% if has_badge? %>
+          <div class="card__badges">
+            <%= render :badge %>
+          </div>
+        <% end %>
+      </div>
+
+      <%= render :tags %>
+    </div>
+
+    <%= render :data %>
+    <%= render :progress %>
+
+    <div class="card__bottom">
+      <%= render :footer %>
+      <%= render :status %>
+    </div>
+  <% end %>
+</div>
