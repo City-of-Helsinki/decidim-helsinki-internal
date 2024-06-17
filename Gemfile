@@ -7,7 +7,7 @@ ruby RUBY_VERSION
 # Run updates by following the Decidim upgrade instructions:
 # https://github.com/decidim/decidim/blob/master/docs/getting_started.md#keeping-your-app-up-to-date
 # DECIDIM_VERSION = { github: "decidim/decidim", branch: "release/multibudget-maximum-votes" }.freeze
-DECIDIM_VERSION = "0.25.2"
+DECIDIM_VERSION = "0.26.10"
 
 # Necessary for other gems
 gem "decidim-core", DECIDIM_VERSION
@@ -33,17 +33,17 @@ gem "decidim-verifications", DECIDIM_VERSION
 gem "searchlight", "~> 4.1"
 
 # External modules
-gem "decidim-accountability_simple", github: "mainio/decidim-module-accountability_simple", branch: "release/0.25-stable"
-gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "release/0.25-stable"
-gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "release/0.25-stable"
-gem "decidim-favorites", github: "mainio/decidim-module-favorites", branch: "release/0.25-stable"
-gem "decidim-feedback", github: "mainio/decidim-module-feedback", branch: "release/0.25-stable"
-gem "decidim-locations", github: "mainio/decidim-module-locations", branch: "release/0.25-stable"
-gem "decidim-plans", github: "mainio/decidim-module-plans", branch: "release/0.25-stable"
-gem "decidim-redirects", github: "mainio/decidim-module-redirects", branch: "release/0.25-stable"
-gem "decidim-tags", github: "mainio/decidim-module-tags", branch: "release/0.25-stable"
-gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "release/0.25-stable"
-gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "release/0.25-stable"
+gem "decidim-accountability_simple", github: "mainio/decidim-module-accountability_simple", branch: "release/0.26-stable"
+gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "release/0.26-stable"
+gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "release/0.26-stable"
+gem "decidim-favorites", github: "mainio/decidim-module-favorites", branch: "release/0.26-stable"
+gem "decidim-feedback", github: "mainio/decidim-module-feedback", branch: "release/0.26-stable"
+gem "decidim-locations", github: "mainio/decidim-module-locations", branch: "release/0.26-stable"
+gem "decidim-plans", github: "mainio/decidim-module-plans", branch: "release/0.26-stable"
+gem "decidim-redirects", github: "mainio/decidim-module-redirects", branch: "release/0.26-stable"
+gem "decidim-tags", github: "mainio/decidim-module-tags", branch: "release/0.26-stable"
+gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "release/0.26-stable"
+gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "release/0.26-stable"
 gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo"
 
 # For static maps, hasn't released an official release with the updated
@@ -116,3 +116,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "rails", "6.0.6.1"
