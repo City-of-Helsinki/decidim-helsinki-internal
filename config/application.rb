@@ -2,7 +2,12 @@
 
 require_relative "boot"
 
-require "rails/all"
+# Rails
+require "decidim/rails"
+# Add the frameworks used by your app that are not loaded by Decidim.
+require "action_cable/engine"
+
+# Other
 require "cldr"
 
 # Require the gems listed in Gemfile, including any gems
@@ -102,9 +107,9 @@ module DecidimHelsinki
     ]
 
     # Add extra asset paths
-    config.assets.paths += Dir[
-      Rails.root.join("app", "assets", "fonts").to_s,
-    ]
+    # config.assets.paths += Dir[
+    #   Rails.root.join("app", "assets", "fonts").to_s,
+    # ]
 
     # Wrapper class can be used to customize the coloring of the platform per
     # environment. This is used mainly for the Ideapaahtimo/KuVa instance.
