@@ -8,7 +8,7 @@ module Decidim
       graphql_name "Proposal"
       description "A proposal"
 
-      field :id, GraphQL::Types::ID
+      field :id, GraphQL::Types::ID, null: false
     end
   end
 end

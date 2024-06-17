@@ -11,7 +11,6 @@ module Decidim
         helper Decidim::PaginateHelper
         helper Decidim::OrdersHelper
         helper Decidim::SanitizeHelper
-        helper Decidim::FilterParamsHelper
 
         include FilterResource
         helper Decidim::WidgetUrlsHelper

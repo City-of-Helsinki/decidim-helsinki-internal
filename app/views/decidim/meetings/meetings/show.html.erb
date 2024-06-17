@@ -22,7 +22,7 @@ edit_link(
       <p><strong>Kampanja: <%= translated_attribute(current_participatory_space.title) %></strong></p>
 
       <p>
-        <%= link_to meetings_path(filter_link_params) do %>
+        <%= link_to meetings_path do %>
           <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
           <%= t(".back") %>
         <% end %>
