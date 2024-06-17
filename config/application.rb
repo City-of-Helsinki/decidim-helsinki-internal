@@ -345,12 +345,10 @@ module DecidimHelsinki
       end
     end
 
-    initializer "after_init" do
-      config.after_initialize do
-        # Cell customizations
-        Cell::ViewModel.view_paths.prepend File.expand_path("#{Rails.application.root}/app/cells")
-        Cell::ViewModel.view_paths.prepend File.expand_path("#{Rails.application.root}/app/views")
-      end
+    initializer "cells", after: "decidim_plans.add_cells_view_paths" do
+      # Cell customizations (note that this has to be after decidim-plans)
+      Cell::ViewModel.view_paths.prepend File.expand_path("#{Rails.application.root}/app/cells")
+      Cell::ViewModel.view_paths.prepend File.expand_path("#{Rails.application.root}/app/views")
     end
 
     initializer "customizations" do
