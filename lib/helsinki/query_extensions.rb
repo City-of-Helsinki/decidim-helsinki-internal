@@ -14,11 +14,12 @@ module Helsinki
         :scope_types,
         type: [Decidim::Core::ScopeTypeType],
         description: "Lists all scope types",
+        null: false
       ) do
         argument :name, Decidim::Core::ScopeTypeNameFilter, "Provides several methods to order the results", required: false
       end
 
-      type.field :scopes, type: [Decidim::Core::ScopeApiType] do
+      type.field :scopes, type: [Decidim::Core::ScopeApiType], null: false do
         description "Lists all scopes"
       end
     end
