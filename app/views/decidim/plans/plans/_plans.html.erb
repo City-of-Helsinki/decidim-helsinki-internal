@@ -1,0 +1,10 @@
+<div class="row medium-up-2 large-up-3 card-grid">
+  <% plans.each do |plan| %>
+    <%= render partial: "decidim/plans/plans/plan.html", locals: {
+      plan: plan,
+      card_cell: defined?(card_cell) ? card_cell : nil
+    } %>
+  <% end %>
+</div>
+
+<%= decidim_paginate plans %>
