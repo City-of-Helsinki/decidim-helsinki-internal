@@ -345,6 +345,14 @@ module DecidimHelsinki
       end
     end
 
+    initializer "after_init" do
+      config.after_initialize do
+        # Cell customizations
+        Cell::ViewModel.view_paths.prepend File.expand_path("#{Rails.application.root}/app/cells")
+        Cell::ViewModel.view_paths.prepend File.expand_path("#{Rails.application.root}/app/views")
+      end
+    end
+
     initializer "customizations" do
       # See:
       # https://guides.rubyonrails.org/configuring.html#initialization-events

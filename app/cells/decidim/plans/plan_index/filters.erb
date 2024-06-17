@@ -5,7 +5,7 @@
         <div class="filters__section">
           <fieldset>
             <legend class="mini-title"><%= t(".filters.state.legend") %></legend>
-            <%= form.select :state, [[t(".filters.state.all"), "all"], [t(".filters.state.accepted"), "accepted"], [t(".filters.state.rejected"), "rejected"], [t(".filters.state.evaluating"), "evaluating"]], disable_parents: false, include_blank: t(".filters.state_prompt"), label: false %>
+            <%= form.select :with_any_state, [[t(".filters.state.all"), "all"], [t(".filters.state.accepted"), "accepted"], [t(".filters.state.rejected"), "rejected"], [t(".filters.state.evaluating"), "evaluating"]], disable_parents: false, include_blank: t(".filters.state_prompt"), label: false %>
           </fieldset>
         </div>
       </div>
@@ -16,7 +16,7 @@
         <div class="filters__section">
           <fieldset>
             <legend class="mini-title"><%= t(".filters.tag") %></legend>
-            <%= form.select :tag_id, available_tags.map { |t| [translated_attribute(t.name), t.id] }, disable_parents: false, include_blank: t(".filters.tag_prompt"), label: false %>
+            <%= form.select :with_any_tag, available_tags.map { |t| [translated_attribute(t.name), t.id] }, disable_parents: false, include_blank: t(".filters.tag_prompt"), label: false %>
           </fieldset>
         </div>
       </div>
