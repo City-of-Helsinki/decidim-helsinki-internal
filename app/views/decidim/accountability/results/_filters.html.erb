@@ -15,7 +15,7 @@
         <div class="filters__section">
           <fieldset>
             <legend class="mini-title"><%= t(".category") %></legend>
-            <%= form.categories_select :category_id, current_component.categories, legend_title: t(".category"), disable_parents: false, include_blank: t(".category_prompt"), label: false %>
+            <%= form.categories_select :with_category, current_component.categories, legend_title: t(".category"), disable_parents: false, include_blank: t(".category_prompt"), label: false %>
           </fieldset>
         </div>
       <% end %>
@@ -25,7 +25,7 @@
         <div class="mini-title">&nbsp;</div>
         <div class="filters__search">
           <div class="input-group">
-            <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search") %>
+            <%= form.search_field :search_text_cont, label: false, class: "input-group-field", placeholder: t(".search"), title: t(".search") %>
             <div class="input-group-button">
               <button type="submit" class="button primary">
                 <%= icon "magnifying-glass", aria_label: t(".search") %>

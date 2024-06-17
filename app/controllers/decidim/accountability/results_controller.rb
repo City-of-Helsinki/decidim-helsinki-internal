@@ -26,22 +26,22 @@ module Decidim
 
       def results
         parent_id = params[:parent_id].presence
-        @results ||= search.results.where(parent_id: parent_id).page(params[:page]).per(12)
+        @results ||= search.result.where(parent_id: parent_id).page(params[:page]).per(12)
       end
 
       def result
         @result ||= Result.includes(:timeline_entries).where(component: current_component).find(params[:id])
       end
 
-      def search_klass
-        ResultSearch
+      def search_collection
+        Result.where(component: current_component).published
       end
 
       def default_filter_params
         {
-          search_text: "",
-          scope_id: "",
-          category_id: "",
+          search_text_cont: "",
+          with_scope: "",
+          with_category: "",
           status: ""
         }
       end

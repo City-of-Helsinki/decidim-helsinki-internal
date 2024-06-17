@@ -43,23 +43,23 @@ module Decidim
 
         def results
           parent_id = params[:parent_id].presence
-          @results ||= search.results.joins(:component).where(parent_id: parent_id).order("decidim_components.created_at" => :desc, created_at: :desc).page(params[:page]).per(12)
+          @results ||= search.result.joins(:component).where(parent_id: parent_id).order("decidim_components.created_at" => :desc, created_at: :desc).page(params[:page]).per(12)
         end
 
         def result
           @result ||= Result.includes(:timeline_entries).find(params[:id])
         end
 
-        def search_klass
-          ResultSearch
+        def search_collection
+          PublishedResourceFetcher.new(Result.all, current_organization).query.published
         end
 
         def default_filter_params
           {
-            search_text: "",
-            scope_id: "",
-            category_id: "",
-            component_id: "",
+            search_text_cont: "",
+            with_scope: "",
+            with_category: "",
+            decidim_component_id_eq: "",
             status: ""
           }
         end

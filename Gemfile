@@ -7,7 +7,7 @@ ruby RUBY_VERSION
 # Run updates by following the Decidim upgrade instructions:
 # https://github.com/decidim/decidim/blob/master/docs/getting_started.md#keeping-your-app-up-to-date
 # DECIDIM_VERSION = { github: "decidim/decidim", branch: "release/multibudget-maximum-votes" }.freeze
-DECIDIM_VERSION = "0.26.10"
+DECIDIM_VERSION = "0.27.6"
 
 # Necessary for other gems
 gem "decidim-core", DECIDIM_VERSION
@@ -33,17 +33,17 @@ gem "decidim-verifications", DECIDIM_VERSION
 gem "searchlight", "~> 4.1"
 
 # External modules
-gem "decidim-accountability_simple", github: "mainio/decidim-module-accountability_simple", branch: "release/0.26-stable"
-gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "release/0.26-stable"
-gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "release/0.26-stable"
-gem "decidim-favorites", github: "mainio/decidim-module-favorites", branch: "release/0.26-stable"
-gem "decidim-feedback", github: "mainio/decidim-module-feedback", branch: "release/0.26-stable"
-gem "decidim-locations", github: "mainio/decidim-module-locations", branch: "release/0.26-stable"
-gem "decidim-plans", github: "mainio/decidim-module-plans", branch: "release/0.26-stable"
-gem "decidim-redirects", github: "mainio/decidim-module-redirects", branch: "release/0.26-stable"
-gem "decidim-tags", github: "mainio/decidim-module-tags", branch: "release/0.26-stable"
-gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "release/0.26-stable"
-gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "release/0.26-stable"
+gem "decidim-accountability_simple", github: "mainio/decidim-module-accountability_simple", branch: "release/0.27-nubu"
+gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "release/0.27-stable"
+gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "main"
+gem "decidim-favorites", github: "mainio/decidim-module-favorites", branch: "main"
+gem "decidim-feedback", github: "mainio/decidim-module-feedback", branch: "main"
+gem "decidim-locations", github: "mainio/decidim-module-locations", branch: "main"
+gem "decidim-plans", github: "mainio/decidim-module-plans", branch: "develop"
+gem "decidim-redirects", github: "mainio/decidim-module-redirects", branch: "release/0.27-stable"
+gem "decidim-tags", github: "mainio/decidim-module-tags", branch: "develop"
+gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "release/0.27-stable"
+gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "release/0.27-stable"
 gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo"
 
 # For static maps, hasn't released an official release with the updated
@@ -66,20 +66,20 @@ gem "ruby-cldr", "~> 0.3.0"
 # HKI export
 gem "rubyXL", "~> 3.4", ">= 3.4.17"
 
-gem "puma", ">= 5.5.1"
+gem "puma", ">= 5.6.2"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
-  gem "decidim-dev", DECIDIM_VERSION
+  # gem "decidim-dev", DECIDIM_VERSION
 end
 
 group :development do
-  gem "letter_opener_web", "~> 1.3"
+  gem "letter_opener_web", "~> 2.0"
   gem "listen", "~> 3.1"
   gem "spring", "~> 2.0"
   gem "spring-watcher-listen", "~> 2.0"
-  gem "web-console", "4.0.4"
+  gem "web-console", "~> 4.2"
 
   # Profiling gems
   gem "bullet"
@@ -91,7 +91,7 @@ end
 
 # Faker is also needed in staging env in order to generate dummy data.
 group :development, :test, :staging do
-  gem "faker", "~> 1.9"
+  gem "faker", "~> 2.14"
 end
 
 group :production, :production_paahtimo, :staging, :staging_paahtimo do

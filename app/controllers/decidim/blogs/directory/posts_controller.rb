@@ -21,17 +21,21 @@ module Decidim
         private
 
         def posts
-          @posts ||= search.results.order(created_at: :desc).page(params[:page]).per(12)
+          @posts ||= search.result.order(created_at: :desc).page(params[:page]).per(12)
         end
 
-        def search_klass
-          PostSearch
+        def search_collection
+          if current_user&.admin?
+            OrganizationResourceFetcher.new(Post.all, current_organization).query
+          else
+            PublishedResourceFetcher.new(Post.all, current_organization).query
+          end
         end
 
         def default_filter_params
           {
-            search_text: "",
-            component_id: ""
+            search_text_cont: "",
+            decidim_component_id_eq: ""
           }
         end
 
