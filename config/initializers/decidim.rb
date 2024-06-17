@@ -81,7 +81,7 @@ Decidim::Plans.configure do |config|
     main: { resize_to_fill: [1480, 740] },
     thumbnail: { resize_to_fill: [770, 320] }
   }
-  config.default_card_image = "placeholder/card.png"
+  config.default_card_image = "media/images/placeholder-card.png"
 end
 
 # Configure API auth

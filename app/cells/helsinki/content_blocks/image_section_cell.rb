@@ -8,7 +8,9 @@ module Helsinki
       end
 
       def image
-        model.images_container.image.big.url
+        return unless model.images_container.image.attached?
+
+        model.images_container.attached_uploader(:image).path(variant: :big)
       end
     end
   end

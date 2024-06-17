@@ -26,7 +26,7 @@ module DecidimHelsinki
     config.mailer_sender = "no-reply@kokeilukiihdyttamo.hel.fi"
 
     # The default meta image for social media
-    config.meta_image = "helsinki-social/kokeilukiihdyttamo-wide.jpg"
+    config.meta_image = "media/images/social-kokeilukiihdyttamo-wide.jpg"
 
     # Static language pages if the site content is not fully translated
     config.static_languages = {
@@ -217,7 +217,7 @@ module DecidimHelsinki
         content_block.images = [
           {
             name: :image,
-            uploader: "Helsinki::ImageSectionImageUploader"
+            uploader: "Decidim::Helsinki::ImageSectionImageUploader"
           }
         ]
 
@@ -232,7 +232,7 @@ module DecidimHelsinki
         content_block.images = [
           {
             name: :background_image,
-            uploader: "Helsinki::HeroImageUploader"
+            uploader: "Decidim::Helsinki::HeroImageUploader"
           }
         ]
 
@@ -258,7 +258,7 @@ module DecidimHelsinki
         content_block.images = [
           {
             name: :background_image,
-            uploader: "Helsinki::HeroImageUploader"
+            uploader: "Decidim::Helsinki::HeroImageUploader"
           }
         ]
 
@@ -307,6 +307,22 @@ module DecidimHelsinki
       end
     end
 
+    # Needed for the 0.25 active storage migration
+    initializer "activestorage_migration" do
+      next unless Decidim.const_defined?("CarrierWaveMigratorService")
+
+      Decidim::CarrierWaveMigratorService.send(:remove_const, :MIGRATION_ATTRIBUTES).tap do |attributes|
+        additional_attributes = [
+          [Decidim::Blogs::Post, "card_image", Decidim::Cw::BlogPostImageUploader, "card_image"],
+          [Decidim::Blogs::Post, "main_image", Decidim::Cw::BlogPostImageUploader, "main_image"],
+          [Decidim::Category, "category_image", Decidim::Cw::CategoryImageUploader, "category_image"],
+          [Decidim::Category, "category_icon", Decidim::Cw::CategoryIconUploader, "category_icon"]
+        ]
+
+        Decidim::CarrierWaveMigratorService.const_set(:MIGRATION_ATTRIBUTES, (attributes + additional_attributes).freeze)
+      end
+    end
+
     initializer "menu_extensions" do
       Decidim.menu :menu do |menu|
         # Add the results to the menu
@@ -342,95 +358,97 @@ module DecidimHelsinki
       end
     end
 
-    # See:
-    # https://guides.rubyonrails.org/configuring.html#initialization-events
-    #
-    # Run before every request in development.
-    config.to_prepare do
-      # Helper extensions
-      Decidim::Comments::CommentsHelper.include(CommentsHelperExtensions)
-      Decidim::ScopesHelper.include(ScopesHelperExtensions)
-      Decidim::ContextualHelpHelper.include(ContextualHelperExtensions)
-      Decidim::Plans::PlanCellsHelper.include(PlanCellsHelperExtensions)
+    initializer "customizations" do
+      # See:
+      # https://guides.rubyonrails.org/configuring.html#initialization-events
+      #
+      # Run before every request in development.
+      config.to_prepare do
+        # Helper extensions
+        Decidim::Comments::CommentsHelper.include(CommentsHelperExtensions)
+        Decidim::ScopesHelper.include(ScopesHelperExtensions)
+        Decidim::ContextualHelpHelper.include(ContextualHelperExtensions)
+        Decidim::Plans::PlanCellsHelper.include(PlanCellsHelperExtensions)
 
-      # Command extensions
-      Decidim::UpdateAccount.include(UpdateAccountOverrides)
-      Decidim::Search.include(SearchOverrides)
-      Decidim::CreateFollow.include(CreateFollowOverrides)
-      Decidim::Blogs::Admin::CreatePost.include(CreateBlogPostOverrides)
-      Decidim::Blogs::Admin::UpdatePost.include(UpdateBlogPostOverrides)
+        # Command extensions
+        Decidim::UpdateAccount.include(UpdateAccountOverrides)
+        Decidim::Search.include(SearchOverrides)
+        Decidim::CreateFollow.include(CreateFollowOverrides)
+        Decidim::Blogs::Admin::CreatePost.include(CreateBlogPostOverrides)
+        Decidim::Blogs::Admin::UpdatePost.include(UpdateBlogPostOverrides)
 
-      # Controller extensions
-      # Keep after helpers because these can load in helpers!
-      Decidim::NeedsTosAccepted.include(NeedsTosAcceptedExtensions)
-      Decidim::ApplicationController.include(ApplicationControllerExtensions)
-      Decidim::Admin::HelpSectionsController.include(
-        AdminHelpSectionsExtensions
-      )
-      Decidim::UserActivitiesController.include(ActivityResourceTypes)
-      Decidim::UserTimelineController.include(ActivityResourceTypes)
-      Decidim::ParticipatoryProcesses::ApplicationController.include(
-        ParticipatoryProcessesApplicationExtensions
-      )
-      Decidim::ParticipatoryProcesses::ParticipatoryProcessesController.include(
-        ParticipatoryProcessesExtensions
-      )
-      Decidim::SearchesController.include(SearchesControllerExtensions)
-      Decidim::ProfilesController.include(ProfilesControllerExtensions)
-      Decidim::UserActivitiesController.include(ProfilesControllerExtensions)
-      Decidim::Blogs::Admin::PostsController.include(
-        AdminBlogPostsControllerExtensions
-      )
-      Decidim::Plans::PlansController.include(PlansControllerExtensions)
+        # Controller extensions
+        # Keep after helpers because these can load in helpers!
+        Decidim::NeedsTosAccepted.include(NeedsTosAcceptedExtensions)
+        Decidim::ApplicationController.include(ApplicationControllerExtensions)
+        Decidim::Admin::HelpSectionsController.include(
+          AdminHelpSectionsExtensions
+        )
+        Decidim::UserActivitiesController.include(ActivityResourceTypes)
+        Decidim::UserTimelineController.include(ActivityResourceTypes)
+        Decidim::ParticipatoryProcesses::ApplicationController.include(
+          ParticipatoryProcessesApplicationExtensions
+        )
+        Decidim::ParticipatoryProcesses::ParticipatoryProcessesController.include(
+          ParticipatoryProcessesExtensions
+        )
+        Decidim::SearchesController.include(SearchesControllerExtensions)
+        Decidim::ProfilesController.include(ProfilesControllerExtensions)
+        Decidim::UserActivitiesController.include(ProfilesControllerExtensions)
+        Decidim::Blogs::Admin::PostsController.include(
+          AdminBlogPostsControllerExtensions
+        )
+        Decidim::Plans::PlansController.include(PlansControllerExtensions)
 
-      # Cell extensions
-      Decidim::CardMCell.include(CardMCellOverrides)
-      Decidim::AuthorCell.include(Decidim::SanitizeHelper)
-      Decidim::CollapsibleListCell.include(CollapsibleListCellExtensions)
-      Decidim::ContentBlocks::HeroCell.include(KoroHelper)
-      Decidim::ParticipatoryProcesses::ProcessMCell.include(ProcessMCellExtensions)
-      Decidim::Plans::PlanIndexCell.include(KoroHelper)
-      Decidim::Plans::PlanViewCell.include(KoroHelper)
-      Decidim::Plans::PlanFormCell.include(PlanFormCellExtensions)
-      Decidim::Plans::PlanMCell.include(PlanMCellExtensions)
-      Decidim::Meetings::JoinMeetingButtonCell.include(
-        JoinMeetingButtonCellExtensions
-      )
-      Decidim::UserProfileCell.include(UserProfileCellExtensions)
-      Decidim::Blogs::PostMCell.include(BlogPostMCellExtensions)
-      Decidim::Accountability::ResultMCell.include(ResultMCellExtensions)
-      Decidim::Accountability::TagsCell.include(AccountabilityTagsCellExtensions)
-      Decidim::Comments::CommentCell.include(CommentCellExtensions)
+        # Cell extensions
+        Decidim::CardMCell.include(CardMCellOverrides)
+        Decidim::AuthorCell.include(Decidim::SanitizeHelper)
+        Decidim::CollapsibleListCell.include(CollapsibleListCellExtensions)
+        Decidim::ContentBlocks::HeroCell.include(KoroHelper)
+        Decidim::ParticipatoryProcesses::ProcessMCell.include(ProcessMCellExtensions)
+        Decidim::Plans::PlanIndexCell.include(KoroHelper)
+        Decidim::Plans::PlanViewCell.include(KoroHelper)
+        Decidim::Plans::PlanFormCell.include(PlanFormCellExtensions)
+        Decidim::Plans::PlanMCell.include(PlanMCellExtensions)
+        Decidim::Meetings::JoinMeetingButtonCell.include(
+          JoinMeetingButtonCellExtensions
+        )
+        Decidim::UserProfileCell.include(UserProfileCellExtensions)
+        Decidim::Blogs::PostMCell.include(BlogPostMCellExtensions)
+        Decidim::Accountability::ResultMCell.include(ResultMCellExtensions)
+        Decidim::Accountability::TagsCell.include(AccountabilityTagsCellExtensions)
+        Decidim::Comments::CommentCell.include(CommentCellExtensions)
 
-      # Form extensions
-      Decidim::Admin::CategoryForm.include(AdminCategoryFormExtensions)
-      Decidim::AccountForm.include(AccountFormExtensions)
-      Decidim::Blogs::Admin::PostForm.include(AdminBlogPostFormExtensions)
+        # Form extensions
+        Decidim::Admin::CategoryForm.include(AdminCategoryFormExtensions)
+        Decidim::AccountForm.include(AccountFormExtensions)
+        Decidim::Blogs::Admin::PostForm.include(AdminBlogPostFormExtensions)
 
-      # Service extensions
-      Decidim::ActivitySearch.include(ActivitySearchExtensions)
+        # Service extensions
+        Decidim::ActivitySearch.include(ActivitySearchExtensions)
 
-      # Permissions extensions
-      Decidim::Plans::Permissions.include(PlansPermissionsExtensions)
-      Decidim::MenuItemPresenter.include(MenuItemPresenterExtensions)
+        # Permissions extensions
+        Decidim::Plans::Permissions.include(PlansPermissionsExtensions)
+        Decidim::MenuItemPresenter.include(MenuItemPresenterExtensions)
 
-      # Model extensions
-      Decidim::Category.include(CategoryExtensions)
-      Decidim::User.include(UserExtensions)
-      Decidim::Blogs::Post.include(BlogPostExtensions)
-      Decidim::Accountability::Result.include(ResultExtensions)
+        # Model extensions
+        Decidim::Category.include(CategoryExtensions)
+        Decidim::User.include(UserExtensions)
+        Decidim::Blogs::Post.include(BlogPostExtensions)
+        Decidim::Accountability::Result.include(ResultExtensions)
 
-      # View extensions
-      ActionView::Base.include(Decidim::WidgetUrlsHelper)
+        # View extensions
+        ActionView::Base.include(Decidim::WidgetUrlsHelper)
 
-      # Library extensions
-      Decidim::FormBuilder.include(FormBuilderExtensions)
+        # Library extensions
+        Decidim::FormBuilder.include(FormBuilderExtensions)
 
-      # Fixes for (when replacing search for all occurences of the PR URL):
-      # https://github.com/decidim/decidim/pull/7784
-      Decidim::Meetings::Admin::DestroyMeeting.include(DestroyMeetingExtensions)
-      Decidim::Meetings::Meeting.include(MeetingExtensions)
-      Decidim::Meetings::MeetingPresenter.include(MeetingPresenterExtensions)
+        # Fixes for (when replacing search for all occurences of the PR URL):
+        # https://github.com/decidim/decidim/pull/7784
+        Decidim::Meetings::Admin::DestroyMeeting.include(DestroyMeetingExtensions)
+        Decidim::Meetings::Meeting.include(MeetingExtensions)
+        Decidim::Meetings::MeetingPresenter.include(MeetingPresenterExtensions)
+      end
     end
   end
 end

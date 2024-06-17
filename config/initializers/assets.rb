@@ -19,3 +19,6 @@ Rails.application.config.assets.precompile += %w(
   decidim/geocoding/provider/helsinki.js
   helsinki/global-search.js
 )
+
+# Add node_modules folder to the asset load path.
+Rails.application.config.assets.paths << Rails.root.join("node_modules")

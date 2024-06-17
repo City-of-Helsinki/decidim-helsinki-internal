@@ -1,0 +1,27 @@
+$size: 45px;
+
+.login-icons{
+  img{
+    max-width: 100px;
+  }
+}
+
+.social-share-button{
+  display: inline-block;
+  vertical-align: top;
+
+  .ssb-icon{
+    margin-right: 5px;
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+
+  .ssb-yle{
+    background-image: url('images/social-share-button/social-share-yle.svg');
+  }
+
+  .ssb-hel{
+    background-image: url('images/social-share-button/social-share-hel.svg');
+  }
+}

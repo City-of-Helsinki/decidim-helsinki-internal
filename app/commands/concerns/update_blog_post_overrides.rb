@@ -4,6 +4,8 @@
 module UpdateBlogPostOverrides
   extend ActiveSupport::Concern
 
+  include Decidim::AttachmentAttributesMethods
+
   included do
     def update_post!
       attributes = {
@@ -19,9 +21,6 @@ module UpdateBlogPostOverrides
   private
 
   def uploader_attributes
-    {
-      card_image: @form.card_image,
-      main_image: @form.main_image
-    }.delete_if { |_k, val| val.is_a?(Decidim::ApplicationUploader) }
+    attachment_attributes(:card_image, :main_image).delete_if { |_k, val| val.blank? }
   end
 end

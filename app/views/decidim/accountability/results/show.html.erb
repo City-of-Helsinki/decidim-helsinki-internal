@@ -55,8 +55,8 @@ edit_link(
     <div class="row">
       <div class="mediumlarge-8 large-9 columns">
         <div class="section">
-          <% if result.main_image && result.main_image.url %>
-            <%= image_tag result.main_image.url, alt: translated_attribute(result.title), class: "hero-heading" %>
+          <% if result.main_image && result.main_image.attached? %>
+            <%= image_tag result.attached_uploader(:main_image).path, alt: translated_attribute(result.title), class: "hero-heading" %>
           <% end %>
 
           <div class="description">
@@ -95,7 +95,7 @@ edit_link(
               <div class="author-data__main">
                 <div class="author">
                   <span class="author__avatar">
-                    <%= image_tag author.avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(author.name)) %>
+                    <%= image_tag present(author).avatar_url, alt: t("decidim.author.avatar", name: decidim_sanitize(author.name)) %>
                   </span>
                   <span class="author__details">
                     <%= author.name %>

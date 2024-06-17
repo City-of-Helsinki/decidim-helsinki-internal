@@ -14,7 +14,7 @@ else
 end
 %>
 
-<div class="extended hero with-card" style="background-image:url(<%= promoted_process.hero_image.url %>)">
+<div class="extended hero with-card" style="background-image:url(<%= promoted_process.attached_uploader(:hero_image).path if promoted_process.hero_image.attached? %>)">
   <div class="hero__container">
     <div class="row hero-with-card-row">
       <div class="<%= column_class %>">

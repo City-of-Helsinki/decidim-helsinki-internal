@@ -7,11 +7,11 @@ module BlogPostExtensions
   include Decidim::HasUploadValidations
 
   included do
-    validates_upload :card_image
-    mount_uploader :card_image, Decidim::BlogPostImageUploader
+    has_one_attached :card_image
+    validates_upload :card_image, uploader: Decidim::BlogPostImageUploader
 
-    validates_upload :main_image
-    mount_uploader :main_image, Decidim::BlogPostImageUploader
+    has_one_attached :main_image
+    validates_upload :main_image, uploader: Decidim::BlogPostImageUploader
 
     # Needed for the uploaders to get the allowed file extensions
     attr_writer :organization

@@ -167,7 +167,7 @@ module ApplicationHelper
   end
 
   def meta_image_default
-    Rails.application.config.meta_image
+    asset_pack_path(Rails.application.config.meta_image)
   end
 
   def feedback_email

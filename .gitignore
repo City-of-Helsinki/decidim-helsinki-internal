@@ -25,13 +25,22 @@
 # Ignore public uploads
 public/uploads
 
+# Ignore storage folder
+storage
+
 # Ignore local environment variables
 /.rbenv-vars
 
 # Ignore webpack stuff
 /webpack.report.html
 
-+# Comments component
+# Comments component
 .graphqlconfig
 schema.json
-app/assets/javascripts/decidim/comments/bundle.js.map
+
+/public/decidim-packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

@@ -7,14 +7,12 @@ module Decidim
   # - Full screen image on the processes page when listing ongoing processes
   # - The box image on the processes page when listing past processes
   class HeroImageUploader < RecordImageUploader
-    process resize_to_limit: [2200, 520]
-
-    version :card do
-      process resize_to_fill: [809, 320]
-    end
-
-    version :box do
-      process resize_to_fill: [400, 500]
+    set_variants do
+      {
+        default: { resize_to_fit: [2200, 520] },
+        card: { resize_to_fit: [809, 320] },
+        box: { resize_to_fit: [400, 500] }
+      }
     end
   end
 end

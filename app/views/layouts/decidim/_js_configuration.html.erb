@@ -1,6 +1,6 @@
 <%
 js_configs = {
-  icons_path: image_path("decidim/icons.svg"),
+  icons_path: Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg"),
   messages: {
     "selfxssWarning": {
       title: t("decidim.security.selfxss_warning.title"),
@@ -9,7 +9,8 @@ js_configs = {
     "mentionsModal": {
       remove: t("decidim.shared.mentions_modal.remove")
     }
-  }
+  },
+  external_domain_whitelist: [current_organization.host] + current_organization.external_domain_whitelist
 }
 character_messages = {
   "charactersAtLeast": {

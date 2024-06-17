@@ -121,10 +121,6 @@ edit_link(
       <%= render "meeting_agenda" %>
     <% end %>
 
-    <% if meeting.minutes.present? && meeting.minutes.visible? %>
-      <%= render "meeting_minutes" %>
-    <% end %>
-
     <% if !meeting.closed? && meeting.user_group_registrations.any? %>
       <% user_group_ids = meeting.user_group_registrations.user_group_ids %>
       <div class="section">

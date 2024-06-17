@@ -30,7 +30,9 @@ module Helsinki
       end
 
       def background_image
-        model.images_container.background_image.big.url
+        return unless model.images_container.background_image.attached?
+
+        model.images_container.attached_uploader(:background_image).path(variant: :big)
       end
 
       def button1_url

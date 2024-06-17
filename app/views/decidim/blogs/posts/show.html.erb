@@ -15,8 +15,8 @@
   )
 %>
 
-<% if post.main_image.url.present? %>
-  <div class="extended hero main" style="background-image: url(<%= post.main_image.url %>);">
+<% if post.main_image.attached? %>
+  <div class="extended hero main" style="background-image: url(<%= post.attached_uploader(:main_image).path %>);">
     <div class="hero__container"></div>
     <div class="koro-wrapper">
       <%= koro("pulse", class: "secondary") %>

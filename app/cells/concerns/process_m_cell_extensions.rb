@@ -16,7 +16,9 @@ module ProcessMCellExtensions
     end
 
     def resource_image_path
-      model.hero_image.card.url
+      return unless model.hero_image.attached?
+
+      model.attached_uploader(:hero_image).path(variant: :card)
     end
   end
 

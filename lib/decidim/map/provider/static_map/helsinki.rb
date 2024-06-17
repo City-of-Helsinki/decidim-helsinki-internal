@@ -80,7 +80,7 @@ module Decidim
 
           def fonts_path
             File.expand_path(
-              "app/assets/fonts/decidim",
+              "app/packs/fonts/decidim",
               Gem.loaded_specs["decidim-core"].full_gem_path
             )
           end

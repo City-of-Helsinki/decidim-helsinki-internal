@@ -10,7 +10,10 @@ Rails.application.configure do
   # environment. This is used mainly for the Ideapaahtimo/KuVa instance.
   config.wrapper_class = "wrapper-paahtimo"
 
-  config.meta_image = "helsinki-social/ideapaahtimo-wide.jpg"
+  config.meta_image = "media/images/social-ideapaahtimo-wide.jpg"
+
+  # Store uploaded files on the local file system (see config/storage.yml for options)
+  config.active_storage.service = :local
 
   # The feedback email in the footer of the site
   config.feedback_email = "ideapaahtimo@hel.fi"

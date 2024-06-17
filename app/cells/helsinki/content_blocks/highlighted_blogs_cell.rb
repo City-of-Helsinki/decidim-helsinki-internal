@@ -20,10 +20,11 @@ module Helsinki
       private
 
       def resource_image_path_for(post)
-        return post.card_image.highlight.url if post.card_image.url
-        return post.main_image.highlight.url if post.main_image.url
+        # model.images_container.attached_uploader(:background_image).path(variant: :big)
+        return post.attached_uploader(:card_image).path(variant: :highlight) if post.card_image.attached?
+        return post.attached_uploader(:main_image).path(variant: :highlight) if post.main_image.attached?
 
-        "placeholder/highlight.png"
+        asset_pack_path("media/images/placeholder-highlight.png")
       end
 
       def decidim_blogs

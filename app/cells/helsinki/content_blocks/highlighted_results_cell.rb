@@ -20,9 +20,9 @@ module Helsinki
       end
 
       def result_image_path(result)
-        return unless result.list_image
+        return unless result.list_image.attached?
 
-        result.list_image.url
+        result.attached_uploader(:list_image).path
       end
 
       def gallery_path

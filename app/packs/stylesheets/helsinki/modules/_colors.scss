@@ -1,0 +1,91 @@
+$colors: (
+  primary: $bg-primary,
+  secondary: $bg-secondary,
+  hel-copper: $hel-copper,
+  hel-bus: $hel-bus,
+  hel-coat: $hel-coat,
+  hel-fog: $hel-fog,
+  hel-metro: $hel-metro,
+  hel-brick: $hel-brick,
+  hel-suomenlinna : $hel-suomenlinna,
+  hel-engel: $hel-engel,
+  hel-engel-light: $hel-engel-light,
+  hel-tram: $hel-tram,
+  hel-summer: $hel-summer,
+  hel-silver: $hel-metro,
+  hel-gold: $hel-gold,
+  hel-black: $hel-black,
+  hel-dark: $hel-dark,
+  hel-gray: $hel-gray,
+  hel-light: $hel-light,
+  hel-white: $hel-white,
+);
+
+@each $key, $value in $colors{
+  .txt-#{$key}{
+    color: #{$value};
+  }
+
+  .bg-#{$key}{
+    background-color: #{$value};
+  }
+}
+
+.bg-primary{
+  &.fg-light{
+    &,
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6{
+      color: $white;
+    }
+  }
+
+  &,
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6{
+    color: $secondary;
+  }
+
+  a:not(.button){
+    color: $white;
+  }
+
+  a,
+  .link,
+  .button{
+    &:focus{
+      outline-color: $highlight-alternative;
+      outline-color: var(--highlight-alternative);
+    }
+  }
+}
+
+.wrapper-paahtimo{
+  .txt-secondary{
+    color: $paahtimo-secondary;
+  }
+
+  .bg-secondary{
+    background-color: $paahtimo-bg-secondary;
+  }
+}
