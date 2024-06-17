@@ -10,8 +10,9 @@ module CommentsHelperExtensions
     alias_method :comments_for_orig, :comments_for unless method_defined?(:comments_for_orig)
 
     def comments_for(resource)
-      replace_footer_koro("with-wrapper--inner")
+      return unless resource.commentable?
 
+      replace_footer_koro("with-wrapper--inner")
       comments_for_orig resource
     end
   end

@@ -17,9 +17,12 @@ require "decidim/system"
 require "decidim/admin"
 require "decidim/api"
 
-# Needed because of the following bug in core (also plans needs this right now):
-# https://github.com/decidim/decidim/pull/7784
-require "decidim/proposals/api"
+# External (after Decidim is loaded)
+# require "social-share-button"
+# require "social_share_button/engine"
+
+# API extensions
+require "decidim/api/extensions"
 
 # Require the needed gems manually
 require "decidim/forms"

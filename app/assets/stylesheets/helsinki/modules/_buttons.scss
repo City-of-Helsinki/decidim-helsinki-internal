@@ -8,6 +8,12 @@
   }
 }
 
+.link {
+  cursor: pointer;
+  color: $anchor-color;
+  font-weight: 600;
+}
+
 .button{
   &.hollow{
     &.primary,

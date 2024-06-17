@@ -19,13 +19,13 @@ edit_link(
         </div>
       </div>
 
-      <% if promoted_participatory_processes.any? %>
+      <% if promoted_collection.any? %>
         <div class="row">
           <div class="columns text-center">
             <div class="highlighted-links">
               <div class="highlighted-links__title">Käynnissä olevat kampanjat</div>
 
-              <% promoted_participatory_processes.each do |process| %>
+              <% promoted_collection.each do |process| %>
                 <%= link_to participatory_process_path(process), class: "highlighted-links__item" do %>
                   <%= decidim_html_escape(translated_attribute(process.title)).html_safe %>
                   <%= icon("chevron-right") %>

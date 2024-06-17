@@ -63,6 +63,7 @@ module Decidim
         permission_action = Decidim::PermissionAction.new(scope: scope, action: action, subject: subject)
 
         chain.inject(permission_action) do |current_permission_action, permission_class|
+          puts permission_class.inspect
           permission_class.new(
             user,
             current_permission_action,

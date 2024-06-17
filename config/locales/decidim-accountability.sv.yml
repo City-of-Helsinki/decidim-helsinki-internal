@@ -29,3 +29,5 @@ sv:
         show:
           back: Gå till experiment av denna kampanj
           directory_link: Gå till experimentgalleriet
+    tags:
+      filter_results_for_tag: Filtrera resultat för tagg %{tag}

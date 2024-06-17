@@ -132,9 +132,9 @@ module DecidimHelsinki
     end
 
     initializer "graphql_api" do
-      Decidim::Api::QueryType.define do
-        Helsinki::QueryExtensions.define(self)
-      end
+      Decidim::ParticipatoryProcesses::ParticipatoryProcessType.include(Decidim::ParticipatoryProcesses::ParticipatoryProcessTypeExtensions)
+
+      Decidim::Api::QueryType.include Helsinki::QueryExtensions
     end
 
     initializer "decidim.core.homepage_content_blocks" do
@@ -400,6 +400,7 @@ module DecidimHelsinki
       Decidim::Blogs::PostMCell.include(BlogPostMCellExtensions)
       Decidim::Accountability::ResultMCell.include(ResultMCellExtensions)
       Decidim::Accountability::TagsCell.include(AccountabilityTagsCellExtensions)
+      Decidim::Comments::CommentCell.include(CommentCellExtensions)
 
       # Form extensions
       Decidim::Admin::CategoryForm.include(AdminCategoryFormExtensions)

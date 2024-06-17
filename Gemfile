@@ -7,8 +7,7 @@ ruby RUBY_VERSION
 # Run updates by following the Decidim upgrade instructions:
 # https://github.com/decidim/decidim/blob/master/docs/getting_started.md#keeping-your-app-up-to-date
 # DECIDIM_VERSION = { github: "decidim/decidim", branch: "release/multibudget-maximum-votes" }.freeze
-DECIDIM_VERSION = "0.23.4"
-DECIDIM_MODULE_VERSION = "~> 0.23.0"
+DECIDIM_VERSION = "0.24.3"
 
 # Necessary for other gems
 gem "decidim-core", DECIDIM_VERSION
@@ -34,18 +33,18 @@ gem "decidim-verifications", DECIDIM_VERSION
 gem "searchlight", "~> 4.1"
 
 # External modules
-gem "decidim-accountability_simple", github: "mainio/decidim-module-accountability_simple", branch: "release/0.23-stable"
-gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "develop"
-gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "release/0.23-stable"
-gem "decidim-favorites", github: "mainio/decidim-module-favorites", branch: "release/0.23-stable"
-gem "decidim-feedback", github: "mainio/decidim-module-feedback", branch: "release/0.23-stable"
-gem "decidim-locations", github: "mainio/decidim-module-locations", branch: "release/0.23-stable"
-gem "decidim-plans", github: "mainio/decidim-module-plans", branch: "develop"
-gem "decidim-redirects", github: "mainio/decidim-module-redirects", branch: "release/0.23-stable"
-gem "decidim-tags", github: "mainio/decidim-module-tags", branch: "release/0.23-stable"
-gem "decidim-term_customizer", DECIDIM_MODULE_VERSION
-gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "develop"
-gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo"
+gem "decidim-accountability_simple", github: "mainio/decidim-module-accountability_simple", branch: "release/0.24-stable"
+gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "release/0.24-stable"
+gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "release/0.24-stable"
+gem "decidim-favorites", github: "mainio/decidim-module-favorites", branch: "release/0.24-stable"
+gem "decidim-feedback", github: "mainio/decidim-module-feedback", branch: "release/0.24-stable"
+gem "decidim-locations", github: "mainio/decidim-module-locations", branch: "release/0.24-stable"
+gem "decidim-plans", github: "mainio/decidim-module-plans", branch: "release/0.24-stable"
+gem "decidim-redirects", github: "mainio/decidim-module-redirects", branch: "release/0.24-stable"
+gem "decidim-tags", github: "mainio/decidim-module-tags", branch: "release/0.24-stable"
+gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "0.24-stable"
+gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "release/0.24-stable"
+gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo", branch: "release/0.1-stable"
 
 # For static maps, hasn't released an official release with the updated
 # dependencies. GitHub version works fine.
@@ -59,7 +58,7 @@ gem "mapstatic", github: "crofty/mapstatic", branch: "master"
 #
 # This will be likely fixed by:
 # https://github.com/decidim/decidim/pull/7690
-gem "social-share-button", "~> 1.2.3"
+gem "social-share-button", "~> 1.2", ">= 1.2.3"
 
 # Managing locale datas
 gem "ruby-cldr", "~> 0.3.0"
@@ -67,7 +66,7 @@ gem "ruby-cldr", "~> 0.3.0"
 # HKI export
 gem "rubyXL", "~> 3.4", ">= 3.4.17"
 
-gem "puma", "~> 4.3.3"
+gem "puma", ">= 5.3.1"
 gem "uglifier", "~> 4.1"
 
 group :development, :test do

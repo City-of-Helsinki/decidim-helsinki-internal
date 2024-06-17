@@ -29,3 +29,5 @@ fi:
         show:
           back: Siirry kampanjan kokeiluihin
           directory_link: Siirry kokeilugalleriaan
+    tags:
+      filter_results_for_tag: Suodata tulokset tunnisteelle %{tag}

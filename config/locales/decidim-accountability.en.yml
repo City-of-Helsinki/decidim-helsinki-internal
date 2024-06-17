@@ -29,3 +29,5 @@ en:
         show:
           back: Go to experiments of this campaign
           directory_link: Go to experimentation gallery
+    tags:
+      filter_results_for_tag: Filter results for tag %{tag}
