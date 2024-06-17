@@ -71,6 +71,9 @@ gem "puma", ">= 5.6.2"
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
+  # decidim-dev disabled because it adds `decidim` as a hard dependency which
+  # causes some things to break in the application (as some modules become
+  # available in development)
   # gem "decidim-dev", DECIDIM_VERSION
 end
 
