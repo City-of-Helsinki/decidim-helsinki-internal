@@ -11,7 +11,7 @@ elsif current_participatory_space.end_date.present?
 end
 
 image = nil
-image = current_participatory_space.banner_image if controller.is_a?(Decidim::ParticipatoryProcesses::ParticipatoryProcessesController)
+image = current_participatory_space.attached_uploader(:banner_image).path if controller.is_a?(Decidim::ParticipatoryProcesses::ParticipatoryProcessesController)
 %>
 
 <% if image.present? %>
