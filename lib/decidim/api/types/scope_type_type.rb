@@ -7,9 +7,9 @@ module Decidim
       graphql_name "ScopeType"
       description "A scope type"
 
-      field :id, GraphQL::Types::ID, "The scope type's unique ID"
-      field :name, Decidim::Core::TranslatedFieldType, "The name of this scope type."
-      field :plural, Decidim::Core::TranslatedFieldType, "The plural format of this scope type."
+      field :id, GraphQL::Types::ID, "The scope type's unique ID", null: false
+      field :name, Decidim::Core::TranslatedFieldType, "The name of this scope type.", null: false
+      field :plural, Decidim::Core::TranslatedFieldType, "The plural format of this scope type.", null: false
       field :scopes,
             type: [Decidim::Core::ScopeApiType],
             null: true,

@@ -30,12 +30,12 @@
       <h1 class="h2"><%= translated_attribute post.title %></h1>
       <p><strong>Kampanja: <%= translated_attribute(current_participatory_space.title) %></strong></p>
       <p>
-        <%= link_to posts_path(filter_link_params) do %>
+        <%= link_to posts_path do %>
           <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
           <%= t(".back") %>
         <% end %>
         <br>
-        <%= link_to main_app.posts_path(filter_link_params) do %>
+        <%= link_to main_app.posts_path do %>
           <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
           <%= t(".directory_link") %>
         <% end %>

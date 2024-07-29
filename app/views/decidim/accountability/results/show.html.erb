@@ -32,13 +32,13 @@ edit_link(
 
       <p>
         <% if respond_to?(:current_participatory_space) %>
-          <%= link_to results_path(filter_link_params) do %>
+          <%= link_to results_path do %>
             <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
             <%= t(".back") %>
           <% end %>
           <br>
         <% end %>
-        <%= link_to main_app.results_path(filter_link_params) do %>
+        <%= link_to main_app.results_path do %>
           <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
           <%= t(".directory_link") %>
         <% end %>
