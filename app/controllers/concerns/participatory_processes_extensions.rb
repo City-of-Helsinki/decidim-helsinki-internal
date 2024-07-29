@@ -34,8 +34,8 @@ module ParticipatoryProcessesExtensions
   end
 
   def display_processes_as_cards?
-    return false if filter_params[:date] == "active"
-    return false if filter_params[:date] == "upcoming"
+    return false if filter_params[:with_date] == "active"
+    return false if filter_params[:with_date] == "upcoming"
 
     true
   end

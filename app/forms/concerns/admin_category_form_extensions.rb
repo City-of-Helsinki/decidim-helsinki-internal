@@ -6,7 +6,7 @@ module AdminCategoryFormExtensions
 
   included do
     attribute :has_color, Decidim::Form::Boolean, default: false
-    attribute :color, Decidim::Form::String, default: nil
+    attribute :color, String, default: nil
     attribute :category_image
     attribute :category_icon
 

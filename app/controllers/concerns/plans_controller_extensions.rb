@@ -8,14 +8,14 @@ module PlansControllerExtensions
     def default_filter_params
       {
         search_text: "",
-        origin: default_filter_origin_params,
-        activity: "",
-        category_id: "",
-        section: default_section_filter_params,
-        state: "",
-        scope_id: nil,
+        # with_any_origin: default_filter_origin_params,
+        with_any_category: "",
+        with_any_state: "",
+        with_any_scope: nil,
+        with_any_tag: [],
         related_to: "",
-        tag_id: []
+        activity: "",
+        section: default_section_filter_params
       }
     end
   end

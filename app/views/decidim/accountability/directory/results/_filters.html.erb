@@ -6,7 +6,7 @@
       <div class="filters__section">
         <fieldset>
           <legend class="mini-title"><%= t(".component") %></legend>
-          <%= form.select :component_id, available_result_components, disable_parents: false, include_blank: t(".component_prompt"), label: false %>
+          <%= form.select :decidim_component_id_eq, available_result_components, disable_parents: false, include_blank: t(".component_prompt"), label: false %>
         </fieldset>
       </div>
     </div>
@@ -23,7 +23,7 @@
         <div class="mini-title">&nbsp;</div>
         <div class="filters__search">
           <div class="input-group">
-            <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t("decidim.accountability.results.filters.search"), title: t("decidim.accountability.results.filters.search") %>
+            <%= form.search_field :search_text_cont, label: false, class: "input-group-field", placeholder: t("decidim.accountability.results.filters.search"), title: t("decidim.accountability.results.filters.search") %>
             <div class="input-group-button">
               <button type="submit" class="button primary">
                 <%= icon "magnifying-glass", aria_label: t("decidim.accountability.results.filters.search") %>
