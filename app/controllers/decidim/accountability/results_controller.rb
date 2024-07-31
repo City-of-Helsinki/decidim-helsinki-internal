@@ -42,7 +42,7 @@ module Decidim
           search_text_cont: "",
           with_scope: "",
           with_category: "",
-          status: ""
+          with_status: ""
         }
       end
 

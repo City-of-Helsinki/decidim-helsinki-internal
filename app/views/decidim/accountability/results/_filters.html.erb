@@ -6,7 +6,7 @@
       <div class="filters__section">
         <fieldset>
           <legend class="mini-title"><%= t(".state") %></legend>
-          <%= form.select :status, available_statuses, disable_parents: false, include_blank: t(".state_prompt"), label: false %>
+          <%= form.select :with_status, available_statuses, disable_parents: false, include_blank: t(".state_prompt"), label: false %>
         </fieldset>
       </div>
     </div>

@@ -60,7 +60,7 @@ module Decidim
             with_scope: "",
             with_category: "",
             decidim_component_id_eq: "",
-            status: ""
+            with_status: ""
           }
         end
 
