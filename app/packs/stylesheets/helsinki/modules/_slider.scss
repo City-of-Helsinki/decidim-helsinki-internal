@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $slick-arrow-color: $primary;
 $slick-dot-color: $primary;
 $slick-dot-size: 24px;
@@ -93,7 +95,7 @@ $slick-opacity-default: 1;
     background: $body-background;
 
     @include breakpoint(medium){
-      width: (100% / 12);
+      width: math.div(100%, 12);
     }
   }
 
@@ -112,7 +114,7 @@ $slick-opacity-default: 1;
 
     @include breakpoint(medium){
       // Keep 1 column on both sides
-      padding: 0 (100% / 12);
+      padding: 0 math.div(100%, 12);
 
       h1,
       .h1,
