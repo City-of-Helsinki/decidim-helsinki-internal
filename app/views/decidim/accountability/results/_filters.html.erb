@@ -12,12 +12,7 @@
     </div>
     <div class="columns medium-3">
       <% if current_component.categories.any? %>
-        <div class="filters__section">
-          <fieldset>
-            <legend class="mini-title"><%= t(".category") %></legend>
-            <%= form.categories_select :with_category, current_component.categories, legend_title: t(".category"), disable_parents: false, include_blank: t(".category_prompt"), label: false %>
-          </fieldset>
-        </div>
+          <%= form.categories_select :with_category, current_component.categories, legend_title: t(".category"), disable_parents: false, include_blank: t(".category_prompt"), label: false %>
       <% end %>
     </div>
     <div class="columns medium-3">
