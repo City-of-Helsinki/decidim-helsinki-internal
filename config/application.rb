@@ -419,7 +419,6 @@ module DecidimHelsinki
 
         # Permissions extensions
         Decidim::Plans::Permissions.include(PlansPermissionsExtensions)
-        Decidim::MenuItemPresenter.include(MenuItemPresenterExtensions)
 
         # Model extensions
         Decidim::Category.include(CategoryExtensions)
