@@ -3,6 +3,10 @@ fi:
     blogs:
       actions:
         user_group_id: Luo artikkeli käyttäjänä
+      admin:
+        models:
+          components:
+            body: Sisältö
       directory:
         posts:
           filters:

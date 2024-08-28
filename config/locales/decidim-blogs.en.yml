@@ -3,6 +3,10 @@ en:
     blogs:
       actions:
         user_group_id: Create article as
+      admin:
+        models:
+          components:
+            body: Content
       directory:
         posts:
           filters:

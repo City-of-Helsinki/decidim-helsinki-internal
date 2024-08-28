@@ -3,6 +3,10 @@ en:
     blogs:
       actions:
         user_group_id: Skapa artikel som
+      admin:
+        models:
+          components:
+            body: Innehåll
       directory:
         posts:
           filters:
