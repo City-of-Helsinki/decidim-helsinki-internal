@@ -71,6 +71,10 @@ Decidim.configure do |config|
 
   # Currency unit
   # config.currency_unit = "€"
+
+  # Throttling settings that may be raised for the instances
+  config.throttling_max_requests = ENV.fetch("DECIDIM_THROTTLING_MAX_REQUESTS", "100").to_i
+  config.throttling_period = ENV.fetch("DECIDIM_THROTTLING_PERIOD", "1").to_i.minute
 end
 
 # Configure plans
