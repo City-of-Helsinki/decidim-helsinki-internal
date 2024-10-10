@@ -8,7 +8,9 @@ module AdminCategoryFormExtensions
     attribute :has_color, Decidim::Form::Boolean, default: false
     attribute :color, String, default: nil
     attribute :category_image
+    attribute :remove_category_image, Decidim::Form::Boolean, default: false
     attribute :category_icon
+    attribute :remove_category_icon, Decidim::Form::Boolean, default: false
 
     validates :category_image, passthru: { to: Decidim::Category }
     validates :category_icon, passthru: { to: Decidim::Category }

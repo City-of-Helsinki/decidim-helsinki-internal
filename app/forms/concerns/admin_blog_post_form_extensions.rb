@@ -8,7 +8,9 @@ module AdminBlogPostFormExtensions
     attribute :user_group_id, Integer # Brings the ability to create blog posts as a group from 0.24.
 
     attribute :card_image
+    attribute :remove_card_image, Decidim::Form::Boolean, default: false
     attribute :main_image
+    attribute :remove_main_image, Decidim::Form::Boolean, default: false
 
     validates :card_image, passthru: { to: Decidim::Blogs::Post }
     validates :main_image, passthru: { to: Decidim::Blogs::Post }
