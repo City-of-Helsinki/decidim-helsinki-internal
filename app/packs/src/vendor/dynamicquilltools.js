@@ -61,9 +61,71 @@ class QuillToolbarItem {
   }
 }
 
+/** @class Class representing a button tool for a Quill Editor toolbar. */
+export class QuillToolbarButton extends QuillToolbarItem {
+  /**
+   * Creates an instance of QuillToolbarButton.
+   *
+   * @constructor
+   * @param {object} [options] - The options/settings for this QuillToolbarButton.
+   * @param {string} [options.id=`button-${random10digitNumber}`] - The id of the quill tool.
+   * @param {string} [options.value] - The default hidden value of the button.
+   * @param {string} options.icon - The default icon this button tool will have.
+   */
+  constructor(options) {
+      super(options)
+      const me = this
+
+      me.id = me.options.id || `button-${me._generateId()}`
+
+      me.qlButton = document.createElement("button")
+      me.qlButton.className = `ql-${me.id}`
+      me.setValue(me.options.value)
+      me.setIcon(me.options.icon)
+      me.qlButton.onclick = function() {
+          me.onClick(me.quill)
+      }
+      me.qlFormatsEl.appendChild(me.qlButton)
+  }
+  /**
+   * Set the icon for this button tool.
+   *
+   * @param {string} newLabel - The <svg> or <img> html tag to use as an icon. (Make sure it's 18x18 in size.)
+   */
+  setIcon(imageHtml) {
+      const me = this
+      me.qlButton.innerHTML = imageHtml
+  }
+  /**
+   * Set the hidden value of this button tool.
+   *
+   * @param {string} newLabel - The <svg> or <img> html tag to use as an icon. (Make sure it's 18x18 in size.)
+   */
+  setValue(value) {
+      const me = this
+      me.qlButton.value = value
+  }
+  /**
+   * Set the hidden value of this button tool.
+   *
+   * @param {string} newLabel - The <svg> or <img> html tag to use as an icon. (Make sure it's 18x18 in size.)
+   */
+  getValue() {
+      const me = this
+      return me.qlButton.value
+  }
+  /**
+   * A callback that gets called automatically when the button is clicked, tapped or triggered witht he keyboard etc. This callback is expected to be overwritten.
+   *
+   * @param {Quill} quill - The quill instance the dropdown tool is attached to.
+   */
+  onClick(_button, _quill) {
+
+  }
+}
 
 /** @class Class representing a dropdown tool for a Quill Editor toolbar. */
-class QuillToolbarDropDown extends QuillToolbarItem {
+export class QuillToolbarDropDown extends QuillToolbarItem {
   /**
    * Creates an instance of QuillToolbarDropDown.
    *
@@ -155,70 +217,6 @@ class QuillToolbarDropDown extends QuillToolbarItem {
    * @param {Quill} quill - The quill instance the dropdown tool is attached to.
    */
   onSelect(_label, _value, _quill) {
-
-  }
-}
-
-
-/** @class Class representing a button tool for a Quill Editor toolbar. */
-class QuillToolbarButton extends QuillToolbarItem {
-  /**
-   * Creates an instance of QuillToolbarButton.
-   *
-   * @constructor
-   * @param {object} [options] - The options/settings for this QuillToolbarButton.
-   * @param {string} [options.id=`button-${random10digitNumber}`] - The id of the quill tool.
-   * @param {string} [options.value] - The default hidden value of the button.
-   * @param {string} options.icon - The default icon this button tool will have.
-   */
-  constructor(options) {
-      super(options)
-      const me = this
-
-      me.id = me.options.id || `button-${me._generateId()}`
-
-      me.qlButton = document.createElement("button")
-      me.qlButton.className = `ql-${me.id}`
-      me.setValue(me.options.value)
-      me.setIcon(me.options.icon)
-      me.qlButton.onclick = function() {
-          me.onClick(me.quill)
-      }
-      me.qlFormatsEl.appendChild(me.qlButton)
-  }
-  /**
-   * Set the icon for this button tool.
-   *
-   * @param {string} newLabel - The <svg> or <img> html tag to use as an icon. (Make sure it's 18x18 in size.)
-   */
-  setIcon(imageHtml) {
-      const me = this
-      me.qlButton.innerHTML = imageHtml
-  }
-  /**
-   * Set the hidden value of this button tool.
-   *
-   * @param {string} newLabel - The <svg> or <img> html tag to use as an icon. (Make sure it's 18x18 in size.)
-   */
-  setValue(value) {
-      const me = this
-      me.qlButton.value = value
-  }
-  /**
-   * Set the hidden value of this button tool.
-   *
-   * @param {string} newLabel - The <svg> or <img> html tag to use as an icon. (Make sure it's 18x18 in size.)
-   */
-  getValue() {
-      const me = this
-      return me.qlButton.value
-  }
-  /**
-   * A callback that gets called automatically when the button is clicked, tapped or triggered witht he keyboard etc. This callback is expected to be overwritten.
-   *
-   * @param {Quill} quill - The quill instance the dropdown tool is attached to.
-   */
-  onClick(_button, _quill) {
 
   }
 }

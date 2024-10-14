@@ -11,7 +11,7 @@ const showDropdown = (dropdown, quill) => {
       dropdown.currentSelectionLabel = e[0]
     }
   })
-}
+};
 
 const hideDropdown = (dropdown, quill) => {
   if (dropdown.toolbarEl && dropdown.toolbarEl.hasChildNodes()) {
@@ -21,7 +21,7 @@ const hideDropdown = (dropdown, quill) => {
       }
     })
   }
-}
+};
 
 const linkDropdowns = (quill, range) => {
   const format = quill.getFormat(range);
@@ -33,6 +33,6 @@ const linkDropdowns = (quill, range) => {
     hideDropdown(linkDropdown, quill);
     hideDropdown(buttonizer, quill);
   }
-}
+};
 
 export default linkDropdowns;

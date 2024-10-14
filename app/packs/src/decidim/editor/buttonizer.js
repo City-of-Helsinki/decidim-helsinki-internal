@@ -1,7 +1,6 @@
 // Add a link class dropdown to the Quill Editor's toolbar:
 
-import QuillToolbarDropDown from "src/vendor/dynamicquilltools";
-
+import { QuillToolbarDropDown } from "src/vendor/dynamicquilltools";
 
 const Link = Quill.import("formats/link");
 const dropDownItems = {
