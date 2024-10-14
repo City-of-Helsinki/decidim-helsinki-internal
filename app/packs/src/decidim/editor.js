@@ -3,7 +3,7 @@
 import lineBreakButtonHandler from "src/decidim/editor/linebreak_module";
 import "src/decidim/editor/clipboard_override";
 import "src/decidim/vendor/image-resize.min";
-import "src/decidim/vendor/image-upload.min";
+import ImageUpload from "src/decidim/vendor/quill-image-upload";
 
 import MyLink from "src/decidim/editor/mylink";
 import linkDropdowns from "src/decidim/editor/dropdowns";
@@ -11,6 +11,7 @@ import myLinkHandler from "src/decidim/editor/mylinkhandler";
 
 Quill.debug("error"); // do not show overwrite warnings
 Quill.register(MyLink);
+Quill.register("modules/imageUpload", ImageUpload);
 
 const quillFormats = [
   "bold",
