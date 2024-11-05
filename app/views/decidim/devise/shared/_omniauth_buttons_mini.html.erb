@@ -1,21 +1,21 @@
 <% if Devise.mappings[:user].omniauthable? && current_organization.enabled_omniauth_providers.any? %>
   <div class="row">
     <div class="columns">
-      <% if current_organization.enabled_omniauth_providers.include?(:tunnistamo) %>
+      <% if current_organization.enabled_omniauth_providers.include?(:helsinki) %>
         <div class="social-register text-center">
           <h3 class="h5 margin-bottom-1">
-            <%= t("devise.shared.omniauth.tunnistamo.sign_in_with") %>
+            <%= t("devise.shared.omniauth.helsinki.sign_in_with") %>
           </h3>
           <p>
-            <%= t("devise.shared.omniauth.tunnistamo.description") %>
+            <%= t("devise.shared.omniauth.helsinki.description") %>
             <%= link_to(
-              t("devise.shared.omniauth.tunnistamo.description_read_more"),
+              t("devise.shared.omniauth.helsinki.description_read_more"),
               decidim_participatory_processes.participatory_processes_path,
               target: "_blank"
             )%>
           </p>
-          <%= link_to decidim.send("user_tunnistamo_omniauth_authorize_path"), class: "button hollow large primary button--#{normalize_provider_name(:tunnistamo)}", method: :post do %>
-            <%= t("devise.shared.omniauth.tunnistamo.sign_in_button") %>
+          <%= link_to decidim.send("user_helsinki_omniauth_authorize_path"), class: "button hollow large primary button--#{normalize_provider_name(:helsinki)}", method: :post do %>
+            <%= t("devise.shared.omniauth.helsinki.sign_in_button") %>
           <% end %>
         </div>
 

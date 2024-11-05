@@ -5,7 +5,7 @@ fi:
         sign_in: 'Kirjaudu sisään'
     shared:
       omniauth:
-        tunnistamo:
+        helsinki:
           description: 'Osa Kokeilukiihdyttämön toiminnoista on vain kaupungin työntekijöille tarkoitettuja.'
           description_read_more: Lue lisää Kokeilukiihdyttämön toiminnasta
           sign_in_button: 'Kirjaudu sisään'

@@ -62,8 +62,8 @@ en:
     devise:
       shared:
         omniauth_buttons:
-          tunnistamo_explanation_internal: 'Tunnistamo authentication'
-        tunnistamo_description: Using Tunnistamo you can authenticate using Google, Facebook, or YLE among others.
+          helsinki_explanation_internal: 'Helsinki authentication'
+        helsinki_description: Using Helsinki you can authenticate using your employee account.
     map:
       districts:
         central: Central

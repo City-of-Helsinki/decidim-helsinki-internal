@@ -59,6 +59,17 @@ GIT
       decidim-core (~> 0.27.0)
 
 GIT
+  remote: https://github.com/mainio/decidim-module-helsinki_profile.git
+  revision: 575262b1d1596d67633b8f40457594cac0579c7d
+  branch: release/0.27-stable
+  specs:
+    decidim-helsinki_profile (0.27.0)
+      decidim-core (~> 0.27.0)
+      henkilotunnus (~> 1.2.0)
+      jwt (~> 2.7)
+      omniauth_openid_connect (~> 0.7)
+
+GIT
   remote: https://github.com/mainio/decidim-module-locations.git
   revision: e10c1b26eb909f27a18e84a165dc847a3e5d261c
   branch: main
@@ -104,22 +115,6 @@ GIT
     decidim-term_customizer (0.27.0)
       decidim-admin (~> 0.27.0)
       decidim-core (~> 0.27.0)
-
-GIT
-  remote: https://github.com/mainio/decidim-module-tunnistamo.git
-  revision: 6db842b0d7eef20fd512bd182b547668db46e9e8
-  branch: release/0.27-stable
-  specs:
-    decidim-tunnistamo (0.27.0)
-      decidim-core (~> 0.27.0)
-      omniauth-tunnistamo (~> 0.2.0)
-
-GIT
-  remote: https://github.com/mainio/omniauth-tunnistamo.git
-  revision: 82fe735a7fb06e34b60a7e1401c637c99b4e5932
-  specs:
-    omniauth-tunnistamo (0.2.0)
-      omniauth_openid_connect (~> 0.7)
 
 GEM
   remote: https://rubygems.org/
@@ -438,6 +433,8 @@ GEM
       sass (~> 3.4)
     hashdiff (1.1.0)
     hashie (5.0.0)
+    henkilotunnus (1.2.0)
+      activemodel (>= 4.2)
     hkdf (0.3.0)
     html-pipeline (2.14.3)
       activesupport (>= 2)
@@ -453,7 +450,7 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
-    json-jwt (1.16.6)
+    json-jwt (1.16.7)
       activesupport (>= 4.2)
       aes_key_wrap
       base64
@@ -558,10 +555,10 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
-    omniauth_openid_connect (0.7.1)
+    omniauth_openid_connect (0.8.0)
       omniauth (>= 1.9, < 3)
       openid_connect (~> 2.2)
-    openid_connect (2.3.0)
+    openid_connect (2.3.1)
       activemodel
       attr_required (>= 1.0.0)
       email_validator
@@ -825,6 +822,7 @@ DEPENDENCIES
   decidim-favorites!
   decidim-feedback!
   decidim-forms (= 0.27.6)
+  decidim-helsinki_profile!
   decidim-locations!
   decidim-meetings (= 0.27.6)
   decidim-pages (= 0.27.6)
@@ -836,7 +834,6 @@ DEPENDENCIES
   decidim-tags!
   decidim-templates (= 0.27.6)
   decidim-term_customizer!
-  decidim-tunnistamo!
   decidim-verifications (= 0.27.6)
   dotenv-rails (~> 2.1, >= 2.1.1)
   faker (~> 2.14)
@@ -845,7 +842,6 @@ DEPENDENCIES
   listen (~> 3.1)
   mapstatic!
   memory_profiler
-  omniauth-tunnistamo!
   puma (>= 5.6.2)
   rack-mini-profiler
   resque (~> 1.26)

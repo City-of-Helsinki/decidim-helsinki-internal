@@ -1,17 +1,17 @@
 <% if devise_mapping.omniauthable? && current_organization.enabled_omniauth_providers.any? %>
-  <% if current_organization.enabled_omniauth_providers.include?(:tunnistamo) %>
+  <% if current_organization.enabled_omniauth_providers.include?(:helsinki) %>
     <div class="row collapse">
       <div class="columns medium-8 medium-centered">
         <div class="social-register text-center">
           <h3 class="h5 margin-bottom-1">
-            <%= t("devise.shared.omniauth.tunnistamo.sign_in_with") %>
+            <%= t("devise.shared.omniauth.helsinki.sign_in_with") %>
           </h3>
           <div class="login-icons">
             <%= image_pack_tag "media/images/helsinki-logo-black.svg" %>
           </div>
           <p></p>
-          <%= link_to decidim.send("user_tunnistamo_omniauth_authorize_path"), class: "button hollow large primary button--#{normalize_provider_name(:tunnistamo)}", method: :post do %>
-            <%= t("devise.shared.omniauth.tunnistamo.sign_in_button") %>
+          <%= link_to decidim.send("user_helsinki_omniauth_authorize_path"), class: "button hollow large primary button--#{normalize_provider_name(:helsinki)}", method: :post do %>
+            <%= t("devise.shared.omniauth.helsinki.sign_in_button") %>
           <% end %>
         </div>
       </div>

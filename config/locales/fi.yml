@@ -10,7 +10,7 @@ fi:
         one: Ehdotus
         other: Ehdotukset
   auth:
-    sign_in_with_tunnistamo: 'Käytä Tunnistamoa kirjautuaksesi sisään'
+    sign_in_with_helsinki: 'Käytä Helsingin tunnusta kirjautuaksesi sisään'
   decidim:
     admin:
       menu:

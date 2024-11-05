@@ -62,8 +62,8 @@ sv:
     devise:
       shared:
         omniauth_buttons:
-          tunnistamo_explanation_internal: 'Tunnistamo-inloggning'
-        tunnistamo_description: Tunnistamo låter dig logga in på tjänsten, t.ex. Google, Facebook eller YLE.
+          helsinki_explanation_internal: 'Helsingfors-inloggning'
+        helsinki_description: Helsingfors låter dig logga in på tjänsten med Helsingfors konto.
     map:
       districts:
         central: Centrala

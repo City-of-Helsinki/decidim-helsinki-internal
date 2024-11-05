@@ -10,7 +10,7 @@ sv:
         one: Förslag
         other: Förslag
   auth:
-    sign_in_with_tunnistamo: 'Logga in med Tunnistamo'
+    sign_in_with_helsinki: 'Logga in med Helsingfors konto'
   decidim:
     admin:
       menu:

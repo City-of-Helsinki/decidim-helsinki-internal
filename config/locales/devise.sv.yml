@@ -5,7 +5,7 @@ sv:
         sign_in: 'Logga in'
     shared:
       omniauth:
-        tunnistamo:
+        helsinki:
           description: 'Vissa funktioner i Kokeilukiihdyttämö är endast tillgängliga för stadsanställda.'
           description_read_more: Läs mer om Kokeilukiihdyttämö
           sign_in_button: 'Logga in'

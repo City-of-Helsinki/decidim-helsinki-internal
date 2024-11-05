@@ -54,10 +54,10 @@ module Decidim
 
       html_properties["class"] = (["icon--#{name}"] + _icon_classes(options)).join(" ")
 
-      if name == "tunnistamo"
-        # Fetch Tunnistamo icon from the local icon files instead of the main
+      if name == "helsinki"
+        # Fetch Helsinki icon from the local icon files instead of the main
         # icons.svg so that we don't need to customize the whole icon file.
-        html_properties["alt"] = options[:alt] || "Tunnistamo"
+        html_properties["alt"] = options[:alt] || "Helsinki"
 
         content_tag :svg, html_properties do
           content_tag :use, nil, "xlink:href" => "#{asset_pack_path("media/images/hkilogo-symbol.svg")}#icon-helsinki"

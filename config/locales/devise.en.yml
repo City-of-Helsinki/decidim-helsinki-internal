@@ -5,7 +5,7 @@ en:
         sign_in: 'Sign in'
     shared:
       omniauth:
-        tunnistamo:
+        helsinki:
           description: 'Some features of Kokeilukiihdyttämö are available only for city employees.'
           description_read_more: Read more about Kokeilukiihdyttämö
           sign_in_button: 'Sign in'

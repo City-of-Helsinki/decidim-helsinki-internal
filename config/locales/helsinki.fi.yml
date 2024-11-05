@@ -69,8 +69,8 @@ fi:
     devise:
       shared:
         omniauth_buttons:
-          tunnistamo_explanation_internal: 'Tunnistamo-kirjautuminen'
-        tunnistamo_description: Tunnistamon avulla voit kirjautua palveluun mm. Google-, Facebook-, YLE-palveluiden avulla.
+          helsinki_explanation_internal: 'Helsinki-kirjautuminen'
+        helsinki_description: Helsinki-kirjautumisen avulla voit kirjautua palveluun käyttämällä omaa Helsinki-tunnustasi.
     map:
       districts:
         central: Keskinen

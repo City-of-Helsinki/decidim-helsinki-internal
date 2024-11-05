@@ -43,8 +43,7 @@ gem "decidim-plans", github: "mainio/decidim-module-plans", branch: "develop"
 gem "decidim-redirects", github: "mainio/decidim-module-redirects", branch: "release/0.27-stable"
 gem "decidim-tags", github: "mainio/decidim-module-tags", branch: "develop"
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "release/0.27-stable"
-gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "release/0.27-stable"
-gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo"
+gem "decidim-helsinki_profile", github: "mainio/decidim-module-helsinki_profile", branch: "release/0.27-stable"
 
 # For static maps, hasn't released an official release with the updated
 # dependencies. GitHub version works fine.

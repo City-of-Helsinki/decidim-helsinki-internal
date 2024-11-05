@@ -10,7 +10,7 @@ en:
         one: Proposal
         other: Proposals
   auth:
-    sign_in_with_tunnistamo: 'Use Tunnistamo to sign in'
+    sign_in_with_helsinki: 'Use Helsinki ID to sign in'
   decidim:
     admin:
       menu:

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_17_085636) do
+ActiveRecord::Schema.define(version: 2024_11_05_085417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -226,8 +226,10 @@ ActiveRecord::Schema.define(version: 2024_06_17_085636) do
     t.datetime "granted_at"
     t.jsonb "verification_metadata", default: {}
     t.string "verification_attachment"
+    t.string "pseudonymized_pin"
     t.index ["decidim_user_id", "name"], name: "index_decidim_authorizations_on_decidim_user_id_and_name", unique: true
     t.index ["decidim_user_id"], name: "index_decidim_authorizations_on_decidim_user_id"
+    t.index ["pseudonymized_pin"], name: "index_decidim_authorizations_on_pseudonymized_pin"
     t.index ["unique_id"], name: "index_decidim_authorizations_on_unique_id"
   end
 
