@@ -357,8 +357,6 @@ module DecidimHelsinki
       #
       # Run before every request in development.
       config.to_prepare do
-        Decidim::HelsinkiProfile.logger.info "TESTING"
-
         # Helper extensions
         Decidim::Comments::CommentsHelper.include(CommentsHelperExtensions)
         Decidim::ScopesHelper.include(ScopesHelperExtensions)
