@@ -1,9 +1,4 @@
 en:
-  activemodel:
-    attributes:
-      user:
-        division: Division
-        phone: Phone number
   activerecord:
     models:
       decidim/plans/plan:

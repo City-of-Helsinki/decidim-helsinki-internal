@@ -1,9 +1,4 @@
 fi:
-  activemodel:
-    attributes:
-      user:
-        division: Toimiala
-        phone: Puhelinnumero
   activerecord:
     models:
       decidim/plans/plan:

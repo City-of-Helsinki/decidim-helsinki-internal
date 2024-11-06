@@ -1,7 +1,9 @@
+import delayed from "src/decidim/delayed"
+import { replaceState, state } from "src/decidim/history"
+
 ((exports) => {
   // eslint-disable-next-line id-length
-  const { $, delayed } = exports;
-  const { History } = exports.Decidim;
+  const { $ } = exports;
 
   $.fn.globalSearchResults = function() {
     return $(this).each((_i, element) => {
@@ -20,9 +22,9 @@
   };
 
   const getLocation = () => {
-    const state = History.state();
-    if (state && state._path) {
-      return state._path;
+    const historyState = state();
+    if (historyState && historyState._path) {
+      return historyState._path;
     }
 
     return location.pathname + location.search;
@@ -34,7 +36,7 @@
   const formSubmit = delayed(null, () => {
     const currentTab = $("#search-tabs .is-active a").attr("href");
     const path = `${getLocation()}${currentTab}`;
-    History.replaceState(path, History.state());
+    replaceState(path, state());
   });
 
   $(() => {

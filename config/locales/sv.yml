@@ -1,9 +1,4 @@
 sv:
-  activemodel:
-    attributes:
-      user:
-        division: Sektor
-        phone: Telefonnummer
   activerecord:
     models:
       decidim/plans/plan:

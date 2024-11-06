@@ -357,6 +357,8 @@ module DecidimHelsinki
       #
       # Run before every request in development.
       config.to_prepare do
+        Decidim::HelsinkiProfile.logger.info "TESTING"
+
         # Helper extensions
         Decidim::Comments::CommentsHelper.include(CommentsHelperExtensions)
         Decidim::ScopesHelper.include(ScopesHelperExtensions)
@@ -409,6 +411,7 @@ module DecidimHelsinki
           JoinMeetingButtonCellExtensions
         )
         Decidim::UserProfileCell.include(UserProfileCellExtensions)
+        Decidim::ProfileSidebarCell.include(ProfileSidebarCellExtensions)
         Decidim::Blogs::PostMCell.include(BlogPostMCellExtensions)
         Decidim::Accountability::ResultMCell.include(ResultMCellExtensions)
         Decidim::Accountability::TagsCell.include(AccountabilityTagsCellExtensions)
@@ -416,7 +419,6 @@ module DecidimHelsinki
 
         # Form extensions
         Decidim::Admin::CategoryForm.include(AdminCategoryFormExtensions)
-        Decidim::AccountForm.include(AccountFormExtensions)
         Decidim::Blogs::Admin::PostForm.include(AdminBlogPostFormExtensions)
 
         # Permissions extensions

@@ -19,21 +19,5 @@
         </button>
       </div>
     </div>
-
-    <div data-search-type="Decidim::User">
-      <fieldset>
-        <legend class="show-for-sr">Sparrauskaverit</legend>
-        <div class="column-grid">
-          <label class="column">
-            <%= radio_button_tag "filter[subtype]", "all", filter.subtype == "all" %>
-            Kaikki
-          </label>
-          <label class="column">
-            <%= radio_button_tag "filter[subtype]", "sparring", filter.subtype == "sparring" %>
-            Sparrauskaverit
-          </label>
-        </div>
-      </fieldset>
-    </div>
   </div>
 <% end %>

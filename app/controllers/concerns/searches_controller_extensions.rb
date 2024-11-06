@@ -15,8 +15,7 @@ module SearchesControllerExtensions
       {
         term: params[:term],
         resource_type: nil,
-        decidim_scope_id: nil,
-        subtype: "all"
+        decidim_scope_id: nil
       }
     end
   end

@@ -16,20 +16,6 @@
         </div>
       <% end %>
     <% end %>
-    <div class="mb-s text-compact">
-      <small><%= decidim_html_escape(profile_user.about.to_s) %></small>
-    </div>
-    <% if profile_user.respond_to?(:providing_help?) && profile_user.providing_help? %>
-      <div class="mb-s text-compact">
-        <p><span class="label info">Sparrauskaveri</span></p>
-        <% if profile_user.providing_help_details.present? %>
-          <small><%= decidim_html_escape(profile_user.providing_help_details.to_s) %></small>
-        <% end %>
-      </div>
-    <% end %>
-    <% if profile_user.personal_url.present? %>
-      <%= link_to html_truncate(profile_user.personal_url.gsub(%r{https?\:\/\/}, ""), length: 30), profile_user.personal_url, target: "_blank" %>
-    <% end %>
   </div>
   <% if profile_user.badge.present? %>
     <div class="badge-card__content">
