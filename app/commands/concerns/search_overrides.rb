@@ -55,8 +55,5 @@ module SearchOverrides
     query = base.joins(
       "INNER JOIN decidim_users ON decidim_searchable_resources.resource_id = decidim_users.id"
     )
-    query = query.where("extended_data->>'providing_help' =?", "true") if filters[:subtype] == "sparring"
-
-    query
   end
 end

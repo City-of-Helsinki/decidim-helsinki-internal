@@ -12,27 +12,8 @@
       <%= form_required_explanation %>
 
       <%= f.text_field :name %>
-      <%= f.text_field :nickname %>
+      <%# = f.text_field :nickname %>
       <%= f.email_field :email %>
-      <%= f.text_field :phone %>
-      <%= f.text_field :division %>
-      <%= f.url_field :personal_url %>
-      <%= f.text_area :about, rows: 5 %>
-
-      <div class="form-section">
-        <div class="form-section__title">
-          <h2 class="h3">Sparrauskaveri</h2>
-        </div>
-        <%= f.check_box :providing_help, label_options: { class: "checkbox-field" } %>
-        <%= f.text_area :providing_help_details, rows: 4 %>
-
-        <div class="callout secondary">
-          <h3 class=h4>Mikä on sparrauskaveri?</h3>
-          <p>Sparrauskaveri on kaupungin työntekijä, joka on tarjoutunut auttamaan kokeiluehdotuksen työstämisessä. Tarjottu apu voi olla pientä tai suurta, täysin yleistä tai tietyn aihealueen asiantuntemusta. Apu voi tarkoittaa, että sparrauskaveri on valmis liittymään jäseneksi tiimiin tai vain hetkellistä apua pallottelemaan ideoita tai oikolukemaan tekstiä – avun luonne on täysin sovittavissa.</p>
-          <p>Liity rohkeasti mukaan sparrauskaverien joukkoon!</p>
-        </div>
-      </div>
-
 
       <div class="form-section">
         <div class="form-section__title">

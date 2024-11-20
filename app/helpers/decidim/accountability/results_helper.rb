@@ -50,11 +50,7 @@ module Decidim
       end
 
       def author_information(author)
-        [
-          author.email,
-          author.extended_data["phone"],
-          author.extended_data["division"]
-        ].compact
+        [author.email].compact
       end
 
       def search_tags

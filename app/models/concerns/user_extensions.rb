@@ -11,7 +11,6 @@ module UserExtensions
       @search_resource_indexable_fields = Decidim::SearchResourceFieldsMapper.new(
         organization_id: :decidim_organization_id,
         A: :name,
-        D: :providing_help_details,
         datetime: :created_at
       )
 
@@ -22,13 +21,5 @@ module UserExtensions
 
   included do
     redefine_searchable_fields
-  end
-
-  def providing_help?
-    extended_data["providing_help"] ? true : false
-  end
-
-  def providing_help_details
-    extended_data["providing_help_details"]
   end
 end

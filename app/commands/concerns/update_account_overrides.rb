@@ -7,20 +7,8 @@ module UpdateAccountOverrides
   included do
     def update_personal_data
       @user.name = @form.name
-      @user.nickname = @form.nickname
+      @user.nickname = Decidim::UserBaseEntity.nicknamize(@user.name, organization: @form.current_organization)
       @user.email = @form.email
-      @user.personal_url = @form.personal_url
-      @user.about = @form.about
-      @user.extended_data = extended_data
-    end
-
-    def extended_data
-      @extended_data ||= (@user&.extended_data || {}).merge(
-        phone: @form.phone,
-        division: @form.division,
-        providing_help: @form.providing_help,
-        providing_help_details: @form.providing_help_details
-      )
     end
   end
 end
