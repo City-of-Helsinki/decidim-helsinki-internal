@@ -59,6 +59,7 @@ module Decidim
             search_text_cont: "",
             with_scope: "",
             with_category: "",
+            with_any_tag: [],
             decidim_component_id_eq: "",
             with_status: ""
           }

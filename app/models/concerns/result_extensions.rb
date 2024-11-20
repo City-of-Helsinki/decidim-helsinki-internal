@@ -17,7 +17,7 @@ module ResultExtensions
     end
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_category, :with_scope, :with_status]
+      [:with_category, :with_scope, :with_status, :with_any_tag]
     end
   end
 end
