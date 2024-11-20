@@ -5,7 +5,7 @@ module AccountabilityTagsCellExtensions
 
   included do
     def tag_path(tag)
-      filter_params = { filter: { tag_id: [tag.id] } }
+      filter_params = { filter: { with_any_tag: [tag.id] } }
 
       if controller.is_a?(Decidim::Accountability::Directory::ResultsController)
         Rails.application.routes.url_helpers.results_path(filter_params)
