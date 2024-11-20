@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-accountability_simple.git
-  revision: 5184842a43c18dfce99a6eeecfaa8d4eaff814c6
+  revision: 9a6ae6638f164f353ea606ee3efbd86d07f091b1
   branch: release/0.27-nubu
   specs:
     decidim-accountability_simple (0.27.0)
@@ -34,7 +34,7 @@ GIT
 GIT
   remote: https://github.com/mainio/decidim-module-apiauth.git
   revision: d2d15fd52a4cb74454f3d4d49940d62e324cabd7
-  branch: main
+  branch: release/0.27-stable
   specs:
     decidim-apiauth (0.27.0)
       decidim-api (~> 0.27.0)
@@ -43,16 +43,16 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-favorites.git
-  revision: 0aef1d8cb0565018b3df403c6d556bb0f0a580a3
-  branch: main
+  revision: 1afdfe44d643bc5cce7930d172f9d7762b474fe9
+  branch: release/0.27-stable
   specs:
     decidim-favorites (0.27.0)
       decidim-core (~> 0.27.0)
 
 GIT
   remote: https://github.com/mainio/decidim-module-feedback.git
-  revision: a5c14a0b9ad8e7d66ee89fb5c86565f3b3f5c3bb
-  branch: main
+  revision: 51319f607cc2168d7d9bd1fda97738f7fac48395
+  branch: release/0.27-stable
   specs:
     decidim-feedback (0.27.0)
       decidim-admin (~> 0.27.0)
@@ -71,10 +71,10 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-locations.git
-  revision: e10c1b26eb909f27a18e84a165dc847a3e5d261c
-  branch: main
+  revision: a27f1a5c49fc0975b6c3c9e4c322850dc61ac722
+  branch: release/0.27-stable
   specs:
-    decidim-locations (0.27.4)
+    decidim-locations (0.27.0)
       decidim-core (~> 0.27.4)
       rgeo (= 3.0.1)
       rgeo-geojson (= 2.1.1)
@@ -82,7 +82,7 @@ GIT
 GIT
   remote: https://github.com/mainio/decidim-module-plans.git
   revision: 0ddf0848133451617837a6b7d267d89a0c4f0398
-  branch: develop
+  branch: release/0.27-stable
   specs:
     decidim-plans (0.27.0)
       decidim-core (~> 0.27.0)
@@ -101,8 +101,8 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-tags.git
-  revision: f42f1a2d1b7f19228529f011b77285070202b538
-  branch: develop
+  revision: a4b92596e84afb99c04b6c0cfd139f1eda0342c7
+  branch: release/0.27-stable
   specs:
     decidim-tags (0.27.0)
       decidim-core (~> 0.27.0)
@@ -367,11 +367,12 @@ GEM
     dry-auto_inject (1.0.1)
       dry-core (~> 1.0)
       zeitwerk (~> 2.6)
-    dry-configurable (1.1.0)
+    dry-configurable (1.2.0)
       dry-core (~> 1.0, < 2)
       zeitwerk (~> 2.6)
-    dry-core (1.0.1)
+    dry-core (1.0.2)
       concurrent-ruby (~> 1.0)
+      logger
       zeitwerk (~> 2.6)
     email_validator (2.2.4)
       activemodel
@@ -483,6 +484,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    logger (1.6.1)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -772,7 +774,7 @@ GEM
     version_gem (1.1.4)
     warden (1.2.9)
       rack (>= 2.0.9)
-    warden-jwt_auth (0.8.0)
+    warden-jwt_auth (0.10.0)
       dry-auto_inject (>= 0.8, < 2)
       dry-configurable (>= 0.13, < 2)
       jwt (~> 2.1)
