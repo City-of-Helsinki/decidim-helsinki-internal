@@ -13,9 +13,6 @@ sv:
       post:
         card_image: Bild på kort
         main_image: Huvudbild
-      user:
-        providing_help: Jag vill bli en sparring kompis
-        providing_help_details: Vilken typ av sparringhjälp jag kan erbjuda
   activerecord:
     errors:
       models:

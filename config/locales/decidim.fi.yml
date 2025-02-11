@@ -13,9 +13,6 @@ fi:
       post:
         card_image: Kuva korteissa
         main_image: Pääkuva
-      user:
-        providing_help: Haluan toimia sparrauskaverina
-        providing_help_details: Minkälaista sparrausta voin tarjota
   activerecord:
     errors:
       models:

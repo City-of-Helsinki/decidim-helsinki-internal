@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-module UserProfileCellExtensions
+module ProfileSidebarCellExtensions
   extend ActiveSupport::Concern
 
   included do
-    def has_badge?
-      return unless model.is_a?(Decidim::User)
+    private
 
+    def can_contact_user?
       false
     end
   end

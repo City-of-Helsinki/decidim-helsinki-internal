@@ -13,9 +13,6 @@ en:
       post:
         card_image: Image on cards
         main_image: Main image
-      user:
-        providing_help: I want to be a sparring buddy
-        providing_help_details: What kind of sparring help I can provide
   activerecord:
     errors:
       models:
