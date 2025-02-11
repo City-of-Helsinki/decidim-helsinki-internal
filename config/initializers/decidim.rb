@@ -74,7 +74,10 @@ Decidim.configure do |config|
 
   # Throttling settings that may be raised for the instances
   config.throttling_max_requests = ENV.fetch("DECIDIM_THROTTLING_MAX_REQUESTS", "100").to_i
-  config.throttling_period = ENV.fetch("DECIDIM_THROTTLING_PERIOD", "1").to_i.minute
+  config.throttling_period = ENV.fetch("DECIDIM_THROTTLING_PERIOD", "1").to_i.minutes
+
+  # Extended session expiration due to the nature of the service
+  config.expire_session_after = ENV.fetch("DECIDIM_EXPIRE_SESSION_AFTER", "60").to_i.minutes
 end
 
 # Configure plans
