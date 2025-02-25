@@ -374,6 +374,7 @@ module DecidimHelsinki
 
         # Controller extensions
         # Keep after helpers because these can load in helpers!
+        Decidim::ForceAuthentication.include(ForceAuthenticationExtensions)
         Decidim::ApplicationController.include(NeedsTosAcceptedExtensions)
         Decidim::Devise::InvitationsController.include(NeedsTosAcceptedExtensions)
         Decidim::Devise::RegistrationsController.include(NeedsTosAcceptedExtensions)
