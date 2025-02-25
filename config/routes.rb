@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     namespace :geocoding do
       get :autocomplete
     end
+
+    get :consent, to: "consent#show", format: :html
   end
 
   Rails.application.config.static_content_pages.each do |identifier, page|

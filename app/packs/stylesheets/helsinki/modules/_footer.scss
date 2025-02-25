@@ -38,8 +38,14 @@
   }
 
   .footer-right{
+    display: flex;
+    flex-direction: column;
+
     @include breakpoint(medium){
       text-align: right;
+      flex-direction: row;
+      justify-content: end;
+      gap: 1rem;
     }
   }
 }

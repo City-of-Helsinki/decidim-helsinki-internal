@@ -1,0 +1,27 @@
+<% add_decidim_meta_tags({
+  title: t(".title")
+}) %>
+
+<section class="extended hero lower subpage secondary">
+  <div class="hero__container">
+    <div class="row">
+      <div class="columns large-8 large-push-2 text-center">
+        <h1><%= t(".title") %></h1>
+      </div>
+    </div>
+  </div>
+  <%= koro("basic") %>
+</section>
+
+<div class="section">
+  <div class="row">
+    <div class="column medium-8 medium-push-2 large-6 large-push-3">
+      <%= t(".description_html") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <div data-consent-settings-page></div>
+    </div>
+  </div>
+</div>

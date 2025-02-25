@@ -4,7 +4,6 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.application_name = "Ideapaahtimo"
-  config.application_beta = false
 
   # Wrapper class can be used to customize the coloring of the platform per
   # environment. This is used mainly for the Ideapaahtimo/KuVa instance.

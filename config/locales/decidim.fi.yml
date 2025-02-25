@@ -108,5 +108,15 @@ fi:
       processes: Osallistu
   layouts:
     decidim:
+      data_consent:
+        warning:
+          all_categories: personointi-, tilastointi- ja markkinointievästeet
+          change_settings: Muokkaa evästeasetuksia
+          consent_required_html: |
+            Tämä sisältö haetaan osoitteesta <span data-content-source-text></span>. Sen näyttämiseen vaaditaan, että
+            hyväksyt sivuston evästeet. Pääset näkemään sisällön joko siirtymällä ulkoiselle sivustolle tai sallimalla
+            evästeasetuksista %{categories}.
+          proceed_to_external_site: Siirry ulkoiselle sivustolle
+          title: Sisältöä ei voida näyttää
       process_header_steps:
         view_steps: Näytä vaiheet

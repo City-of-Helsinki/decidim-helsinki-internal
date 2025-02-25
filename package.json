@@ -14,7 +14,8 @@
     "@decidim/browserslist-config": "^0.27.6",
     "@decidim/core": "^0.27.6",
     "@decidim/elections": "^0.27.6",
-    "@decidim/webpacker": "^0.27.6"
+    "@decidim/webpacker": "^0.27.6",
+    "hds-js": "^4.2.0"
   },
   "devDependencies": {
     "@decidim/dev": "^0.27.6",

@@ -8,7 +8,7 @@
   }
 }
 
-.link {
+.link{
   cursor: pointer;
   color: $anchor-color;
   font-weight: 600;
@@ -71,6 +71,22 @@
 
   &.clear.secondary{
     color: var(--primary);
+  }
+
+  &.external-link-container{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    .external-link-indicator{
+      margin: 0 0 0 .7rem;
+
+      &,
+      .icon{
+        width: .9rem;
+        height: .9rem;
+      }
+    }
   }
 }
 

@@ -27,7 +27,7 @@ organization_link = current_organization.official_url.presence || "/"
               <%= image_pack_tag "media/images/helsinki-logo-black.svg", alt: "Helsinki", class: "logo-default" %>
             <% end %>
           </div>
-          <div class="main-footer__label"><%= Decidim.application_name %><% "<br>BETA" if Rails.application.config.application_beta %></div>
+          <div class="main-footer__label"><%= Decidim.application_name %></div>
         <% end %>
         &nbsp;
       </div>
@@ -80,6 +80,7 @@ organization_link = current_organization.official_url.presence || "/"
       </div>
       <div class="medium-6 column">
         <div class="footer-right">
+          <%= link_to t("layouts.decidim.footer.data_consent_settings"), main_app.consent_path %>
           <a href="mailto:<%= feedback_email %>?subject=<%= feedback_subject %>"><%= t("layouts.footer.feedback") %></a>
         </div>
       </div>

@@ -4,7 +4,6 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.application_name = "Ideapaahtimo"
-  config.application_beta = false
 
   config.search_indexing = false
 

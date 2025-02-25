@@ -20,7 +20,6 @@ module DecidimHelsinki
     config.load_defaults 5.2
 
     config.application_name = "Kokeilukiihdyttämö"
-    config.application_beta = true
 
     # Configure an application wide address suffix to pass to the geocoder.
     # This is to make sure that the addresses are not incorrectly mapped outside
@@ -90,6 +89,9 @@ module DecidimHelsinki
         HTML
       }
     }
+
+    # Disable service worker for all environments
+    config.service_worker_enabled = false
 
     # Tracking
     config.matomo_site_id = nil
