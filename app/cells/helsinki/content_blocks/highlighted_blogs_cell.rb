@@ -27,6 +27,11 @@ module Helsinki
         asset_pack_path("media/images/placeholder-highlight.png")
       end
 
+      def resource_description_for(post)
+        body = translated_attribute(post.body)
+        strip_tags html_truncate(body, length: 300, separator: "...")
+      end
+
       def decidim_blogs
         Decidim::Blogs::Engine.routes.url_helpers
       end

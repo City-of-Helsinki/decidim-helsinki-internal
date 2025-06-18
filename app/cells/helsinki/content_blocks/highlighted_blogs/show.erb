@@ -16,7 +16,7 @@
             </div>
             <div class="card__text">
               <div class="card__text--paragraph">
-                <%== strip_tags html_truncate(translated_attribute(post.body), length: 300, separator: "...") %>
+                <%= resource_description_for(post) %>
               </div>
             </div>
           </div>
