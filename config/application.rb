@@ -432,6 +432,9 @@ module DecidimHelsinki
         Decidim::Accountability::Result.include(ResultExtensions)
         Decidim::ActionLog.include(ActionLogExtensions)
 
+        # Service extensions
+        Decidim::HtmlTruncation.include(HtmlTruncationExtensions)
+
         # View extensions
         ActionView::Base.include(Decidim::WidgetUrlsHelper)
 
