@@ -4,6 +4,8 @@
  */
 import initDataConsent from "src/helsinki/data_consent";
 
+const CATEGORIES = ["preferences", "statistics", "marketing"];
+
 /**
  * Manages the consent
  */
@@ -13,7 +15,15 @@ class ConsentManager {
   }
 
   allAccepted() {
-    return this.hds.getConsentStatus(["preferences", "statistics", "marketing"]);
+    return this.isAccepted(CATEGORIES);
+  }
+
+  isAccepted(categories) {
+    let cats = categories;
+    if (typeof categories === "string") {
+      cats = [categories];
+    }
+    return this.hds.getConsentStatus(cats);
   }
 
   openSettings() {
@@ -57,6 +67,35 @@ const getDisabledIframeDetails = (disabledNode) => {
 
   return { src: iframeSrc, domain: match[2] };
 }
+
+/**
+ * Triggers javascript visibility based on the user's cookie settings.
+ *
+ * @param {ConsentManager} manager
+ */
+const triggerJavascripts = (manager) => {
+  for (const category of CATEGORIES) {
+    const accepted = manager.isAccepted(category);
+
+    for (const el of document.querySelectorAll(`script[data-consent="${category}"]`)) {
+      let expectedType = "text/plain";
+      if (accepted) {
+        expectedType = null;
+      }
+      if (el.getAttribute("type") === expectedType) {
+        continue;
+      }
+
+      const newEl = document.createElement("script");
+      newEl.setAttribute("data-consent", category);
+      newEl.innerHTML = el.innerHTML;
+      if (!accepted) {
+        newEl.setAttribute("type", "text/plain");
+      }
+      el.replaceWith(newEl);
+    }
+  }
+};
 
 /**
  * Triggers iframe visibility based on the user's cookie settings. If the user
@@ -109,8 +148,6 @@ const triggerWarnings = (manager) => {
     cloned.classList.remove("hide");
     original.appendChild(cloned);
 
-    console.log(details);
-
     cloned.querySelector("[data-content-source-text]").innerText = details.domain;
     cloned.querySelector("[data-content-source-link]").setAttribute("href", details.src || "#");
 
@@ -128,10 +165,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   const hdsManager = await initDataConsent();
   const manager = new ConsentManager(hdsManager);
 
+  triggerJavascripts(manager);
   triggerIframes(manager);
   triggerWarnings(manager);
 
   window.addEventListener("hds-cookie-consent-changed", () => {
+    triggerJavascripts(manager);
     triggerIframes(manager);
     triggerWarnings(manager);
   });
