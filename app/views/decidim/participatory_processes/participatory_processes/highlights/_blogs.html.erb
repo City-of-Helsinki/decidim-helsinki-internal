@@ -1,6 +1,7 @@
 <%
 component = current_participatory_space.components.published.where(manifest_name: "blogs").first
 
+resources = nil
 if component
   resources = Decidim::Blogs::Post.where(
     component: component

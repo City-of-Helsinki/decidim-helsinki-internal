@@ -3,8 +3,9 @@ component = current_participatory_space.components.published.where(
   manifest_name: "accountability"
 ).first
 
+resources = nil
 if component
-  resources = Decidim::Accountability::Result.where(
+  resources = Decidim::Accountability::Result.published.where(
     component: component
   ).order(Arel.sql("RANDOM()")).limit(3)
 end

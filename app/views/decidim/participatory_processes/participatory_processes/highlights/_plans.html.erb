@@ -3,6 +3,7 @@ component = current_participatory_space.components.published.where(
   manifest_name: "plans"
 ).first
 
+resources = nil
 if component
   resources = Decidim::Plans::Plan.published.not_hidden.except_withdrawn.where(
     component: component

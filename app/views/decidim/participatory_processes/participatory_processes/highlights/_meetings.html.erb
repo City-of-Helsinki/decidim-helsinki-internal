@@ -1,8 +1,9 @@
 <%
 component = current_participatory_space.components.published.where(manifest_name: "meetings").first
 
+resources = nil
 if component
-  resources = Decidim::Meetings::Meeting.where(
+  resources = Decidim::Meetings::Meeting.published.where(
     component: component
   ).upcoming.order(:start_time)
 end
