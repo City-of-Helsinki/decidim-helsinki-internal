@@ -10,7 +10,7 @@ module Helsinki
       end
 
       def results
-        @results ||= PublishedResourceFetcher.new(Decidim::Accountability::Result, current_organization).query.order(created_at: :desc).limit(4)
+        @results ||= PublishedResourceFetcher.new(Decidim::Accountability::Result, current_organization).query.published.order(created_at: :desc).limit(4)
       end
 
       private
