@@ -45,6 +45,9 @@ gem "decidim-tags", github: "mainio/decidim-module-tags", branch: "release/0.27-
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "release/0.27-stable"
 gem "decidim-helsinki_profile", github: "mainio/decidim-module-helsinki_profile", branch: "release/0.27-stable"
 
+# See: https://github.com/rails/rails/issues/54263
+gem "concurrent-ruby", "1.3.4"
+
 # For static maps, hasn't released an official release with the updated
 # dependencies. GitHub version works fine.
 gem "mapstatic", github: "crofty/mapstatic", branch: "master"

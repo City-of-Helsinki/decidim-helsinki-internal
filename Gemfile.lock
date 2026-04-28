@@ -229,7 +229,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     commonmarker (0.23.12)
-    concurrent-ruby (1.3.6)
+    concurrent-ruby (1.3.4)
     crass (1.0.6)
     css_parser (1.21.1)
       addressable
@@ -838,6 +838,7 @@ PLATFORMS
 DEPENDENCIES
   bullet
   byebug (~> 11.0)
+  concurrent-ruby (= 1.3.4)
   database_cleaner
   decidim-accountability (= 0.27.6)
   decidim-accountability_simple!
