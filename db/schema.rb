@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_11_07_121154) do
+ActiveRecord::Schema.define(version: 2026_06_08_132707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -1513,6 +1513,10 @@ ActiveRecord::Schema.define(version: 2024_11_07_121154) do
     t.string "tunnistamo_email_code"
     t.datetime "tunnistamo_email_code_sent_at"
     t.integer "tunnistamo_failed_confirmation_attempts", default: 0
+    t.string "otp_auth_secret"
+    t.integer "otp_failed_attempts", default: 0, null: false
+    t.string "otp_session_challenge"
+    t.datetime "otp_challenge_expires_at"
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
@@ -1524,6 +1528,8 @@ ActiveRecord::Schema.define(version: 2024_11_07_121154) do
     t.index ["nickname", "decidim_organization_id"], name: "index_decidim_users_on_nickame_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false))"
     t.index ["notifications_sending_frequency"], name: "index_decidim_users_on_notifications_sending_frequency"
     t.index ["officialized_at"], name: "index_decidim_users_on_officialized_at"
+    t.index ["otp_challenge_expires_at"], name: "index_decidim_users_on_otp_challenge_expires_at"
+    t.index ["otp_session_challenge"], name: "index_decidim_users_on_otp_session_challenge", unique: true
     t.index ["reset_password_token"], name: "index_decidim_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_decidim_users_on_unlock_token", unique: true
   end

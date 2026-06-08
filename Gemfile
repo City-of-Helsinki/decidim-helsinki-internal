@@ -34,6 +34,7 @@ gem "searchlight", "~> 4.1"
 
 # External modules
 gem "decidim-accountability_simple", github: "mainio/decidim-module-accountability_simple", branch: "release/0.27-nubu"
+gem "decidim-adminauth", github: "mainio/decidim-module-adminauth"
 gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "release/0.27-stable"
 gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "release/0.27-stable"
 gem "decidim-favorites", github: "mainio/decidim-module-favorites", branch: "release/0.27-stable"
