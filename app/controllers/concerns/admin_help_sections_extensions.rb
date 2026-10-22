@@ -18,19 +18,20 @@ module AdminHelpSectionsExtensions
   end
 
   def extra_help_sections
-    [
+    sections = %w(
+      help_index
+      info_index
+      footer_text
+      participatory_processes_intro
+      participatory_processes_phases_intro
+      participatory_processes_phases
+      participatory_processes_index
+      participatory_processes_sparring
+    ).map do |name|
       OpenStruct.new(
-        id: "help_index",
-        content: Decidim::ContextualHelpSection.find_content(current_organization, "help_index")
-      ),
-      OpenStruct.new(
-        id: "info_index",
-        content: Decidim::ContextualHelpSection.find_content(current_organization, "info_index")
-      ),
-      OpenStruct.new(
-        id: "footer_text",
-        content: Decidim::ContextualHelpSection.find_content(current_organization, "footer_text")
+        id: name,
+        content: Decidim::ContextualHelpSection.find_content(current_organization, name)
       )
-    ]
+    end
   end
 end
